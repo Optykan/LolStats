@@ -1,0 +1,43 @@
+.splash{
+    
+}
+
+.title{
+    font-family: 'Oswald', sans-serif;
+    font-size:5em;
+    width:100%;
+    padding-top:20px;
+    padding-right:0px;
+    margin-right:-20px;
+}
+    
+body {
+    overflow-x:hidden;
+    background-image: url("assets/bg.jpg");
+}
+
+.skew {
+    -webkit-backface-visibility: hidden; /* the magic ingredient */
+    -webkit-transform: skew(-10deg, 0);
+    -moz-backface-visibility : hidden; /* the magic ingredient */
+    -moz-transform: skew(-10deg, 0);
+    overflow: hidden;
+    width: 225px;
+    height: 375px;;
+    position: relative;
+    left: 150px;
+    margin-left:1em;
+    border: 2px solid #666;
+    box-shadow: 7px 7px 7px grey;
+        
+}
+.skew img{
+    position:relative;
+    left:-25px;
+    top:-20px;
+    width:240px;
+    
+}
+.team1 {
+    margin-top:50px;
+}

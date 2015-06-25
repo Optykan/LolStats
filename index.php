@@ -14,16 +14,26 @@
         
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         
+        <?php
+
+            $myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+            $name = $_POST['inputname'];
+            $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+$name+"?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
+            $json = file_get_contents($jsonurl);
+            var_dump(json_decode($json));
+        
+        ?>
 
 
     </head>
     <body>
 
-        <input type="text" id="inputname">
+        <input type="text" name="inputname">
         <button onclick="request()">Submit</button>
         
-        <p id="idresult"></p>
-        <script>
+        <p name="idresult"></p>
+        
+<!--        <script>
             function request(){
                 
                 
@@ -43,7 +53,7 @@
                 });
             }
 
-        </script>
+        </script>-->
 
 <!--        <script>
         function submitreq(){

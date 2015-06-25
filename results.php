@@ -1,5 +1,6 @@
-        
-        <?php
+<html>
+    <head>
+            <?php
 
             //$myfile = fopen("api.key", "r") or die("404 File Not Found");
             require('FirePHPCore/fb.php')
@@ -13,3 +14,5 @@
             fb($data);
             echo $id;
         ?>
+    </head>
+</html>

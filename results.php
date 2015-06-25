@@ -13,6 +13,7 @@
             fb($id);
             fb($data);
             echo $id;
+            echo "<script> console.log($id)</script>";
         ?>
     </head>
 </html>

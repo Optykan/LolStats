@@ -9,7 +9,9 @@
             $json = file_get_contents($jsonurl);
             $data = json_decode($json, true);
             $id = $data[$name]['id'];
+            $level = $data[$name][summonerLevel];
             echo $id;
+            echo $level;
             echo "<script> console.log($id)</script>";
         ?>
     </head>

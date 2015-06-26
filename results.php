@@ -2,7 +2,7 @@
 
     <head>
         <meta charset="UTF-8">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Dosis:200' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         
@@ -53,19 +53,20 @@
         </div>
         
         <div class="container-fluid row team1">
-            <div class="col-md-2 skew"><?=$summoner1?><?=$champion1?><img src="assets/<?=$championimg1?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner1?><?=$champion1?><!--<img src="assets/<?=$championimg1?>"></img>--><img src="assets/Aatrox.png"></img></div>
             <div class="col-md-2 skew"><?=$summoner2?><?=$champion2?><img src="assets/<?=$championimg2?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner3?><?=$champion3?><img src="assets/<?=$championimg3?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner4?><?=$champion4?><img src="assets/<?=$championimg4?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner5?><?=$champion5?><img src="assets/<?=$championimg5?>"></img></div>
         
         </div>
-            <div class="container-fluid row team2">
-            <div class="col-md-2 skew"><?=$summoner6?><img src="assets/<?=$championimg6?>"></img></img></div>
-            <div class="col-md-2 skew"><?=$summoner7?><img src="assets/<?=$championimg7?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner8?><img src="assets/<?=$championimg8?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner9?><img src="assets/<?=$championimg9?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner10?><img src="assets/<?=$championimg10?>"></img></div>
+        <div class="versus"><p class="do">VS</p></div>
+        <div class="container-fluid row team2">
+            <div class="col-md-2 skew2"><?=$summoner6?><img src="assets/<?=$championimg6?>"></img></img></div>
+            <div class="col-md-2 skew2"><?=$summoner7?><img src="assets/<?=$championimg7?>"></img></div>
+            <div class="col-md-2 skew2"><?=$summoner8?><img src="assets/<?=$championimg8?>"></img></div>
+            <div class="col-md-2 skew2"><?=$summoner9?><img src="assets/<?=$championimg9?>"></img></div>
+            <div class="col-md-2 skew2"><?=$summoner10?><img src="assets/<?=$championimg10?>"></img></div>
         
         </div>
     <script> $.backstretch("bg.jpg");</script>

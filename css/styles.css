@@ -34,7 +34,7 @@ body {
 .skew img{
     position:relative;
     left:-25px;
-    top:-20px;
+    top:-25px;
     width:225px;
     
 }
@@ -56,7 +56,7 @@ body {
 .skew2 img{
     position:relative;
     left:-25px;
-    top:-20px;
+    top:-25px;
     width:225px;
     
 }
@@ -67,5 +67,5 @@ body {
 .versus {
     font-size:3em;
     color:white;
-    margin-left:36%;
+    margin-left:720px;
 }

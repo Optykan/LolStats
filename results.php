@@ -53,7 +53,7 @@
         </div>
         
         <div class="container-fluid row team1">
-            <div class="col-md-2 skew"><?=$summoner1?><?=$champion1?><!--<img src="assets/<?=$championimg1?>"></img>--><img src="assets/Aatrox.png"></img></div>
+            <div class="col-md-2 skew"><?=$summoner1?><?=$champion1?><img src="assets/<?=$championimg1?>"></img></img></div>
             <div class="col-md-2 skew"><?=$summoner2?><?=$champion2?><img src="assets/<?=$championimg2?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner3?><?=$champion3?><img src="assets/<?=$championimg3?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner4?><?=$champion4?><img src="assets/<?=$championimg4?>"></img></div>

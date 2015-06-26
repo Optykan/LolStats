@@ -14,6 +14,32 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        
+       <?php
+            $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
+
+            $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
+            
+            $name = $_POST['inputname'];
+            $name = strtolower($name);
+            
+            $json = file_get_contents($jsonurl);
+            $data = json_decode($json, true);
+
+            $id = $data[$name]['id'];
+
+            $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
+
+            if(isset($id)){
+                echo $id."</br>";
+                echo $level;
+                echo "<script> console.log($id)</script>";
+                echo "<script> console.log($level)</script>";
+            }
+            else{
+                echo "Summoner not found";   
+           
+        }?>
     </head>
     
     <body>

@@ -36,12 +36,13 @@
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                 ${"championId" . $i} = $match['participants'][$i-1]['championId'];
                 
-                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".$championId."?champData=image&api_key=".$key;
+                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"championId" . $i}."?champData=image&api_key=".$key;
                 $champdata = file_get_contents($champnamejson);
                 $champname = json_decode($champdata, true);
                 
                 ${"champion" . $i} = $champname['name'];
                 ${"championimg" . $i} = $champname['image']['full'];
+                echo $champion1;
                 echo $championimg1;
             }
         ?>

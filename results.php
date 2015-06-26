@@ -37,12 +37,11 @@
             if(isset($id)){
                 echo $id."</br>";
                 echo $level;
-                echo "<script> console.log($id)</script>";
-                echo "<script> console.log($level)</script>";
             }
             else{
                 echo "Summoner not found";  
                 echo $jsonurl;
+                echo "<script>console.log($summoner1);</script>";
            
         }?>
     </head>

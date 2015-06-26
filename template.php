@@ -32,6 +32,8 @@
             $matchdata = file_get_contents($currentmatchjson);
             $match = json_decode($matchdata, true);
 
+            $summoner1 = $data['participants'][1]['summonerName'];
+
             if(isset($id)){
                 echo $id."</br>";
                 echo $level;
@@ -50,8 +52,8 @@
         </div>
         
         <div class="container-fluid row team1">
-            <div class="col-md-2 skew"><img src="http://puu.sh/iCWem/90ec765b3f.jpg"></img></div>
-            <div class="col-md-2 skew">Content</div>
+            <div class="col-md-2 skew"><img src=""></img></div>
+            <div class="col-md-2 skew"><?=summoner1?></div>
             <div class="col-md-2 skew">Content</div>
             <div class="col-md-2 skew">Content</div>
             <div class="col-md-2 skew">Content</div>

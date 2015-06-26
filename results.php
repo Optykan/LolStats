@@ -31,12 +31,16 @@
 
             $matchdata = file_get_contents($currentmatchjson);
             $match = json_decode($matchdata, true);
-
-            $summoner1 = $match['participants'][0]['summonerName'];
-            $summoner2 = $match['participants'][1]['summonerName'];
-            $summoner3 = $match['participants'][2]['summonerName'];
-            $summoner4 = $match['participants'][3]['summonerName'];
-            $summoner5 = $match['participants'][4]['summonerName'];
+            
+            for($i=1; $i<11; $i++){
+                ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
+                ${"championId" . $i} = $match['participants'][$i-1]['championId'];
+                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".$championId."?champData=image&api_key=".$key;
+                $champdata = file_get_contents($champnamen);
+                $champname = json_decode($champdata, true);
+                ${"champion" .$i} = $champname['name'];
+                ${"championurl" .$i} = $champname['image']['full'];
+            }
 
             if(isset($id)){
                 echo $id."</br>";
@@ -56,11 +60,19 @@
         </div>
         
         <div class="container-fluid row team1">
-            <div class="col-md-2 skew"><?=$summoner1?><img src=""></img></div>
-            <div class="col-md-2 skew"><?=$summoner2?></div>
-            <div class="col-md-2 skew"><?=$summoner3?></div>
-            <div class="col-md-2 skew"><?=$summoner4?></div>
-            <div class="col-md-2 skew"><?=$summoner5?></div>
+            <div class="col-md-2 skew"><?=$summoner1?><img src="assets/<?=$championurl1?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner2?><img src="assets/<?=$championurl2?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner3?><img src="assets/<?=$championurl3?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner4?><img src="assets/<?=$championurl4?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner5?><img src="assets/<?=$championurl5?>"></img></div>
+        
+        </div>
+            <div class="container-fluid row team2">
+            <div class="col-md-2 skew"><?=$summoner6?><img src=""></img></div>
+            <div class="col-md-2 skew"><?=$summoner7?></div>
+            <div class="col-md-2 skew"><?=$summoner8?></div>
+            <div class="col-md-2 skew"><?=$summoner9?></div>
+            <div class="col-md-2 skew"><?=$summoner10?></div>
         
         </div>
     <script> $.backstretch("bg.jpg");</script>

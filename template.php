@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en-US">
 
     <head>
@@ -29,6 +28,9 @@
             $id = $data[$name]['id'];
 
             $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
+
+            $matchdata = file_get_contents($currentmatchjson);
+            $match = json_decode($matchdata, true);
 
             if(isset($id)){
                 echo $id."</br>";

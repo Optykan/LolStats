@@ -11,13 +11,14 @@
             $id = $data[$name]['id'];
             $level = $data[$name]['summonerLevel'];
             if(isset($id)){
-                echo "Summoner not found";   
-            }
-            else{
-            echo "<body>".$id."</br>";
+                 echo "<body>".$id."</br>";
             echo $level;
             echo "<script> console.log($id)</script>";
             echo "<script> console.log($level)</script></body>";
+            }
+            else{
+                echo "Summoner not found";   
+           
             }
         ?>
     </head>

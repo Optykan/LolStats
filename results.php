@@ -32,11 +32,11 @@
             $matchdata = file_get_contents($currentmatchjson);
             $match = json_decode($matchdata, true);
 
-            $summoner1 = $data['participants'][1]['summonerName'];
+            $summoner1 = $data[]['participants'][1]['summonerName'];
 
             if(isset($id)){
                 echo $id."</br>";
-                echo $level;
+                echo "<script>console.log($summoner1);</script>";
             }
             else{
                 echo "Summoner not found";  

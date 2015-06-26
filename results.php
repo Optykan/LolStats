@@ -42,8 +42,6 @@
                 
                 ${"champion" . $i} = $champname['name'];
                 ${"championimg" . $i} = $champname['image']['full'];
-                echo $champion1;
-                echo $championimg1;
             }
         ?>
     </head>
@@ -62,11 +60,11 @@
         
         </div>
             <div class="container-fluid row team2">
-            <div class="col-md-2 skew"><?=$summoner6?><img src=""></img></div>
-            <div class="col-md-2 skew"><?=$summoner7?></div>
-            <div class="col-md-2 skew"><?=$summoner8?></div>
-            <div class="col-md-2 skew"><?=$summoner9?></div>
-            <div class="col-md-2 skew"><?=$summoner10?></div>
+            <div class="col-md-2 skew"><?=$summoner6?><img src="assets/<?=$championimg6?>"></img></img></div>
+            <div class="col-md-2 skew"><?=$summoner7?><img src="assets/<?=$championimg7?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner8?><img src="assets/<?=$championimg8?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner9?><img src="assets/<?=$championimg9?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner10?><img src="assets/<?=$championimg10?>"></img></div>
         
         </div>
     <script> $.backstretch("bg.jpg");</script>

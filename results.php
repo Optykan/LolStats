@@ -33,6 +33,10 @@
             $match = json_decode($matchdata, true);
 
             $summoner1 = $match['participants'][0]['summonerName'];
+            $summoner2 = $match['participants'][1]['summonerName'];
+            $summoner3 = $match['participants'][2]['summonerName'];
+            $summoner4 = $match['participants'][3]['summonerName'];
+            $summoner5 = $match['participants'][4]['summonerName'];
 
             if(isset($id)){
                 echo $id."</br>";
@@ -52,11 +56,11 @@
         </div>
         
         <div class="container-fluid row team1">
-            <div class="col-md-2 skew"><img src=""></img></div>
-            <div class="col-md-2 skew"><?=$summoner1?></div>
-            <div class="col-md-2 skew">Content</div>
-            <div class="col-md-2 skew">Content</div>
-            <div class="col-md-2 skew">Content</div>
+            <div class="col-md-2 skew"><?=$summoner1?><img src=""></img></div>
+            <div class="col-md-2 skew"><?=$summoner2?></div>
+            <div class="col-md-2 skew"><?=$summoner3?></div>
+            <div class="col-md-2 skew"><?=$summoner4?></div>
+            <div class="col-md-2 skew"><?=$summoner5?></div>
         
         </div>
     <script> $.backstretch("bg.jpg");</script>

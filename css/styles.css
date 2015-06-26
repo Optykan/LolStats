@@ -11,7 +11,8 @@
 }
     
 body {
-    overflow:hidden;
+    overflow-x:hidden;
+    background-image: url("");
 }
 
 .skew {
@@ -20,8 +21,8 @@ body {
     -moz-backface-visibility : hidden; /* the magic ingredient */
     -moz-transform: skew(-10deg, 0);
     overflow: hidden;
-    width: 250px;
-    height: 400px;;
+    width: 290px;
+    height: 475px;;
     position: relative;
     left: 100px;
     margin-left:1em;
@@ -31,8 +32,11 @@ body {
 }
 .skew img{
     position:relative;
-    left:-15px;
+    left:-25px;
+    top:-20px;
+    width:120%;
+    
 }
 .team1 {
-    margin-top:0px;
+    margin-top:50px;
 }

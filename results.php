@@ -1,5 +1,7 @@
 <html>
     <head>
+    </head>
+     <body>
             <?php
 
             //$myfile = fopen("api.key", "r") or die("404 File Not Found");
@@ -10,10 +12,10 @@
             $data = json_decode($json, true);
             $id = $data[$name]['id'];
             $level = $data[$name]['summonerLevel'];
-            echo $id;
+            echo $id "</br>";
             echo $level;
             echo "<script> console.log($id)</script>";
             echo "<script> console.log($level)</script>";
         ?>
-    </head>
+   </body>
 </html>

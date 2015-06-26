@@ -1,0 +1,39 @@
+.splash{
+    
+}
+
+.gamemode{
+    font-family: 'Oswald', sans-serif;
+    font-size:5em;
+    width:100%;
+    padding-right:0px;
+    margin-right:0px;
+}
+    
+body {
+    overflow:hidden;
+}
+
+.skew {
+    -webkit-backface-visibility : hidden; /* the magic ingredient */
+    -webkit-transform           : skew(16deg, 0);
+    -moz-backface-visibility : hidden; /* the magic ingredient */
+    -moz-transform           : skew(16deg, 0);
+    overflow                    : hidden;
+    width                       : 300px;
+    height                      : 260px;
+    position                    : relative;
+    left                        : 50px;
+    border                      : 1px solid #666
+}
+
+.skew img {
+    -webkit-transform : skew(-16deg, 0);
+    -moz-transform : skew(-16deg, 0);
+    position          : relative;
+    left              : -40px;
+}
+
+.team1 {
+    margin-top:0px;
+}

@@ -27,6 +27,22 @@
     </head>
     
     <body>
-        <p>warble garble junk ok o ok ok ok k ok <?=$id?> continuing on now...</p>
+        <div class="section group">
+            <div class="col span_1_of_5">
+            1 of 5
+            </div>
+            <div class="col span_1_of_5">
+            1 of 5
+            </div>
+            <div class="col span_1_of_5">
+            1 of 5
+            </div>
+            <div class="col span_1_of_5">
+            1 of 5
+            </div>
+            <div class="col span_1_of_5">
+            1 of 5
+            </div>
+        </div>
     </body>
 </html>

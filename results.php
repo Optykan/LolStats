@@ -18,6 +18,7 @@
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 
             $name = $_POST['inputname'];
+            $name = preg_replace('/\s+/', '', $name);
             $name = strtolower($name);
 
             $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;

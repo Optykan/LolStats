@@ -40,8 +40,8 @@
                 $champdata = file_get_contents($champnamejson);
                 $champname = json_decode($champdata, true);
                 
-                ${"champion" .$i} = $champname['name'];
-                ${"championimg" .$i} = $champname['image']['full'];
+                ${"champion" . $i} = $champname['name'];
+                ${"championimg" . $i} = $champname['image']['full'];
                 echo $championimg1;
             }
         ?>
@@ -53,11 +53,11 @@
         </div>
         
         <div class="container-fluid row team1">
-            <div class="col-md-2 skew"><?=$summoner1?><img src="assets/<?=$championimg1?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner2?><img src="assets/<?=$championimg2?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner3?><img src="assets/<?=$championimg3?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner4?><img src="assets/<?=$championimg4?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner5?><img src="assets/<?=$championimg5?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner1?><?=$champion1?><img src="assets/<?=$championimg1?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner2?><?=$champion2?><img src="assets/<?=$championimg2?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner3?><?=$champion3?><img src="assets/<?=$championimg3?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner4?><?=$champion4?><img src="assets/<?=$championimg4?>"></img></div>
+            <div class="col-md-2 skew"><?=$summoner5?><?=$champion5?><img src="assets/<?=$championimg5?>"></img></div>
         
         </div>
             <div class="container-fluid row team2">

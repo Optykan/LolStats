@@ -41,7 +41,8 @@
                 echo "<script> console.log($level)</script>";
             }
             else{
-                echo "Summoner not found";   
+                echo "Summoner not found";  
+                echo $jsonurl;
            
         }?>
     </head>

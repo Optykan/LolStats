@@ -17,10 +17,10 @@
        <?php
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 
-            $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
-            
             $name = $_POST['inputname'];
             $name = strtolower($name);
+
+            $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
             
             $json = file_get_contents($jsonurl);
             $data = json_decode($json, true);

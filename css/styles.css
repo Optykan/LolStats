@@ -2,17 +2,18 @@
     
 }
 
-.gamemode{
+.title{
     font-family: 'Oswald', sans-serif;
     font-size:5em;
     width:100%;
+    padding-top:20px;
     padding-right:0px;
-    margin-right:0px;
+    margin-right:-20px;
 }
     
 body {
     overflow-x:hidden;
-    background-image: url("");
+    background-image: url("assets/bg.jpg");
 }
 
 .skew {

@@ -9,10 +9,11 @@
             $json = file_get_contents($jsonurl);
             $data = json_decode($json, true);
             $id = $data[$name]['id'];
-            $level = $data[$name][summonerLevel];
+            $level = $data[$name]['summonerLevel'];
             echo $id;
             echo $level;
             echo "<script> console.log($id)</script>";
+            echo "<script> console.log($level)</script>";
         ?>
     </head>
 </html>

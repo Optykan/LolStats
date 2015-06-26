@@ -10,7 +10,7 @@
             $data = json_decode($json, true);
             $id = $data[$name]['id'];
             $level = $data[$name]['summonerLevel'];
-            if(isset(id)){
+            if(isset($id)){
                 echo "Summoner not found";   
             }
             else{

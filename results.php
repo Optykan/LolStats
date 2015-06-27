@@ -2,7 +2,7 @@
 
     <head>
         <meta charset="UTF-8">
-		<link href='http://fonts.googleapis.com/css?family=Dosis:200' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         
@@ -49,7 +49,7 @@
     
     <body>
         <div class="container-fluid row">
-            <div class="col-md-3 col-md-offset-9 title">SUMMONERS RIF<span style="padding-left:3px;"></span>T</div>
+            <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
         
         <div class="container-fluid row team1">
@@ -58,9 +58,10 @@
             <div class="col-md-2 skew"><?=$summoner3?><?=$champion3?><img src="assets/<?=$championimg3?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner4?><?=$champion4?><img src="assets/<?=$championimg4?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner5?><?=$champion5?><img src="assets/<?=$championimg5?>"></img></div>
+            <div class="col-md-2 title">SUMMONER'S </br>RIF<span style="padding-left:3px;"></span>T</div>
         
         </div>
-        <div class="versus"><p class="do">VS</p></div>
+        <div class="versus ro">VS</div>
         <div class="container-fluid row team2">
             <div class="col-md-2 skew2"><?=$summoner6?><img src="assets/<?=$championimg6?>"></img></img></div>
             <div class="col-md-2 skew2"><?=$summoner7?><img src="assets/<?=$championimg7?>"></img></div>

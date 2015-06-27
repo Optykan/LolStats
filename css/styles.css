@@ -1,15 +1,21 @@
 .splash{
     
 }
+.os{
+    font-family: 'Oswald', sans-serif;
+}
 .do{
     font-family: 'Dosis', sans-serif;
+}
+.ro{
+    font-family: 'Roboto', sans-serif;
 }
 .title{
     font-family: 'Oswald', sans-serif;
     font-size:5em;
-    width:100%;
     padding-top:20px;
     color:white;
+    padding-left:250px;
 }
     
 body {
@@ -18,12 +24,12 @@ body {
 
 .skew {
     -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(10deg, 0);
+    -webkit-transform: skew(5deg, 0);
     -moz-backface-visibility : hidden;
-    -moz-transform: skew(10deg, 0);
+    -moz-transform: skew(5deg, 0);
     overflow: hidden;
-    width: 210px;
-    height: 325px;;
+    width: 225px;
+    height: 375px;
     position: relative;
     left: 150px;
     margin-left:1em;
@@ -35,17 +41,17 @@ body {
     position:relative;
     left:-25px;
     top:-25px;
-    width:225px;
+    width:240px;
     
 }
 .skew2 {
     -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(-10deg, 0);
+    -webkit-transform: skew(-5deg, 0);
     -moz-backface-visibility : hidden;
-    -moz-transform: skew(-10deg, 0);
+    -moz-transform: skew(-5deg, 0);
     overflow: hidden;
-    width: 210px;
-    height: 325px;;
+    width: 225px;
+    height: 375px;;
     position: relative;
     left: 150px;
     margin-left:1em;
@@ -65,7 +71,7 @@ body {
 }
 
 .versus {
-    font-size:3em;
+    font-size:5em;
     color:white;
     margin-left:720px;
 }

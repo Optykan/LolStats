@@ -61,7 +61,7 @@ body {
 }
 .skew2 img{
     position:relative;
-    left:-15px;
+    left:-20px;
     top:-25px;
     width:225px;
     
@@ -74,4 +74,9 @@ body {
     font-size:5em;
     color:white;
     margin-left:720px;
+}
+
+.players {
+    width:300px;
+    font-size:0.6em;
 }

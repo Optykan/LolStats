@@ -36,20 +36,37 @@
             $match = json_decode($matchdata, true);
 
             $mapId = $match['mapId'];
+            $gameQueue = $match['gameQueueConfigId'];
 
-            if($mapId == 8 || $mapId == 11 || $mapId == 12){
-                for($i=1; $i<11; $i++){
-                    ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
-                    ${"championId" . $i} = $match['participants'][$i-1]['championId'];
-
-                    $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"championId" . $i}."?champData=image&api_key=".$key;
-                    $champdata = file_get_contents($champnamejson);
-                    $champname = json_decode($champdata, true);
-
-                    ${"champion" . $i} = $champname['name'];
-                    ${"championimg" . $i} = $champname['image']['full'];
-                }
+            if($gameQueue == 2 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 7 || $gameQueue == 33 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 25 || $gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42 || $gameQueue == 61 || $gameQueue == 65 || $gameQueue == 70 || $gameQueue == 76 || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93 || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
+                $players = 10;
+                $ppteam = 5;
             }
+            else if($gameQueue == 8 || $gameQueue == 9 || $gameQueue == 41 || $gameQueue == 52){
+                $players=6;
+                $ppteam=3;
+            }
+            else if($gameQueue == 72){
+                $players=2;
+                $ppteam=1;
+            }
+            else if($gameQueue == 73){
+                $players=4;
+                $ppteam=2;
+            }
+ 
+            for($i=1; $i<=$players; $i++){
+                ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
+                ${"championId" . $i} = $match['participants'][$i-1]['championId'];
+
+                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"championId" . $i}."?champData=image&api_key=".$key;
+                $champdata = file_get_contents($champnamejson);
+                $champname = json_decode($champdata, true);
+
+                ${"champion" . $i} = $champname['name'];
+                ${"championimg" . $i} = $champname['image']['full'];
+            }
+            
         ?>
     </head>
     
@@ -59,39 +76,76 @@
         </div>
         
         <div class="container-fluid row team1">
-            <div class="col-md-2 skew"><?=$summoner1?><?=$champion1?><img src="assets/<?=$championimg1?>"></img></img></div>
-            <div class="col-md-2 skew"><?=$summoner2?><?=$champion2?><img src="assets/<?=$championimg2?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner3?><?=$champion3?><img src="assets/<?=$championimg3?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner4?><?=$champion4?><img src="assets/<?=$championimg4?>"></img></div>
-            <div class="col-md-2 skew"><?=$summoner5?><?=$champion5?><img src="assets/<?=$championimg5?>"></img></div>
-            <div class="col-md-2 title"><?php 
-            echo "<script>console.log('$mapId');</script>";
-                if($mapId == 11){
-                    echo "SUMMONERS </br>RIF<span style='padding-left:3px;'></span>T";
+            <?php 
+                for ($i=1; $i<=$ppteam; i++){
+                    echo "<div class='col-md-2 skew'><?=${'summoner'. $i}?><?=${'champion' . $i}?><img src='assets/<?=${'championimg' . $i}?>'></img></div>";
                 }
-                else if($mapId == 12){
-                    echo "HOWLING </br>ABYSS";
-                }
-                else if($mapId == 10){
-                    echo "TWISTED </br>TREELINE";
-                }
-                else if($mapId == 8){
-                    echo "THE CRYSTAL </br>SCAR";
-                }
-                else{
-                    echo "MAP UNDEFINED";
-                }
+            ?>
+            <div class="col-md-2 title">
+             <?php 
+                    echo "<script>console.log('$mapId');</script>";
+                        if($mapId == 11){
+                            echo "SUMMONERS </br>RIF<span style='padding-left:3px;'></span>T";
+                        }
+                        else if($mapId == 12){
+                            echo "HOWLING </br>ABYSS";
+                        }
+                        else if($mapId == 10){
+                            echo "TWISTED </br>TREELINE";
+                        }
+                        else if($mapId == 8){
+                            echo "THE CRYSTAL </br>SCAR";
+                        }
+                        else{
+                            echo "MAP UNDEFINED";
+                        }
                 ?>
+                </br>
+                <p class="ro players">
+                <?php
+                    if($gameQueue == 0){
+                       echo 'Custom';
+                    }
+                    else if($gameQueue == 2 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 65 || $gameQueue == 61 || $gameQueue == 70  || $gameQueue == 76  || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
+                        echo '5 vs 5 Unranked';
+                    }
+                    else if($gameQueue == 7  || $gameQueue == 25 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 33  || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93){
+                        echo '5 vs 5 AI';
+                    }
+                    else if($gameQueue == 8){
+                        echo '3 vs 3 Unranked';
+                    }
+                    else if($gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42){
+                        echo '5 vs 5 Ranked';
+                    }
+                    else if($gameQueue == 9){
+                        echo '3 vs 3 Ranked';
+                    }
+                    else if($gameQueue == 52){
+                        echo '3 vs 3 AI';
+                    }
+                    else if($gameQueue == 72){
+                        echo '1 vs 1';
+                    }
+                    else if($gameQueue == 73){
+                        echo '2 vs 2';
+                    }
+                    else{
+                        echo 'Game Queue Undefined';
+                    }
+
+                ?>
+                </p>
             </div>
         
         </div>
         <div class="versus ro">VS</div>
         <div class="container-fluid row team2">
-            <div class="col-md-2 skew2"><?=$summoner6?><img src="assets/<?=$championimg6?>"></img></img></div>
-            <div class="col-md-2 skew2"><?=$summoner7?><img src="assets/<?=$championimg7?>"></img></div>
-            <div class="col-md-2 skew2"><?=$summoner8?><img src="assets/<?=$championimg8?>"></img></div>
-            <div class="col-md-2 skew2"><?=$summoner9?><img src="assets/<?=$championimg9?>"></img></div>
-            <div class="col-md-2 skew2"><?=$summoner10?><img src="assets/<?=$championimg10?>"></img></div>
+            <?php 
+                for ($i=$ppteam+1; $i<=$players; i++){
+                    echo "<div class='col-md-2 skew'><?=${'summoner'. $i}?><?=${'champion' . $i}?><img src='assets/<?=${'championimg' . $i}?>'></img></div>";
+                }
+            ?>
         
         </div>
     <script> $.backstretch("bg.jpg");</script>

@@ -182,7 +182,7 @@
         function info(splashid, i){
             if(i===1){
                 console.log(i);
-                document.getElementById(splashid).style.marginTop = "-390px";
+                document.getElementById(splashid).style.marginTop = "-380px";
             }
             else{
                 console.log('out');

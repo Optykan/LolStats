@@ -162,7 +162,7 @@
         <div class="container-fluid row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 skew'>
+                    echo "<div class='col-md-2 skew2'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,0);' onmouseout='($i,0);'>
@@ -182,7 +182,7 @@
         function info(splashid, i){
             if(i===1){
                 console.log(i);
-                document.getElementById(splashid).style.marginTop = "-375px";
+                document.getElementById(splashid).style.marginTop = "-390px";
             }
             else{
                 console.log(i);

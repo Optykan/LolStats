@@ -108,7 +108,7 @@ body {
 }
 .dim{
     background-color:rgba(0,0,0,0.7);
-    height:375px;
+    height:400px;
     margin-top:-120px;
     z-index:9;
     width:225px;
@@ -118,7 +118,7 @@ body {
     -moz-transition:all 0.3s ease;
 }
 .dim:hover{
-    margin-top:-380px;
+    margin-top:-390px;
     -webkit-transition: all 0.3s ease;
     -moz-transition:all 0.3s ease;
 }

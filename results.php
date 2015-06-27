@@ -175,9 +175,10 @@
                         <div class='dim' id='$i'></div>
                     </div>";
                 }
+                
                 $time=gmdate("i:s", $time);
-                echo "<p>$time</p>"
             ?>
+            <div class="col-md-2 ro time"><?=$time?></div>
             
         
         </div>

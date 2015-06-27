@@ -65,7 +65,7 @@
             <div class="col-md-2 skew"><?=$summoner4?><?=$champion4?><img src="assets/<?=$championimg4?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner5?><?=$champion5?><img src="assets/<?=$championimg5?>"></img></div>
             <div class="col-md-2 title"><?php 
-            echo '<script>console.log("$mapId);</script>';
+            echo "<script>console.log('$mapId');</script>";
                 if($mapId = 11){
                     echo 'SUMMONER\'S </br>RIF<span style="padding-left:3px;"></span>T';
                 }

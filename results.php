@@ -110,6 +110,7 @@
     </head>
     
     <body>
+        <div class="ro version">v0.112a</div>
         <div class="container-fluid row">
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
@@ -124,7 +125,7 @@
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
-                        <div class='dim' id='$i'></div>
+                        <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";
                 }
             ?>
@@ -132,7 +133,7 @@
              <?php 
                     echo "<script>console.log('$mapId');</script>";
                         if($mapId == 11){
-                            echo "<p style='display:inline;'>SUMMONERS </br>RIF<span style='padding-left:3px'></span>T</p>";
+                            echo "<p style='display:inline;'>SUMMONERS </br>RIFT</p>";
                         }
                         else if($mapId == 12){
                             echo "HOWLING </br>ABYSS";
@@ -172,16 +173,52 @@
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
-                        <div class='dim' id='$i'></div>
+                        <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";
                 }
                 
-                $time=gmdate("i:s", $time);
+               
             ?>
-            <div class="col-md-2 ro time"><?=$time?></div>
+            <div class="col-md-2 os time" id="time"></div>
             
         
         </div>
+    <script>
+        var time=<?php $time?>;
+        for(;;){
+            setTimeout(function(){
+            time++;
+            $("#time").text(SecondsToHMS(time));
+            },1000);
+        }
+        
+        function SecondsToHMS(d) {
+        d = Number(d);
+        var h = Math.floor(d / 3600);
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+        var hr = format(h);
+        var min = format(m);
+        var sec = format(s);
+        val = hr + ':' + min + ':' + sec;
+        return val;
+        }
+
+        function format(num)
+        {
+        if (num > 0){
+           if (num >= 10)
+             val = num;
+            else
+             val = '0' + num;
+        }
+        else
+          val = '00';
+
+        return val;
+        }
+        
+    </script>
     <script> $.backstretch("bg.jpg");</script>
     <script>
         function info(splashid, i){

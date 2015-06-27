@@ -38,6 +38,8 @@
             $mapId = $match['mapId'];
             $gameQueue = $match['gameQueueConfigId'];
 
+            $time = $match['gameLength'];
+
             if($gameQueue == 2 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 7 || $gameQueue == 33 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 25 || $gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42 || $gameQueue == 61 || $gameQueue == 65 || $gameQueue == 70 || $gameQueue == 76 || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93 || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
                 $players = 10;
                 $ppteam = 5;
@@ -85,6 +87,7 @@
             else{
                 $gameType = 'Map Undefined';
             }
+
 
               
  
@@ -159,7 +162,9 @@
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 skew2'>${'summoner'. $i}${'champion' . $i}<img src='assets/splash/${'championimg' . $i}'></img></div>";
                 }
+                echo gmdate("i:s", $time);
             ?>
+            
         
         </div>
     <script> $.backstretch("bg.jpg");</script>

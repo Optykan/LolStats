@@ -132,7 +132,7 @@
              <?php 
                     echo "<script>console.log('$mapId');</script>";
                         if($mapId == 11){
-                            echo "<span style='display:inline;'>SUMMONERS </br>RIF<span style='padding-left:3px;'></span>T</span>";
+                            echo "<p style='display:inline;'>SUMMONERS </br>RIF<p style='padding-left:3px'></p>T</p>";
                         }
                         else if($mapId == 12){
                             echo "HOWLING </br>ABYSS";
@@ -148,7 +148,7 @@
                         }
                 ?>
                 </br>
-                <?php echo "<p class='gametype'>$gameType</p>";?>
+                <p class="gametype"><?=$gametype?></p>
             </div>
         
         </div>

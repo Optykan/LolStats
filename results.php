@@ -172,11 +172,12 @@
     <script> $.backstretch("bg.jpg");</script>
     <script>
         function info(splashid, i){
-            console.log(splashid, i);
-            if(i == 1){
+            if(i===1){
+                console.log(i);
                 document.getElementById(splashid).style.marginTop="-375px;";
             }
             else{
+                console.log(i);
                 document.getElementById(splashid).style.marginTop="-120px;";
             }
         }

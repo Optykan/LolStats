@@ -136,7 +136,7 @@
                         }
                 ?>
                 </br>
-                <p><?=$gameType?></p>
+                <?php echo "<p class='gametype'>$gameType</p>";?>
             </div>
         
         </div>

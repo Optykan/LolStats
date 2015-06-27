@@ -85,7 +85,7 @@ body {
 .banimg{
     width:150px;
 }
-team1 .name{
+.team1 .name{
     -webkit-backface-visibility: hidden; 
     -webkit-transform: skew(-5deg, 0);
     -moz-backface-visibility : hidden;

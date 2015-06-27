@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html lang="en-US">
 
     <head>
@@ -174,7 +175,8 @@
                         <div class='dim' id='$i'></div>
                     </div>";
                 }
-                echo gmdate("i:s", $time);
+                $time=gmdate("i:s", $time);
+                echo "<p>$time</p>"
             ?>
             
         

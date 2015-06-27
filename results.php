@@ -83,7 +83,7 @@
                 $gameType = '2 vs 2';
             }
             else{
-                $gameType = 'Game Queue Undefined';
+                $gameType = 'Perhaps you typed it in wrong';
             }
 
               
@@ -132,7 +132,7 @@
                             echo "THE CRYSTAL </br>SCAR";
                         }
                         else{
-                            echo "MAP UNDEFINED";
+                            echo "SUMMONER NOT FOUND";
                         }
                 ?>
                 </br>

@@ -21,6 +21,8 @@
             $name = preg_replace('/\s+/', '', $name);
             $name = strtolower($name);
 
+            //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/netfx?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
+
             $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
             
             $json = file_get_contents($jsonurl);
@@ -32,17 +34,21 @@
 
             $matchdata = file_get_contents($currentmatchjson);
             $match = json_decode($matchdata, true);
-            
-            for($i=1; $i<11; $i++){
-                ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
-                ${"championId" . $i} = $match['participants'][$i-1]['championId'];
-                
-                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"championId" . $i}."?champData=image&api_key=".$key;
-                $champdata = file_get_contents($champnamejson);
-                $champname = json_decode($champdata, true);
-                
-                ${"champion" . $i} = $champname['name'];
-                ${"championimg" . $i} = $champname['image']['full'];
+
+            $mapId = $match['mapId'];
+
+            if($mapId = 8 or 11 or 12){
+                for($i=1; $i<11; $i++){
+                    ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
+                    ${"championId" . $i} = $match['participants'][$i-1]['championId'];
+
+                    $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"championId" . $i}."?champData=image&api_key=".$key;
+                    $champdata = file_get_contents($champnamejson);
+                    $champname = json_decode($champdata, true);
+
+                    ${"champion" . $i} = $champname['name'];
+                    ${"championimg" . $i} = $champname['image']['full'];
+                }
             }
         ?>
     </head>
@@ -58,7 +64,24 @@
             <div class="col-md-2 skew"><?=$summoner3?><?=$champion3?><img src="assets/<?=$championimg3?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner4?><?=$champion4?><img src="assets/<?=$championimg4?>"></img></div>
             <div class="col-md-2 skew"><?=$summoner5?><?=$champion5?><img src="assets/<?=$championimg5?>"></img></div>
-            <div class="col-md-2 title">SUMMONER'S </br>RIF<span style="padding-left:3px;"></span>T</div>
+            <div class="col-md-2 title"><?php 
+                if($mapId = 11){
+                    echo 'SUMMONER\'S </br>RIF<span style="padding-left:3px;"></span>T';
+                }
+                else if($mapId = 12){
+                    echo 'HOWLING </br>ABYSS';
+                }
+                else if($mapId = 10){
+                    echo 'TWISTED </br>TREELINE';
+                }
+                else if($mapId = 8){
+                    echo 'THE CRYSTAL </br>SCAR';
+                }
+                else{
+                    echo 'MAP UNDEFINED';
+                }
+                ?>
+            </div>
         
         </div>
         <div class="versus ro">VS</div>

@@ -15,7 +15,8 @@
         <script src="js/bootstrap.min.js"></script>
         
        <?php
-            $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
+            $key = readfile("api.txt");
+            //$key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 
             $name = $_POST['inputname'];
             $name = preg_replace('/\s+/', '', $name);

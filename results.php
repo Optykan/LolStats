@@ -83,7 +83,7 @@
                 $gameType = '2 vs 2';
             }
             else{
-                $gameType = 'Perhaps you typed it in wrong';
+                $gameType = 'Map Undefined';
             }
 
               
@@ -112,7 +112,7 @@
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 skew'>${'summoner'. $i}${'champion' . $i}
-                        <img src='assets/${'championimg' . $i}'></img>
+                        <img src='assets/splash/${'championimg' . $i}'></img>
                     </div>";
                 }
             ?>
@@ -140,11 +140,20 @@
             </div>
         
         </div>
-        <div class="versus ro">VS</div>
+        <div class="container-fluid row bans">
+            <div class="col-md-2">1</div>
+            <div class="col-md-2">2</div>
+            <div class="col-md-2">3</div>
+            <div class="versus ro">VS</div>
+            <div class="col-md-2">4</div>
+            <div class="col-md-2">5</div>
+            <div class="col-md-2">6</div>
+        </div>
+        
         <div class="container-fluid row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 skew2'>${'summoner'. $i}${'champion' . $i}<img src='assets/${'championimg' . $i}'></img></div>";
+                    echo "<div class='col-md-2 skew2'>${'summoner'. $i}${'champion' . $i}<img src='assets/splash/${'championimg' . $i}'></img></div>";
                 }
             ?>
         

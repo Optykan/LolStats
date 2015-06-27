@@ -197,13 +197,11 @@
     <script>
      function SecondsToHMS(d) {
         d = Number(d);
-        var h = Math.floor(d / 3600);
         var m = Math.floor(d % 3600 / 60);
         var s = Math.floor(d % 3600 % 60);
-        var hr = format(h);
         var min = format(m);
         var sec = format(s);
-        val = hr + ':' + min + ':' + sec;
+        val = min + ':' + sec;
         return val;
         }
 

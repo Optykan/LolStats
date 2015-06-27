@@ -17,6 +17,10 @@
         
        <?php
         //$key = readfile("api.txt");
+
+            $ver="v0.115a";
+            
+
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
@@ -42,6 +46,8 @@
             $gameQueue = $match['gameQueueConfigId'];
 
             $time = $match['gameLength'];
+            echo "<script>console.log('$gameQueue');</script>";
+
 
             if($gameQueue == 2 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 7 || $gameQueue == 33 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 25 || $gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42 || $gameQueue == 61 || $gameQueue == 65 || $gameQueue == 70 || $gameQueue == 76 || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93 || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
                 $players = 10;
@@ -75,7 +81,7 @@
             else if($gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42){
                 $gameType = '5 vs 5 Ranked';
             }
-            else if($gameQueue == 9){
+            else if($gameQueue == 9 || $gameQueue == 41){
                 $gameType = '3 vs 3 Ranked';
             }
             else if($gameQueue == 52){
@@ -92,7 +98,7 @@
             }
 
 
-              
+            $versusmargin = ($ppteam/2)*200;
  
             for($i=1; $i<=$players; $i++){
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
@@ -106,16 +112,51 @@
                 ${"championimg" . $i} = $champname['image']['full'];
             }
             
+            for($i=1; $i<=6; $i++){
+                ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
+                
+                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"ban" . $i}."?champData=image&api_key=".$key;
+                $champdata = file_get_contents($champnamejson);
+                $champname = json_decode($champdata, true);
+                
+                ${"banimg" . $i} = $champname['image']['full'];
+                
+            }
+            
         ?>
     </head>
     
     <body>
-        <div class="ro version">v0.112a</div>
-        <div class="container-fluid row">
+        <div class="ro version"><?=$ver?></div>
+        <div class="container row">
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
+        <div class="container-fluid row">
+            <div class="col-md-6 title">
+                 <?php 
+                            if($mapId == 11){
+                                echo "<p style='display:inline;'>SUMMONERS RIFT</p>";
+                            }
+                            else if($mapId == 12){
+                                echo "HOWLING ABYSS";
+                            }
+                            else if($mapId == 10){
+                                echo "TWISTED TREELINE";
+                            }
+                            else if($mapId == 8){
+                                echo "THE CRYSTAL SCAR";
+                            }
+                            else{
+                                echo "SUMMONER NOT FOUND";
+                            }
+                    ?>
+                    </br>
+            </div>
+            <div class="col-md-6"><p class="gametype"><?=$gameType?></p></div>
+        </div>
+
         
-        <div class="container-fluid row team1">
+        <div class="container row team1">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 skew'>
@@ -129,41 +170,14 @@
                     </div>";
                 }
             ?>
-            <div class="col-md-2 title">
-             <?php 
-                    echo "<script>console.log('$mapId');</script>";
-                        if($mapId == 11){
-                            echo "<p style='display:inline;'>SUMMONERS </br>RIFT</p>";
-                        }
-                        else if($mapId == 12){
-                            echo "HOWLING </br>ABYSS";
-                        }
-                        else if($mapId == 10){
-                            echo "TWISTED </br>TREELINE";
-                        }
-                        else if($mapId == 8){
-                            echo "THE CRYSTAL </br>SCAR";
-                        }
-                        else{
-                            echo "SUMMONER NOT FOUND";
-                        }
-                ?>
-                </br>
-                <p class="gametype"><?=$gametype?></p>
-            </div>
         
         </div>
-        <div class="container-fluid row bans">
-            <div class="banimg col-md-1">1</div>
-            <div class="banimg col-md-1">2</div>
-            <div class="banimg col-md-1">3</div>
-            <div class="versus ro">VS</div>
-            <div class="banimg col-md-1">4</div>
-            <div class="banimg col-md-1">5</div>
-            <div class="banimg col-md-1">6</div>
+        <div class="container row"><?php
+            echo "<div class='versus ro' style='padding-left: ${'versusmargin'}px'>VS</div>";
+            ?>
         </div>
         
-        <div class="container-fluid row team2">
+        <div class="container row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 skew2'>
@@ -179,28 +193,47 @@
                 
                
             ?>
-            <div class="col-md-2 os time" id="time"></div>
+            <div class="col-md-2">
+                <div class="container bans">
+                    <div class="row">
+                    <?php 
+                        for($i=1;$i<=3;$i++){
+                            echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                        }
+                    ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                        for($i=4;$i<=6;$i++){
+                            echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                        }
+                    ?>
+                    </div>
+                </div>
+                <div class="ro time" id="time"></div>
+            </div>
             
         
         </div>
+            <?php 
+        echo "<script>
+                var time=$time;
+                time=time+180;
+                    setInterval(function(){
+                    document.getElementById('time').innerHTML=SecondsToHMS(time);
+                    time=time+1;
+                    },1000);
+            </script>";
+        ?>
+
     <script>
-        var time=<?php $time?>;
-        for(;;){
-            setTimeout(function(){
-            time++;
-            $("#time").text(SecondsToHMS(time));
-            },1000);
-        }
-        
-        function SecondsToHMS(d) {
+     function SecondsToHMS(d) {
         d = Number(d);
-        var h = Math.floor(d / 3600);
         var m = Math.floor(d % 3600 / 60);
         var s = Math.floor(d % 3600 % 60);
-        var hr = format(h);
         var min = format(m);
         var sec = format(s);
-        val = hr + ':' + min + ':' + sec;
+        val = min + ':' + sec;
         return val;
         }
 
@@ -217,10 +250,9 @@
 
         return val;
         }
-        
     </script>
-    <script> $.backstretch("bg.jpg");</script>
-    <script>
+    <script> $.backstretch("assets/bg.jpg");</script>
+<!--    <script>
         function info(splashid, i){
             if(i===1){
                 console.log(i);
@@ -231,6 +263,6 @@
                 document.getElementById(splashid).style.marginTop = "-120px";
             }
         }
-    </script>
+    </script>-->
     </body>
 </html>

@@ -133,12 +133,11 @@ body {
     -moz-transition:all 0.3s ease;
 }
     
-    
-
-
-
 .time {
     font-size:2em;
+    padding-top:20px;
+    color:white;
+    padding-left:250px;
     
 }
 

@@ -133,7 +133,7 @@
              <?php 
                     echo "<script>console.log('$mapId');</script>";
                         if($mapId == 11){
-                            echo "<p style='display:inline;'>SUMMONERS </br>RIF<span style='padding-left:3px'></span>T</p>";
+                            echo "<p style='display:inline;'>SUMMONERS </br>RIFT</p>";
                         }
                         else if($mapId == 12){
                             echo "HOWLING </br>ABYSS";
@@ -177,7 +177,7 @@
                     </div>";
                 }
                 
-                $formattime=gmdate("H:i:s", $time);
+                $formattime=gmdate("i:s", $time);
             ?>
             <div class="col-md-2 ro time"><?=$formattime?></div>
             

@@ -117,7 +117,7 @@
                     echo "<div class='col-md-2 skew'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
-                        <div class='name' onmouseover='info($i,1)' onmouseleave='($i,0)'>
+                        <div class='name' onmouseenter='info($i,1);' onmouseout='($i,0);'>
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
@@ -150,13 +150,13 @@
         
         </div>
         <div class="container-fluid row bans">
-            <div class="banimg">1</div>
-            <div class="banimg">2</div>
-            <div class="banimg">3</div>
+            <div class="banimg col-md-1">1</div>
+            <div class="banimg col-md-1">2</div>
+            <div class="banimg col-md-1">3</div>
             <div class="versus ro">VS</div>
-            <div class="banimg">4</div>
-            <div class="banimg">5</div>
-            <div class="banimg">6</div>
+            <div class="banimg col-md-1">4</div>
+            <div class="banimg col-md-1">5</div>
+            <div class="banimg col-md-1">6</div>
         </div>
         
         <div class="container-fluid row team2">
@@ -172,6 +172,7 @@
     <script> $.backstretch("bg.jpg");</script>
     <script>
         function info(splashid, i){
+            console.log(splashid, i);
             if(i == 1){
                 document.getElementById(splashid).style.marginTop="-375px;";
             }

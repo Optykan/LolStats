@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html lang="en-US">
 
     <head>
@@ -15,7 +16,9 @@
         <script src="js/bootstrap.min.js"></script>
         
        <?php
+        //$key = readfile("api.txt");
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
+			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
             $name = $_POST['inputname'];
             $name = preg_replace('/\s+/', '', $name);
@@ -117,7 +120,7 @@
                     echo "<div class='col-md-2 skew'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
-                        <div class='name' onmouseenter='info($i,1);' onmouseout='($i,0);'>
+                        <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
@@ -129,7 +132,7 @@
              <?php 
                     echo "<script>console.log('$mapId');</script>";
                         if($mapId == 11){
-                            echo "SUMMONERS </br>RIF<span style='padding-left:3px;'></span>T";
+                            echo "<p style='display:inline;'>SUMMONERS </br>RIF<span style='padding-left:3px'></span>T</p>";
                         }
                         else if($mapId == 12){
                             echo "HOWLING </br>ABYSS";
@@ -145,7 +148,7 @@
                         }
                 ?>
                 </br>
-                <?php echo "<p class='gametype'>$gameType</p>";?>
+                <p class="gametype"><?=$gametype?></p>
             </div>
         
         </div>
@@ -162,10 +165,20 @@
         <div class="container-fluid row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 skew2'>${'summoner'. $i}${'champion' . $i}<img src='assets/splash/${'championimg' . $i}'></img></div>";
+                    echo "<div class='col-md-2 skew2'>
+                        <img src='assets/splash/${'championimg' . $i}'></img>
+                        
+                        <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
+                        <p class='ro champion'>${'champion'.$i}</p>
+                        <p class='ro summoner'>${'summoner'.$i}</p>
+                        </div>
+                        <div class='dim' id='$i'></div>
+                    </div>";
                 }
-                echo gmdate("i:s", $time);
+                
+                $time=gmdate("i:s", $time);
             ?>
+            <div class="col-md-2 ro time"><?=$time?></div>
             
         
         </div>
@@ -174,11 +187,11 @@
         function info(splashid, i){
             if(i===1){
                 console.log(i);
-                document.getElementById(splashid).style.marginTop="-375px;";
+                document.getElementById(splashid).style.marginTop = "-380px";
             }
             else{
-                console.log(i);
-                document.getElementById(splashid).style.marginTop="-120px;";
+                console.log('out');
+                document.getElementById(splashid).style.marginTop = "-120px";
             }
         }
     </script>

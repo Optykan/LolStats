@@ -141,13 +141,13 @@
         
         </div>
         <div class="container-fluid row bans">
-            <div class="col-md-2">1</div>
-            <div class="col-md-2">2</div>
-            <div class="col-md-2">3</div>
-            <div class="versus ro">VS</div>
-            <div class="col-md-2">4</div>
-            <div class="col-md-2">5</div>
-            <div class="col-md-2">6</div>
+            <div class="col-md-1">1</div>
+            <div class="col-md-1">2</div>
+            <div class="col-md-1">3</div>
+            <div class="col-md-2 versus ro">VS</div>
+            <div class="col-md-1">4</div>
+            <div class="col-md-1">5</div>
+            <div class="col-md-1">6</div>
         </div>
         
         <div class="container-fluid row team2">

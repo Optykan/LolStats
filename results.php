@@ -132,7 +132,6 @@
             ?>
             <div class="col-md-2 title">
              <?php 
-                    echo "<script>console.log('$mapId');</script>";
                         if($mapId == 11){
                             echo "<p style='display:inline;'>SUMMONERS </br>RIFT</p>";
                         }
@@ -150,7 +149,7 @@
                         }
                 ?>
                 </br>
-                <p class="gametype"><?=$gametype?></p>
+                <p class="gametype"><?=$gameType?></p>
             </div>
         
         </div>

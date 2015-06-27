@@ -17,6 +17,7 @@
        <?php
         //$key = readfile("api.txt");
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
+			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
             $name = $_POST['inputname'];
             $name = preg_replace('/\s+/', '', $name);

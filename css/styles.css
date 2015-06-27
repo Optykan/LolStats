@@ -95,6 +95,16 @@ body {
     z-index:10;
     position:relative;
 }
+.team2 .name{
+    -webkit-backface-visibility: hidden; 
+    -webkit-transform: skew(5deg, 0);
+    -moz-backface-visibility : hidden;
+    -moz-transform: skew(5deg, 0);
+    margin-top:-140px;
+    color:white;
+    z-index:10;
+    position:relative;
+}
 .summoner{
     font-size:1em;
     text-align:center;

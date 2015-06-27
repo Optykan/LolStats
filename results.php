@@ -162,7 +162,15 @@
         <div class="container-fluid row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 skew2'>${'summoner'. $i}${'champion' . $i}<img src='assets/splash/${'championimg' . $i}'></img></div>";
+                    echo "<div class='col-md-2 skew'>
+                        <img src='assets/splash/${'championimg' . $i}'></img>
+                        
+                        <div class='name' onmouseenter='info($i,1);' onmouseout='($i,0);'>
+                        <p class='ro champion'>${'champion'.$i}</p>
+                        <p class='ro summoner'>${'summoner'.$i}</p>
+                        </div>
+                        <div class='dim' id='$i'></div>
+                    </div>";
                 }
                 echo gmdate("i:s", $time);
             ?>

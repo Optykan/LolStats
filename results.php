@@ -117,11 +117,11 @@
                     echo "<div class='col-md-2 skew'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
-                        <div class='name'>
+                        <div class='name' onmouseover='info($i,1)' onmouseleave='($i,0)'>
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
-                        <div class='dim'></div>
+                        <div class='dim' id='$i'></div>
                     </div>";
                 }
             ?>
@@ -170,5 +170,15 @@
         
         </div>
     <script> $.backstretch("bg.jpg");</script>
+    <script>
+        function info(splashid, i){
+            if(i == 1){
+                document.getElementById(splashid).style.marginTop="-375px;";
+            }
+            else{
+                document.getElementById(splashid).style.marginTop="-120px;";
+            }
+        }
+    </script>
     </body>
 </html>

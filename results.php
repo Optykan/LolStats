@@ -179,7 +179,7 @@
                 
                
             ?>
-            <div class="col-md-2 os time" id="time"></div>
+            <div class="col-md-2 ro time" id="time"></div>
             
         
         </div>
@@ -220,7 +220,7 @@
         }
     </script>
     <script> $.backstretch("bg.jpg");</script>
-    <script>
+<!--    <script>
         function info(splashid, i){
             if(i===1){
                 console.log(i);
@@ -231,6 +231,6 @@
                 document.getElementById(splashid).style.marginTop = "-120px";
             }
         }
-    </script>
+    </script>-->
     </body>
 </html>

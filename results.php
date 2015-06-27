@@ -129,7 +129,7 @@
              <?php 
                     echo "<script>console.log('$mapId');</script>";
                         if($mapId == 11){
-                            echo "SUMMONERS </br>RIF<span style='padding-left:3px;'></span>T";
+                            echo "<span style='display:inline;'>SUMMONERS </br>RIF<span style='padding-left:3px;'></span>T</span>";
                         }
                         else if($mapId == 12){
                             echo "HOWLING </br>ABYSS";

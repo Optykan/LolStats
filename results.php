@@ -185,14 +185,16 @@
         </div>
     <script>
         var time=<?php $time?>;
+        time=time+180;
         for(;;){
             setTimeout(function(){
-            time++;
-            $("#time").text(SecondsToHMS(time));
+            document.getElementById("time").innerHTML=SecondsToHMS(time);
+            time=time+1;
             },1000);
         }
-        
-        function SecondsToHMS(d) {
+    </script>
+    <script>
+            function SecondsToHMS(d) {
         d = Number(d);
         var h = Math.floor(d / 3600);
         var m = Math.floor(d % 3600 / 60);
@@ -217,7 +219,6 @@
 
         return val;
         }
-        
     </script>
     <script> $.backstretch("bg.jpg");</script>
     <script>

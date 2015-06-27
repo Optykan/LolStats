@@ -96,12 +96,23 @@ body {
     position:relative;
 }
 .summoner{
+    font-size:1em;
+}
+.champion{
     font-size:2em;
 }
 .dim{
-    background-color:rgba(0,0,0,0.5);
-    height:75px;
-    width:inherit;
+    background-color:rgba(0,0,0,0.7);
+    height:375px;
     margin-top:-140px;
+    z-index:9;
+    width:225px;
+    margin-left:-20px;
+    position:relative;
+}
+.dim:hover{
+    margin-top:-515px;
+    -webkit-transform: all 0.2s linear;
+    -moz-transform:all 0.2s linear;
 }
 

@@ -54,6 +54,39 @@
                 $players=4;
                 $ppteam=2;
             }
+                
+            if($gameQueue == 0){
+               $gameType 'Custom';
+            }
+            else if($gameQueue == 2 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 65 || $gameQueue == 61 || $gameQueue == 70  || $gameQueue == 76  || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
+                $gameType '5 vs 5 Unranked';
+            }
+            else if($gameQueue == 7  || $gameQueue == 25 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 33  || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93){
+                $gameType '5 vs 5 AI';
+            }
+            else if($gameQueue == 8){
+                $gameType '3 vs 3 Unranked';
+            }
+            else if($gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42){
+                $gameType '5 vs 5 Ranked';
+            }
+            else if($gameQueue == 9){
+                $gameType '3 vs 3 Ranked';
+            }
+            else if($gameQueue == 52){
+                $gameType '3 vs 3 AI';
+            }
+            else if($gameQueue == 72){
+                $gameType '1 vs 1';
+            }
+            else if($gameQueue == 73){
+                $gameType '2 vs 2';
+            }
+            else{
+                $gameType 'Game Queue Undefined';
+            }
+
+              
  
             for($i=1; $i<=$players; $i++){
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
@@ -101,41 +134,7 @@
                         }
                 ?>
                 </br>
-                <p class="ro players">
-                <?php
-                    if($gameQueue == 0){
-                       echo 'Custom';
-                    }
-                    else if($gameQueue == 2 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 65 || $gameQueue == 61 || $gameQueue == 70  || $gameQueue == 76  || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
-                        echo '5 vs 5 Unranked';
-                    }
-                    else if($gameQueue == 7  || $gameQueue == 25 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 33  || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93){
-                        echo '5 vs 5 AI';
-                    }
-                    else if($gameQueue == 8){
-                        echo '3 vs 3 Unranked';
-                    }
-                    else if($gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42){
-                        echo '5 vs 5 Ranked';
-                    }
-                    else if($gameQueue == 9){
-                        echo '3 vs 3 Ranked';
-                    }
-                    else if($gameQueue == 52){
-                        echo '3 vs 3 AI';
-                    }
-                    else if($gameQueue == 72){
-                        echo '1 vs 1';
-                    }
-                    else if($gameQueue == 73){
-                        echo '2 vs 2';
-                    }
-                    else{
-                        echo 'Game Queue Undefined';
-                    }
-
-                ?>
-                </p>
+                <p class="ro players"><?=$gameType?></p>
             </div>
         
         </div>

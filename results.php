@@ -37,7 +37,7 @@
 
             $mapId = $match['mapId'];
 
-            if($mapId == 8 or 11 or 12){
+            if($mapId == 8 || $mapId == 11 || $mapId == 12){
                 for($i=1; $i<11; $i++){
                     ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                     ${"championId" . $i} = $match['participants'][$i-1]['championId'];

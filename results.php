@@ -117,7 +117,7 @@
                     echo "<div class='col-md-2 skew'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
-                        <div class='name' onmouseenter='info($i,1);' onmouseout='($i,0);'>
+                        <div class='name' onmouseover='info($i,1);' onmouseout='($i,0);'>
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
@@ -165,7 +165,7 @@
                     echo "<div class='col-md-2 skew'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
-                        <div class='name' onmouseenter='info($i,1);' onmouseout='($i,0);'>
+                        <div class='name' onmouseover='info($i,1);' onmouseout='($i,0);'>
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
@@ -182,11 +182,11 @@
         function info(splashid, i){
             if(i===1){
                 console.log(i);
-                document.getElementById(splashid).style.marginTop="-375px;";
+                document.getElementById(splashid).style.marginTop = "-375px";
             }
             else{
                 console.log(i);
-                document.getElementById(splashid).style.marginTop="-120px;";
+                document.getElementById(splashid).style.marginTop = "-120px";
             }
         }
     </script>

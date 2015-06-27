@@ -37,7 +37,7 @@
 
             $mapId = $match['mapId'];
 
-            if($mapId = 8 or 11 or 12){
+            if($mapId == 8 or 11 or 12){
                 for($i=1; $i<11; $i++){
                     ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                     ${"championId" . $i} = $match['participants'][$i-1]['championId'];
@@ -66,16 +66,16 @@
             <div class="col-md-2 skew"><?=$summoner5?><?=$champion5?><img src="assets/<?=$championimg5?>"></img></div>
             <div class="col-md-2 title"><?php 
             echo "<script>console.log('$mapId');</script>";
-                if($mapId = 11){
+                if($mapId == 11){
                     echo "SUMMONER\'S </br>RIF<span style='padding-left:3px;'></span>T";
                 }
-                else if($mapId = 12){
+                else if($mapId == 12){
                     echo "HOWLING </br>ABYSS";
                 }
-                else if($mapId = 10){
+                else if($mapId == 10){
                     echo "TWISTED </br>TREELINE";
                 }
-                else if($mapId = 8){
+                else if($mapId == 8){
                     echo "THE CRYSTAL </br>SCAR";
                 }
                 else{

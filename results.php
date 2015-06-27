@@ -187,17 +187,15 @@
         echo "<script>
                 var time=$time;
                 time=time+180;
-                for(;;){
                     setTimeout(function(){
                     document.getElementById('time').innerHTML=SecondsToHMS(time);
                     time=time+1;
                     },1000);
-                }
             </script>";
         ?>
 
     <script>
-            function SecondsToHMS(d) {
+     function SecondsToHMS(d) {
         d = Number(d);
         var h = Math.floor(d / 3600);
         var m = Math.floor(d % 3600 / 60);

@@ -136,7 +136,7 @@
                         }
                 ?>
                 </br>
-                <p class="ro players"><?=$gameType?></p>
+                <p class="players"><?=$gameType?></p>
             </div>
         
         </div>

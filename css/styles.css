@@ -111,8 +111,8 @@ body {
     position:relative;
 }
 .dim:hover{
-    margin-top:-515px;
-    -webkit-transform: all 0.2s linear;
-    -moz-transform:all 0.2s linear;
+    margin-top:-375px;
+    -webkit-transition: all 1s linear;
+    -moz-transition:all 1s linear;
 }
 

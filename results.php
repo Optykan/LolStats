@@ -124,7 +124,7 @@
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
-                        <div class='dim' id='$i'></div>
+                        <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";
                 }
             ?>
@@ -172,7 +172,7 @@
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
-                        <div class='dim' id='$i'></div>
+                        <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";
                 }
                 

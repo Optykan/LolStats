@@ -90,7 +90,7 @@ body {
     -webkit-transform: skew(-5deg, 0);
     -moz-backface-visibility : hidden;
     -moz-transform: skew(-5deg, 0);
-    margin-top:-140px;
+    margin-top:-175px;
     color:white;
     z-index:10;
     position:relative;
@@ -100,7 +100,7 @@ body {
     -webkit-transform: skew(5deg, 0);
     -moz-backface-visibility : hidden;
     -moz-transform: skew(5deg, 0);
-    margin-top:-140px;
+    margin-top:-95px;
     color:white;
     z-index:10;
     position:relative;

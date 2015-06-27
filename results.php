@@ -165,7 +165,7 @@
                     echo "<div class='col-md-2 skew2'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
-                        <div class='name' onmouseover='info($i,0);' onmouseout='($i,0);'>
+                        <div class='name' onmouseover='info($i,1);' onmouseout='($i,0);'>
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
@@ -185,7 +185,7 @@
                 document.getElementById(splashid).style.marginTop = "-390px";
             }
             else{
-                console.log(i);
+                console.log('out');
                 document.getElementById(splashid).style.marginTop = "-120px";
             }
         }

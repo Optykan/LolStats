@@ -165,7 +165,7 @@
                     echo "<div class='col-md-2 skew'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
-                        <div class='name' onmouseover='info($i,1);' onmouseout='($i,0);'>
+                        <div class='name' onmouseover='info($i,0);' onmouseout='($i,0);'>
                         <p class='ro champion'>${'champion'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>

@@ -177,9 +177,9 @@
                     </div>";
                 }
                 
-                $time=gmdate("i:s", $time);
+                $formattime=gmdate("H:i:s", $time);
             ?>
-            <div class="col-md-2 ro time"><?=$time?></div>
+            <div class="col-md-2 ro time"><?=$formattime?></div>
             
         
         </div>

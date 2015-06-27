@@ -144,7 +144,7 @@
         <div class="container-fluid row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 skew'>${'summoner'. $i}${'champion' . $i}<img src='assets/${'championimg' . $i}'></img></div>";
+                    echo "<div class='col-md-2 skew2'>${'summoner'. $i}${'champion' . $i}<img src='assets/${'championimg' . $i}'></img></div>";
                 }
             ?>
         

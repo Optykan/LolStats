@@ -10,6 +10,10 @@
 .ro{
     font-family: 'Roboto', sans-serif;
 }
+.players {
+    width:300px;
+    font-size:0.6em;
+}
 .title{
     font-family: 'Oswald', sans-serif;
     font-size:5em;
@@ -76,7 +80,4 @@ body {
     margin-left:720px;
 }
 
-.players {
-    width:300px;
-    font-size:0.6em;
-}
+

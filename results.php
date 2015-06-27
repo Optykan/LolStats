@@ -113,6 +113,10 @@
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 skew'>${'summoner'. $i}${'champion' . $i}
                         <img src='assets/splash/${'championimg' . $i}'></img>
+                        <div class='name'>
+                        <p>${'summoner'.$i}</p>
+                        <p>${'champion'.$i}</p>
+                        </div>
                     </div>";
                 }
             ?>

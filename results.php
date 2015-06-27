@@ -183,16 +183,19 @@
             
         
         </div>
-    <script>
-        var time=<?php $time?>;
-        time=time+180;
-        for(;;){
-            setTimeout(function(){
-            document.getElementById("time").innerHTML=SecondsToHMS(time);
-            time=time+1;
-            },1000);
-        }
-    </script>
+            <?php 
+        echo "<script>
+                var time=$time;
+                time=time+180;
+                for(;;){
+                    setTimeout(function(){
+                    document.getElementById('time').innerHTML=SecondsToHMS(time);
+                    time=time+1;
+                    },1000);
+                }
+            </script>";
+        ?>
+
     <script>
             function SecondsToHMS(d) {
         d = Number(d);

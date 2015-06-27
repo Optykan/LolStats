@@ -67,7 +67,7 @@
             <div class="col-md-2 title"><?php 
             echo "<script>console.log('$mapId');</script>";
                 if($mapId == 11){
-                    echo "SUMMONER\'S </br>RIF<span style='padding-left:3px;'></span>T";
+                    echo "SUMMONERS </br>RIF<span style='padding-left:3px;'></span>T";
                 }
                 else if($mapId == 12){
                     echo "HOWLING </br>ABYSS";

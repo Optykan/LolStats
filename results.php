@@ -77,7 +77,7 @@
         
         <div class="container-fluid row team1">
             <?php 
-                for ($i=1; $i<=$ppteam; i++){
+                for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 skew'><?=${'summoner'. $i}?><?=${'champion' . $i}?><img src='assets/<?=${'championimg' . $i}?>'></img></div>";
                 }
             ?>
@@ -142,7 +142,7 @@
         <div class="versus ro">VS</div>
         <div class="container-fluid row team2">
             <?php 
-                for ($i=$ppteam+1; $i<=$players; i++){
+                for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 skew'><?=${'summoner'. $i}?><?=${'champion' . $i}?><img src='assets/<?=${'championimg' . $i}?>'></img></div>";
                 }
             ?>

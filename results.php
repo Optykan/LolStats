@@ -187,7 +187,7 @@
         echo "<script>
                 var time=$time;
                 time=time+180;
-                    setTimeout(function(){
+                    setInterval(function(){
                     document.getElementById('time').innerHTML=SecondsToHMS(time);
                     time=time+1;
                     },1000);

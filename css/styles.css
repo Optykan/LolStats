@@ -82,4 +82,37 @@ body {
 .bans{
     margin-left:200px;
 }
+.banimg{
+    width:150px;
+}
+.team1 .name{
+    -webkit-backface-visibility: hidden; 
+    -webkit-transform: skew(-5deg, 0);
+    -moz-backface-visibility : hidden;
+    -moz-transform: skew(-5deg, 0);
+    margin-top:-140px;
+    color:white;
+    z-index:10;
+    position:relative;
+}
+.summoner{
+    font-size:1em;
+}
+.champion{
+    font-size:2em;
+}
+.dim{
+    background-color:rgba(0,0,0,0.7);
+    height:375px;
+    margin-top:-140px;
+    z-index:9;
+    width:225px;
+    margin-left:-20px;
+    position:relative;
+}
+.dim:hover{
+    margin-top:-375px;
+    -webkit-transition: all 1s linear;
+    -moz-transition:all 1s linear;
+}
 

@@ -114,12 +114,14 @@
         <div class="container-fluid row team1">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 skew'>${'summoner'. $i}${'champion' . $i}
+                    echo "<div class='col-md-2 skew'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
+                        
                         <div class='name'>
-                        <p>${'summoner'.$i}</p>
-                        <p>${'champion'.$i}</p>
+                        <p class='ro champion'>${'champion'.$i}</p>
+                        <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
+                        <div class='dim'></div>
                     </div>";
                 }
             ?>
@@ -148,13 +150,13 @@
         
         </div>
         <div class="container-fluid row bans">
-            <div class="col-md-1">1</div>
-            <div class="col-md-1">2</div>
-            <div class="col-md-1">3</div>
-            <div class="col-md-2 versus ro">VS</div>
-            <div class="col-md-1">4</div>
-            <div class="col-md-1">5</div>
-            <div class="col-md-1">6</div>
+            <div class="banimg">1</div>
+            <div class="banimg">2</div>
+            <div class="banimg">3</div>
+            <div class="versus ro">VS</div>
+            <div class="banimg">4</div>
+            <div class="banimg">5</div>
+            <div class="banimg">6</div>
         </div>
         
         <div class="container-fluid row team2">

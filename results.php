@@ -18,7 +18,7 @@
        <?php
         //$key = readfile("api.txt");
 
-            $ver="v0.115a";
+            $ver="v0.117a";
             
 
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -128,14 +128,14 @@
     
     <body>
         <div class="ro version"><?=$ver?></div>
-        <div class="container row">
+        <div class="container-fluid row">
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
-        <div class="container-fluid row">
-            <div class="col-md-6 title">
+        <div class="container-fluid-fluid row resultshead">
+            <div class="col-md-10 title">
                  <?php 
                             if($mapId == 11){
-                                echo "<p style='display:inline;'>SUMMONERS RIFT</p>";
+                                echo "SUMMONERS RIFT";
                             }
                             else if($mapId == 12){
                                 echo "HOWLING ABYSS";
@@ -150,16 +150,18 @@
                                 echo "SUMMONER NOT FOUND";
                             }
                     ?>
-                    </br>
+                <p class="gametype"><?=$gameType?></p>
             </div>
-            <div class="col-md-6"><p class="gametype"><?=$gameType?></p></div>
+            <div class="col-md-2">
+                <p class="ro time" id="time"></p>
+            </div>
         </div>
 
         
-        <div class="container row team1">
+        <div class="container-fluid row team1">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 skew'>
+                    echo "<div class='col-md-2 champimg'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
@@ -172,15 +174,15 @@
             ?>
         
         </div>
-        <div class="container row"><?php
+        <div class="container-fluid row"><?php
             echo "<div class='versus ro' style='padding-left: ${'versusmargin'}px'>VS</div>";
             ?>
         </div>
         
-        <div class="container row team2">
+        <div class="container-fluid row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 skew2'>
+                    echo "<div class='col-md-2 champimg'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
@@ -194,7 +196,7 @@
                
             ?>
             <div class="col-md-2">
-                <div class="container bans">
+                <div class="container-fluid bans">
                     <div class="row">
                     <?php 
                         for($i=1;$i<=3;$i++){
@@ -210,7 +212,6 @@
                     ?>
                     </div>
                 </div>
-                <div class="ro time" id="time"></div>
             </div>
             
         

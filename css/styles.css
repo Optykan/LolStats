@@ -11,30 +11,26 @@
     font-family: 'Roboto', sans-serif;
 }
 .gametype{
-    width:300px;
     font-family: 'Roboto', sans-serif;
-    font-size:4em;
+    font-size:0.6em;
+    color:white;
+    padding-top:22px;
 }
 .title{
     font-family: 'Oswald', sans-serif;
     font-size:5em;
     padding-top:20px;
     color:white;
-    padding-left:5em;
 }
     
 body {
     overflow-x:hidden;
 }
 
-.skew {
-    -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(5deg, 0);
-    -moz-backface-visibility : hidden;
-    -moz-transform: skew(5deg, 0);
+.champimg {
     overflow: hidden;
-    width:15em;
-    height:25em;
+    width:13em;
+    height:20em;
     position: relative;
     left: 150px;
     margin-left:1em;
@@ -42,35 +38,14 @@ body {
     box-shadow: 10px 10px 7px rgba(0,0,0,0.5);
         
 }
-.skew img{
+.champimg img{
     position:relative;
     left:-25px;
     top:-25px;
-    width:240px;
+    width:190px;
     
 }
-.skew2 {
-    -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(-5deg, 0);
-    -moz-backface-visibility : hidden;
-    -moz-transform: skew(-5deg, 0);
-    overflow: hidden;
-    width: 15em;
-    height:25em;
-    position: relative;
-    left: 150px;
-    margin-left:1em;
-    border: 3px solid #111;
-    box-shadow: 10px 10px 7px rgba(0,0,0,0.5);
-        
-}
-.skew2 img{
-    position:relative;
-    left:-20px;
-    top:-25px;
-    width:225px;
-    
-}
+
 .team1 {
     margin-top:50px;
 }
@@ -83,21 +58,13 @@ body {
     margin-left:200px;
 }
 .team1 .name{
-    -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(-5deg, 0);
-    -moz-backface-visibility : hidden;
-    -moz-transform: skew(-5deg, 0);
-    margin-top:-160px;
+    margin-top:-180px;
     color:white;
     z-index:10;
     position:relative;
 }
 .team2 .name{
-    -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(5deg, 0);
-    -moz-backface-visibility : hidden;
-    -moz-transform: skew(5deg, 0);
-    margin-top:-130px;
+    margin-top:-190px;
     color:white;
     z-index:10;
     position:relative;
@@ -117,7 +84,7 @@ body {
     background-color:rgba(0,0,0,0.7);
     height:400px;
     /*margin-top:-120px;*/
-    margin-top:-390px;
+    margin-top:-300px;
     z-index:9;
     width:225px;
     margin-left:-20px;
@@ -134,7 +101,6 @@ body {
 .time {
     font-size:5em;
     color:white;
-    padding-left:250px;
     padding-top:20px;
 }
 
@@ -156,7 +122,7 @@ body {
   padding: 10px;
   border: solid 1px #dcdcdc;
   transition: shadow 0.3s, border 0.3s;
-  text-size:25px;
+  font-size:25px;
 }
 .searchbutton, .searchbutton:visited, .searchbutton:hover, .searchbutton:active {
 	font-size: 18px;
@@ -172,7 +138,7 @@ body {
 .searchbutton, .searchbutton:visited {
     color: #222;
     border-color: #f6c653 #bd6a23 #b6631f #e8ab4a;
-	background: #d79922 url("assets/stolen-textures.jpg") no-repeat 50% -846px;
+	background: #d79922 url("../assets/stolen-textures.jpg") no-repeat 50% -846px;
 }
 
 .searchbutton:hover {
@@ -215,4 +181,15 @@ input {
 	border: 2px solid white;
 	border-radius:3px;
 	margin-right:-5px;
+}
+.resultshead {
+    margin-left:100px;
+}
+
+.container {
+    
+}
+
+.container-fluid {
+    
 }

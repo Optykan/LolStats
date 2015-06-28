@@ -280,21 +280,23 @@
             }
         }
     </script>-->
-        <script>
+      <script>
             var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
 
             $.getJSON(gitAPI, function (json) {
                 var commit = json.commit.author.date;
-                console.log(commit);
                 var time = commit.split("T");
                 var time1 = time[1].replace("Z","");
+               
                 var time2 = time1.split(":");
+                console.log(time2);
                 var h=time2[0];
                 var m=time2[1];
                 var d = new Date();
                 var uh = d.getUTCHours();
                 var um = d.getUTCMinutes();
-
+                m=parseInt(m);
+                h=parseInt(h);
                 m=m+2;
                 if(m>59){
                     m=m-59;
@@ -312,9 +314,9 @@
                 if(um<10){
                     um="0"+um;
                 }
-                var utctime= uh+um+"00";
+                var utctime= uh+":"+um+":"+"00";
                 console.log(utctime);
-                var formattedtime=h+m+"00";
+                var formattedtime=h+":"+m+":"+"00";
                 console.log(formattedtime);
                 if(formattedtime>utctime){
                     console.log("build in progress");

@@ -135,7 +135,7 @@
             <div class="col-md-6 title">
                  <?php 
                             if($mapId == 11){
-                                echo "<p style='display:inline;'>SUMMONERS RIFT</p>";
+                                echo "SUMMONERS RIFT";
                             }
                             else if($mapId == 12){
                                 echo "HOWLING ABYSS";

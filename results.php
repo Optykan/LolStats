@@ -57,7 +57,7 @@
 
             echo "<script>console.log('$commitdata')</script>";
 
-            $commit = $commitdata[0]['commit']['author']['date'];
+            $commit = $commitdata['commit']['author']['date'];
 
             echo "<script>console.log('$commit')</script>";
 

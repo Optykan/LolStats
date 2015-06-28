@@ -249,7 +249,7 @@
         return val;
         }
     </script>
-    <script> $.backstretch("bg.jpg");</script>
+    <script> $.backstretch("assets/bg.jpg");</script>
 <!--    <script>
         function info(splashid, i){
             if(i===1){

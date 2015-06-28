@@ -287,10 +287,13 @@
                 var commit = json.commit.author.date;
                 console.log(commit);
                 var time = commit.split("T");
-                var formattedtime = time[1].replace("Z","");
+                var time1 = time[1].replace("Z","");
+                var time2 = time1.split(":");
+                var h=time2[0];
+                var m=time2[1];
                 var d = new Date();
-                var h = d.getUTCHours();
-                var m = d.getUTCMinutes();
+                var uh = d.getUTCHours();
+                var um = d.getUTCMinutes();
 
                 m=m+2;
                 if(m>59){
@@ -303,8 +306,9 @@
                 if(h<10){
                     h = "0"+h;
                 }
-                var utctime= h+m+"00";
-                if(utctime>formattedtime){
+                var utctime= uh+um+"00";
+                var formattedtime=h+m+"00";
+                if(formattedtime>utctime){
                     console.log("build in progress");
                 }
                 

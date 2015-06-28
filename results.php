@@ -3,6 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
+        
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -17,14 +18,15 @@
         
        <?php
         //$key = readfile("api.txt");
-
-            $ver="v0.117a";
+        
+            $ver="v0.121a";
             
-
+            
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
-            $name = $_POST['inputname'];
+
+            $name = $_GET['inputname'];
             $name = preg_replace('/\s+/', '', $name);
             $name = strtolower($name);
 
@@ -46,119 +48,148 @@
             $gameQueue = $match['gameQueueConfigId'];
 
             $time = $match['gameLength'];
-            echo "<script>console.log('$gameQueue');</script>";
 
 
-            if($gameQueue == 2 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 7 || $gameQueue == 33 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 25 || $gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42 || $gameQueue == 61 || $gameQueue == 65 || $gameQueue == 70 || $gameQueue == 76 || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93 || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
+/*
+            function pg_connection_string(){
+                return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";
+            }
+            $db = pg_connect(pg_connection_string());
+            $result = pg_query($db, "SELECT statement goes here");
+*/
+
+            if($gameQueue === 2 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 7 || $gameQueue === 33 || $gameQueue === 14 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 25 || $gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42 || $gameQueue === 61 || $gameQueue === 65 || $gameQueue === 70 || $gameQueue === 76 || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93 || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
                 $players = 10;
                 $ppteam = 5;
             }
-            else if($gameQueue == 8 || $gameQueue == 9 || $gameQueue == 41 || $gameQueue == 52){
+            else if($gameQueue === 8 || $gameQueue === 9 || $gameQueue === 41 || $gameQueue === 52){
                 $players=6;
                 $ppteam=3;
             }
-            else if($gameQueue == 72){
+            else if($gameQueue === 72){
                 $players=2;
                 $ppteam=1;
             }
-            else if($gameQueue == 73){
+            else if($gameQueue === 73){
                 $players=4;
                 $ppteam=2;
             }
                 
-            if($gameQueue == 0){
+            if($gameQueue === 0){
                $gameType = 'Custom';
             }
-            else if($gameQueue == 2 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 65 || $gameQueue == 61 || $gameQueue == 70  || $gameQueue == 76  || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
+            else if($gameQueue === 2 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 65 || $gameQueue === 61 || $gameQueue === 70  || $gameQueue === 76  || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
                 $gameType = '5 vs 5 Unranked';
             }
-            else if($gameQueue == 7  || $gameQueue == 25 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 33  || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93){
+            else if($gameQueue === 14){
+                $gameType = '5 vs 5 Draft';
+            }
+            else if($gameQueue === 7  || $gameQueue === 25 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 33  || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93){
                 $gameType = '5 vs 5 AI';
             }
-            else if($gameQueue == 8){
+            else if($gameQueue === 8){
                 $gameType = '3 vs 3 Unranked';
             }
-            else if($gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42){
+            else if($gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42){
                 $gameType = '5 vs 5 Ranked';
             }
-            else if($gameQueue == 9 || $gameQueue == 41){
+            else if($gameQueue === 9 || $gameQueue === 41){
                 $gameType = '3 vs 3 Ranked';
             }
-            else if($gameQueue == 52){
+            else if($gameQueue === 52){
                 $gameType = '3 vs 3 AI';
             }
-            else if($gameQueue == 72){
+            else if($gameQueue === 72){
                 $gameType = '1 vs 1';
             }
-            else if($gameQueue == 73){
+            else if($gameQueue === 73){
                 $gameType = '2 vs 2';
             }
             else{
                 $gameType = 'Map Undefined';
             }
 
+            $versusmargin = ($ppteam/2)*190+40;
 
-            $versusmargin = ($ppteam/2)*200;
- 
+            $before = microtime(true);
+
+            //SUMMONER DATA
             for($i=1; $i<=$players; $i++){
+                
+                
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                 ${"championId" . $i} = $match['participants'][$i-1]['championId'];
 
-                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"championId" . $i}."?champData=image&api_key=".$key;
-                $champdata = file_get_contents($champnamejson);
+                $champdata = file_get_contents("champions.json");
                 $champname = json_decode($champdata, true);
 
-                ${"champion" . $i} = $champname['name'];
-                ${"championimg" . $i} = $champname['image']['full'];
+                ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
+                ${"championimg" . $i} = $champname[${'championId'.$i}]['key'];
+                
+                ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
+                ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
+                
+                $spelldata = file_get_contents("spells.json");
+                $spells = json_decode($spelldata,true);
+                
+                ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
+                ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."1"}]['image'];
+
             }
-            
+
+
+                $after = microtime(true);
+                $debug=date("H:i:s",$after-$before);
+                echo "<script>console.log('$debug');</script>";
+            //BANS
             for($i=1; $i<=6; $i++){
                 ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
                 
-                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"ban" . $i}."?champData=image&api_key=".$key;
-                $champdata = file_get_contents($champnamejson);
+                $champdata = file_get_contents("champions.json");
                 $champname = json_decode($champdata, true);
                 
-                ${"banimg" . $i} = $champname['image']['full'];
+                ${"banimg" . $i} = $champname[${'ban'.$i}]['key'];
                 
             }
             
         ?>
+        <title>Current Game Info for: <?=$name?></title>
     </head>
     
     <body>
+        <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
         <div class="ro version"><?=$ver?></div>
-        <div class="container-fluid row">
+        <div class="container-fluid row" >
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
-        <div class="container-fluid-fluid row resultshead">
-            <div class="col-md-10 title">
+        <div class="container-fluid row resultshead">
+            <div class="col-md-5 title">
                  <?php 
-                            if($mapId == 11){
-                                echo "SUMMONERS RIFT";
+                            if($mapId === 11){
+                                echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
                             }
-                            else if($mapId == 12){
+                            else if($mapId === 12){
                                 echo "HOWLING ABYSS";
                             }
-                            else if($mapId == 10){
+                            else if($mapId === 10){
                                 echo "TWISTED TREELINE";
                             }
-                            else if($mapId == 8){
+                            else if($mapId === 8){
                                 echo "THE CRYSTAL SCAR";
                             }
                             else{
                                 echo "SUMMONER NOT FOUND";
                             }
                     ?>
-                <p class="gametype"><?=$gameType?></p>
             </div>
             <div class="col-md-2">
                 <p class="ro time" id="time"></p>
             </div>
+            <div class="col-md-5 gametype"><?=$gameType?></div>
         </div>
 
         
-        <div class="container-fluid row team1">
+        <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 champimg'>
@@ -172,14 +203,26 @@
                     </div>";
                 }
             ?>
-        
+            <div class="col-md-2">
+                <div class="container-fluid bans">
+                        <?php 
+
+                        for($i=1;$i<=3;$i++){
+                            if(isset(${'banimg'.$i})){
+                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                            }
+                           
+                        }
+                    ?>
+                </div>
+            </div>
         </div>
-        <div class="container-fluid row"><?php
-            echo "<div class='versus ro' style='padding-left: ${'versusmargin'}px'>VS</div>";
-            ?>
+        <div class="container row versus">
+            
+        <div class='ro'>VS</div>
         </div>
         
-        <div class="container-fluid row team2">
+        <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 champimg'>
@@ -197,20 +240,13 @@
             ?>
             <div class="col-md-2">
                 <div class="container-fluid bans">
-                    <div class="row">
-                    <?php 
-                        for($i=1;$i<=3;$i++){
-                            echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
-                        }
-                    ?>
-                    </div>
-                    <div class="row">
                         <?php 
                         for($i=4;$i<=6;$i++){
-                            echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                            if(isset(${'banimg'.$i})){
+                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                            }
                         }
                     ?>
-                    </div>
                 </div>
             </div>
             
@@ -255,7 +291,7 @@
     <script> $.backstretch("assets/bg.jpg");</script>
 <!--    <script>
         function info(splashid, i){
-            if(i===1){
+            if(i====1){
                 console.log(i);
                 document.getElementById(splashid).style.marginTop = "-380px";
             }
@@ -265,5 +301,50 @@
             }
         }
     </script>-->
+<!--      <script>
+            var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
+
+            $.getJSON(gitAPI, function (json) {
+                var commit = json.commit.author.date;
+                var time = commit.split("T");
+                var time1 = time[1].replace("Z","");
+               
+                var time2 = time1.split(":");
+                var h=time2[0];
+                var m=time2[1];
+                var d = new Date();
+                var uh = d.getUTCHours();
+                var um = d.getUTCMinutes();
+                m=parseInt(m);
+                h=parseInt(h);
+                um=parseInt(um);
+                uh=parseInt(uh);
+                m=m+2;
+                if(m>59){
+                    m=m-59;
+                    h=h+1;
+                }
+                if(m<10){
+                    m = "0"+m;
+                }
+                if(h<10){
+                    h = "0"+h;
+                }
+                if(uh<10){
+                    uh="0"+uh;
+                }
+                if(um<10){
+                    um="0"+um;
+                }
+                var utctime= uh+":"+um+":"+"00";
+                var formattedtime=h+":"+m+":"+"00";
+                console.log("UTC: " +utctime);
+                console.log("LAST BUILD: "+formattedtime);
+                if(formattedtime>utctime){
+                    document.getElementById("build").style.opacity="1";
+                }
+                
+            });
+        </script>-->
     </body>
 </html>

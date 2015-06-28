@@ -146,7 +146,7 @@
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
         <div class="container-fluid row resultshead" style="margin-left:auto; margin-right:auto;">
-            <div class="col-md-8 title">
+            <div class="col-md-5 title">
                  <?php 
                             if($mapId == 11){
                                 echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
@@ -168,7 +168,7 @@
             <div class="col-md-2">
                 <p class="ro time" id="time"></p>
             </div>
-            <div class="col-md-2"><span class="gametype"><?=$gameType?></span></div>
+            <div class="col-md-5"><span class="gametype"><?=$gameType?></span></div>
         </div>
 
         

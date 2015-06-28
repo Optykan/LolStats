@@ -171,7 +171,7 @@
         
         </div>
         <div class="container-fluid row"><?php
-            echo "<div class='versus ro' style='padding-left: ${'versusmargin'.'px'}'></div>VS</div>";
+            echo "<div class='versus ro' style='padding-left: ${'versusmargin'}px'>VS</div>";
             ?>
         </div>
         

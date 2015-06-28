@@ -168,20 +168,20 @@ body {
 .searchbutton, .searchbutton:visited {
     color: #222;
     border-color: #f6c653 #bd6a23 #b6631f #e8ab4a;
-	background: #d79922 url("assets/stolen-textures.jpg") no-repeat 50% -846px
+	background: #d79922 url("assets/stolen-textures.jpg") no-repeat 50% -846px;
 }
 
 .searchbutton:hover {
     color: #222;
     border-color: #fdeaba #bf712c #b66521 #edbd6e;
 	opacity:1 ;
-	background-position: 50% -878px
+	background-position: 50% -878px;
 }
 
 .searchbutton:active {
     color: #222;
     border-color: #e1b03d #7f3517 #772d16 #c17f30;
-	background-position: 50% -878px
+	background-position: 50% -878px;
 }
 .searchcontainer {
 	background-color:rgba(255, 255, 255, 0.5);

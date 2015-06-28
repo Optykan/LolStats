@@ -194,14 +194,14 @@
                     <div class="row">
                     <?php 
                         for($i=1;$i<=3;$i++){
-                            echo "<div class='col-md-1'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                            echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                         }
                     ?>
                     </div>
                     <div class="row">
                         <?php 
                         for($i=4;$i<=6;$i++){
-                            echo "<div class='col-md-1'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                            echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                         }
                     ?>
                     </div>

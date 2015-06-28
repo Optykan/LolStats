@@ -49,6 +49,7 @@
 
             $time = $match['gameLength'];
 
+/*
             $githubjson = file_get_contents("https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b");
 echo "<script>console.log('$githubjson')</script>";
             $commitdata = json_decode($githubjson, true);
@@ -66,6 +67,7 @@ echo "<script>console.log('$githubjson')</script>";
             
             
 
+*/
 
 /*
             function pg_connection_string(){

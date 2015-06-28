@@ -48,17 +48,6 @@
             $gameQueue = $match['gameQueueConfigId'];
 
             $time = $match['gameLength'];
-
-            $githuburl="https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
-            $gitdata=file_get_contents($githuburl);
-            $git = json_decode($gitdata, true);
-            $time = $git['commit']['author']['date'];
-            echo "<script>console.log('$time');</script>";
-            
-            
-
-
-
 /*
             function pg_connection_string(){
                 return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";
@@ -291,5 +280,13 @@
             }
         }
     </script>-->
+        <script>
+            var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
+
+            $.getJSON(gitAPI, function (json) {
+                var commit = json.commit.author.date;
+                console.log(commit);
+            });
+        </script>
     </body>
 </html>

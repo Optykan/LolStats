@@ -286,6 +286,28 @@
             $.getJSON(gitAPI, function (json) {
                 var commit = json.commit.author.date;
                 console.log(commit);
+                var time = commit.split("T");
+                var formattedtime = time[1].replace("Z","");
+                var d = new Date();
+                var h = d.getUTCHours();
+                var m = d.getUTCMinutes();
+
+                m=m+2;
+                if(m>59){
+                    m=m-59;
+                    h=h+1;
+                }
+                if(m<10){
+                    m = "0"+m;
+                }
+                if(h<10){
+                    h = "0"+h;
+                }
+                var utctime= h+m+"00";
+                if(utctime>formattedtime){
+                    console.log("build in progress");
+                }
+                
             });
         </script>
     </body>

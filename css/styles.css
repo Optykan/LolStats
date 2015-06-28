@@ -12,7 +12,7 @@
 }
 .gametype{
     font-family: 'Roboto', sans-serif;
-    font-size:4em;
+    font-size:2em;
     color:white;
     padding-top:22px;
 }
@@ -27,11 +27,7 @@ body {
     overflow-x:hidden;
 }
 
-.skew {
-    -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(5deg, 0);
-    -moz-backface-visibility : hidden;
-    -moz-transform: skew(5deg, 0);
+.champimg {
     overflow: hidden;
     width:13em;
     height:20em;
@@ -42,35 +38,14 @@ body {
     box-shadow: 10px 10px 7px rgba(0,0,0,0.5);
         
 }
-.skew img{
+.champimg img{
     position:relative;
     left:-25px;
     top:-25px;
     width:220px;
     
 }
-.skew2 {
-    -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(-5deg, 0);
-    -moz-backface-visibility : hidden;
-    -moz-transform: skew(-5deg, 0);
-    overflow: hidden;
-    width: 13em;
-    height:20em;
-    position: relative;
-    left: 150px;
-    margin-left:1em;
-    border: 3px solid #111;
-    box-shadow: 10px 10px 7px rgba(0,0,0,0.5);
-        
-}
-.skew2 img{
-    position:relative;
-    left:-20px;
-    top:-25px;
-    width:220px;
-    
-}
+
 .team1 {
     margin-top:50px;
 }
@@ -83,20 +58,12 @@ body {
     margin-left:200px;
 }
 .team1 .name{
-    -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(-5deg, 0);
-    -moz-backface-visibility : hidden;
-    -moz-transform: skew(-5deg, 0);
     margin-top:-180px;
     color:white;
     z-index:10;
     position:relative;
 }
 .team2 .name{
-    -webkit-backface-visibility: hidden; 
-    -webkit-transform: skew(5deg, 0);
-    -moz-backface-visibility : hidden;
-    -moz-transform: skew(5deg, 0);
     margin-top:-150px;
     color:white;
     z-index:10;
@@ -172,7 +139,7 @@ body {
 .searchbutton, .searchbutton:visited {
     color: #222;
     border-color: #f6c653 #bd6a23 #b6631f #e8ab4a;
-	background: #d79922 url("assets/stolen-textures.jpg") no-repeat 50% -846px;
+	background: #d79922 url("../assets/stolen-textures.jpg") no-repeat 50% -846px;
 }
 
 .searchbutton:hover {

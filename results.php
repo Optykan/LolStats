@@ -70,22 +70,22 @@
                $gameType = 'Custom';
             }
             else if($gameQueue == 2 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 65 || $gameQueue == 61 || $gameQueue == 70  || $gameQueue == 76  || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
-                $gameType = '5 vs 5 Unranked';
+                $gameType = '5 vs 5 </br>Unranked';
             }
             else if($gameQueue == 7  || $gameQueue == 25 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 33  || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93){
-                $gameType = '5 vs 5 AI';
+                $gameType = '5 vs 5 </br>AI';
             }
             else if($gameQueue == 8){
-                $gameType = '3 vs 3 Unranked';
+                $gameType = '3 vs 3 </br>Unranked';
             }
             else if($gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42){
-                $gameType = '5 vs 5 Ranked';
+                $gameType = '5 vs 5 </br>Ranked';
             }
             else if($gameQueue == 9 || $gameQueue == 41){
-                $gameType = '3 vs 3 Ranked';
+                $gameType = '3 vs 3 </br>Ranked';
             }
             else if($gameQueue == 52){
-                $gameType = '3 vs 3 AI';
+                $gameType = '3 vs 3 </br>AI';
             }
             else if($gameQueue == 72){
                 $gameType = '1 vs 1';

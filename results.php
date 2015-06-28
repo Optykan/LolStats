@@ -18,7 +18,7 @@
        <?php
         //$key = readfile("api.txt");
 
-            $ver="v0.113a";
+            $ver="v0.114a";
             
 
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -112,6 +112,17 @@
                 ${"championimg" . $i} = $champname['image']['full'];
             }
             
+            for($i=1; $i<=6; $i++){
+                ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
+                
+                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"ban" . $i}."?champData=image&api_key=".$key;
+                $champdata = file_get_contents($champnamejson);
+                $champname = json_decode($champdata, true);
+                
+                ${"banimg" . $i} = $champname['image']['full'];
+                
+            }
+            
         ?>
     </head>
     
@@ -158,14 +169,8 @@
             </div>
         
         </div>
-        <div class="container-fluid row bans">
-            <div class="banimg col-md-1">1</div>
-            <div class="banimg col-md-1">2</div>
-            <div class="banimg col-md-1">3</div>
+        <div class="container-fluid row">
             <div class="versus ro">VS</div>
-            <div class="banimg col-md-1">4</div>
-            <div class="banimg col-md-1">5</div>
-            <div class="banimg col-md-1">6</div>
         </div>
         
         <div class="container-fluid row team2">
@@ -184,7 +189,25 @@
                 
                
             ?>
-            <div class="col-md-2 ro time" id="time"></div>
+            <div class="col-md-2">
+                <div class="container">
+                    <div class="row">
+                    <?php 
+                        for($i=1;$i<=3;$i++){
+                            echo "<div class='banimg col-md-4'><img src='assets/square/${'banimg'.$i}'></img></div>";
+                        }
+                    ?>
+                    </div>
+                    <div class="row">
+                        <?php 
+                        for($i=4;$i<=6;$i++){
+                            echo "<div class='banimg col-md-4'><img src='assets/square/${'banimg'.$i}'></img></div>";
+                        }
+                    ?>
+                    </div>
+                </div>
+                <div class="ro time" id="time"></div>
+            </div>
             
         
         </div>

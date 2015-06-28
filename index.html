@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<title>what is happening</title>
+		<title>Lolstats (Ayy Lmao)</title>
 		<!-- FONTS -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
@@ -13,17 +13,20 @@
         <link ref="stylesheet" href="css/styles.css">
         
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 
     </head>
     <body>
-
-        <form action="results.php" method="post">
-        Name: <input type="text" name="inputname"><br>
-        <input type="submit">
-        </form>
-
-        
+		<div class="searchbox">
+        	<form action="results.php" method="post">
+        		Summoner Name: <input type="text" name="inputname" placeholder="Summoner Name" class="searchfield"><br>
+				<input type="submit" style="searchbutton">
+        	</form>
+		</div>
+        <!--Summoner Name: <input type="text" name="inputname"><br>
+		<Input class="searchbutton" type="submit">
+        -->
+			
 <!--        <script>
             function request(){
                 
@@ -59,6 +62,6 @@
         }
 
         </script>-->
-
+		<script> $.backstretch("assets/bg.jpg");</script>
     </body>
 </html>

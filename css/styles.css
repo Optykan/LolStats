@@ -150,3 +150,28 @@ body {
     width:100px;
     margin-bottom:30px;
 }
+.searchfield input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+.searchbutton:visited {
+    color: #222;
+    border-color: #f6c653 #bd6a23 #b6631f #e8ab4a;
+    background: #d79922 url("resources/images/lol-textures.jpg") no-repeat 50% -846px
+}
+
+.searchbutton:hover {
+    color: #222;
+    border-color: #fdeaba #bf712c #b66521 #edbd6e;
+    background-position: 50% -878px
+}
+
+.searchbutton:active {
+    color: #222;
+    border-color: #e1b03d #7f3517 #772d16 #c17f30;
+    background-position: 50% -911px
+}
+.searchbox {
+	background-color:white;
+}

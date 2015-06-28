@@ -170,7 +170,7 @@
         
         </div>
         <div class="container-fluid row">
-            <div class="versus ro" style="margin-left:<?php $versusmargin*200?>></div>VS</div>
+            <div class="versus ro" style="padding-left:<?php $versusmargin*200?>"></div>VS</div>
         </div>
         
         <div class="container-fluid row team2">

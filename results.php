@@ -135,16 +135,16 @@
             <div class="col-md-6 title">
                  <?php 
                             if($mapId == 11){
-                                echo "<p style='display:inline;'>SUMMONERS </br>RIFT</p>";
+                                echo "<p style='display:inline;'>SUMMONERS RIFT</p>";
                             }
                             else if($mapId == 12){
-                                echo "HOWLING </br>ABYSS";
+                                echo "HOWLING ABYSS";
                             }
                             else if($mapId == 10){
-                                echo "TWISTED </br>TREELINE";
+                                echo "TWISTED TREELINE";
                             }
                             else if($mapId == 8){
-                                echo "THE CRYSTAL </br>SCAR";
+                                echo "THE CRYSTAL SCAR";
                             }
                             else{
                                 echo "SUMMONER NOT FOUND";

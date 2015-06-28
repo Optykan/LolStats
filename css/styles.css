@@ -71,12 +71,12 @@ body {
     position:relative;
 }
 .summoner{
-    font-size:1.5em;
+    font-size:1em;
     text-align:center;
     padding-bottom:10px;
 }
 .champion{
-    font-size:2em;
+    font-size:1.5em;
     text-transform:uppercase;
     text-align:center;
     width:auto;
@@ -93,12 +93,12 @@ body {
     -webkit-transition: all 0.3s ease;
     -moz-transition:all 0.3s ease;
 }
-.dim:hover{
+/*.dim:hover{
     margin-top:-390px;
     -webkit-transition: all 0.3s ease;
     -moz-transition:all 0.3s ease;
 }
-    
+    */
 .time {
     font-size:5em;
     color:white;

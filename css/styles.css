@@ -58,18 +58,18 @@ body {
 .bans{
     margin-left:200px;
 }
-.team1 .name{
-    margin-top:-180px;
+.team .name{
+    margin-top:-150px;
     color:white;
     z-index:10;
     position:relative;
 }
-.team2 .name{
-    margin-top:-190px;
+/*.team2 .name{
+    margin-top:-150px;
     color:white;
     z-index:10;
     position:relative;
-}
+}*/
 .summoner{
     font-size:1em;
     text-align:center;

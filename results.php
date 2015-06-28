@@ -98,7 +98,7 @@
             }
 
 
-            $versusmargin = ($ppteam/2)*200+200;
+            $versusmargin = ($ppteam/2)*190+150;
  
             for($i=1; $i<=$players; $i++){
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
@@ -158,7 +158,7 @@
         </div>
 
         
-        <div class="container-fluid row team1">
+        <div class="container-fluid row team">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 champimg'>
@@ -179,7 +179,7 @@
             ?>
         </div>
         
-        <div class="container-fluid row team2">
+        <div class="container-fluid row team">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 champimg'>

@@ -163,7 +163,7 @@
         </div>
 
         
-        <div class="container-fluid row team">
+        <div class="container row team">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 champimg'>
@@ -196,7 +196,7 @@
             ?>
         </div>
         
-        <div class="container-fluid row team">
+        <div class="containerd row team">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 champimg'>

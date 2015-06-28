@@ -82,9 +82,6 @@ body {
 .bans{
     margin-left:200px;
 }
-.banimg{
-    width:150px;
-}
 .team1 .name{
     -webkit-backface-visibility: hidden; 
     -webkit-transform: skew(-5deg, 0);

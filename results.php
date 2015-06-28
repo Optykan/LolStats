@@ -98,7 +98,7 @@
             }
 
 
-              
+            $versusmargin = floor($ppteam/2);
  
             for($i=1; $i<=$players; $i++){
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
@@ -170,7 +170,7 @@
         
         </div>
         <div class="container-fluid row">
-            <div class="versus ro">VS</div>
+            <div class="versus ro" style="margin-left:<?php $versusmargin*200?>></div>VS</div>
         </div>
         
         <div class="container-fluid row team2">

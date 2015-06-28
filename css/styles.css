@@ -159,10 +159,14 @@ body {
   text-size:25px;
 }
 .searchbutton, .searchbutton:visited, .searchbutton:hover, .searchbutton:active {
-	font-size: 36px;
-	font-family: 'Oswald', sans-serif;
+	font-size: 18px;
+	font-family: 'Oswald', serif;
 	text-align:center;
 	display: inline-block;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:3px;
+	padding-bottom:3px;
 }
 /* It's not stealing if they don't catch you. Also, it's a sexy button. Don't judge me. */
 .searchbutton, .searchbutton:visited {

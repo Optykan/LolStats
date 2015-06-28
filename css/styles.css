@@ -197,12 +197,22 @@ body {
 	position:absolute;
 	right:25%;
 	top:25%;
+	padding:20px;
 }
 .searchbox {
 	
 }
+/* UHH MY BAD */
 .search {
 	width:40em;
 	margin:50px auto;
 	position:relative;
+	/* ON A SCALE FROM 1 TO EKKO'S BALANCE HOW HARD DI I FUCK UP EXACTLY? */
+}
+input {
+	width: 30em;
+	height:25px;
+	border: 2px solid white;
+	border-radius:3px;
+	margin-right:-5px;
 }

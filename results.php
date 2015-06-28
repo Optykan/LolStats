@@ -53,6 +53,8 @@
             $githubjson = file_get_contents($githuburl);
             $commitdata = json_decode($githubjson, true);
 
+            echo "<script>console.log('$commitdata')</script>";
+
             $commit = $commitdata[0]['commit']['author']['date'];
 
             echo "<script>console.log('$commit')</script>";
@@ -159,7 +161,7 @@
         <div class="container-fluid row" >
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
-        <div class="container-fluid row resultshead" style="margin-left:auto; margin-right:auto;">
+        <div class="container-fluid row resultshead" style="padding-left:auto; padding-right:auto;">
             <div class="col-md-5 title">
                  <?php 
                             if($mapId == 11){

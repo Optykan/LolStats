@@ -138,8 +138,7 @@ body {
     font-size:5em;
     color:white;
     padding-left:250px;
-    padding-top:250px;
-    
+    padding-top:50px;
 }
 
 .version {
@@ -149,4 +148,7 @@ body {
     font-size:2em;
     z-index:10;
     color:azure;
+}
+.banimg{
+    width:150px;
 }

@@ -18,7 +18,7 @@
        <?php
         //$key = readfile("api.txt");
 
-            $ver="v0.114a";
+            $ver="v0.115a";
             
 
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -190,7 +190,7 @@
                
             ?>
             <div class="col-md-2">
-                <div class="container">
+                <div class="container bans">
                     <div class="row">
                     <?php 
                         for($i=1;$i<=3;$i++){

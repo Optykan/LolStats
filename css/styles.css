@@ -30,6 +30,7 @@ body {
 
 .champimg {
     overflow: hidden;
+    left:50px;
     width:13em;
     height:20em;
     position: relative;
@@ -55,7 +56,7 @@ body {
     color:white;
 }
 .bans{
-    margin-left:200px;
+   /*nice style you got there*/
 }
 .team .name{
     margin-top:-150px;

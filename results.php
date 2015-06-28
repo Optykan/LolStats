@@ -159,7 +159,7 @@
         <div class="container row team1">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 skew'>
+                    echo "<div class='col-md-2'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
@@ -180,7 +180,7 @@
         <div class="container row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 skew2'>
+                    echo "<div class='col-md-2'>
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>

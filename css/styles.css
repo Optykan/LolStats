@@ -32,8 +32,8 @@ body {
     -moz-backface-visibility : hidden;
     -moz-transform: skew(5deg, 0);
     overflow: hidden;
-    width:15em;
-    height:25em;
+    width:13em;
+    height:20em;
     position: relative;
     left: 150px;
     margin-left:1em;
@@ -45,7 +45,7 @@ body {
     position:relative;
     left:-25px;
     top:-25px;
-    width:240px;
+    width:220px;
     
 }
 .skew2 {
@@ -54,8 +54,8 @@ body {
     -moz-backface-visibility : hidden;
     -moz-transform: skew(-5deg, 0);
     overflow: hidden;
-    width: 15em;
-    height:25em;
+    width: 13em;
+    height:20em;
     position: relative;
     left: 150px;
     margin-left:1em;
@@ -67,7 +67,7 @@ body {
     position:relative;
     left:-20px;
     top:-25px;
-    width:225px;
+    width:220px;
     
 }
 .team1 {

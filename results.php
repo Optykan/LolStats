@@ -19,7 +19,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.117a";
+            $ver="v0.118a";
             
             
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -145,8 +145,8 @@
         <div class="container-fluid row">
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
-        <div class="container-fluid-fluid row resultshead">
-            <div class="col-md-10 title">
+        <div class="container row resultshead">
+            <div class="col-md-8 title">
                  <?php 
                             if($mapId == 11){
                                 echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
@@ -164,11 +164,11 @@
                                 echo "SUMMONER NOT FOUND";
                             }
                     ?>
-                <span class="gametype"><?=$gameType?></span>
             </div>
             <div class="col-md-2">
                 <p class="ro time" id="time"></p>
             </div>
+            <div class="col-md-2"><span class="gametype"><?=$gameType?></span></div>
         </div>
 
         
@@ -200,9 +200,8 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid row"><?php
-            echo "<div class='versus ro' style='padding-left: ${'versusmargin'}px'>VS</div>";
-            ?>
+        <div class="container-fluid row">
+            <center><div class='versus ro'>VS</div></center>
         </div>
         
         <div class="container row team">

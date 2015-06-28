@@ -98,7 +98,7 @@
             }
 
 
-            $versusmargin = ($ppteam/2)*190+150;
+            $versusmargin = ($ppteam/2)*190+140;
  
             for($i=1; $i<=$players; $i++){
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
@@ -172,7 +172,21 @@
                     </div>";
                 }
             ?>
-        
+            <div class="col-md-2">
+                <div class="container-fluid bans">
+                    <div class="row">
+                        <?php 
+
+                        for($i=1;$i<=3;$i++){
+                            if(isset(${'banimg'.$i}{
+                                 echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                            }
+                           
+                        }
+                    ?>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container-fluid row"><?php
             echo "<div class='versus ro' style='padding-left: ${'versusmargin'}px'>VS</div>";
@@ -198,16 +212,11 @@
             <div class="col-md-2">
                 <div class="container-fluid bans">
                     <div class="row">
-                    <?php 
-                        for($i=1;$i<=3;$i++){
-                            echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
-                        }
-                    ?>
-                    </div>
-                    <div class="row">
                         <?php 
                         for($i=4;$i<=6;$i++){
-                            echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                            if(isset(${'banimg'.$i}{
+                                 echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                            }
                         }
                     ?>
                     </div>

@@ -12,7 +12,7 @@
 }
 .gametype{
     font-family: 'Roboto', sans-serif;
-    font-size:4em;
+    font-size:0.6em;
     color:white;
     padding-top:22px;
 }
@@ -101,7 +101,6 @@ body {
 .time {
     font-size:5em;
     color:white;
-    padding-left:250px;
     padding-top:20px;
 }
 

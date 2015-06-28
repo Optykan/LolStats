@@ -20,7 +20,7 @@
     font-size:5em;
     padding-top:20px;
     color:white;
-    padding-left:250px;
+    padding-left:5em;
 }
     
 body {
@@ -33,7 +33,7 @@ body {
     -moz-backface-visibility : hidden;
     -moz-transform: skew(5deg, 0);
     overflow: hidden;
-    width:13em;
+    width:15em;
     height:25em;
     position: relative;
     left: 150px;

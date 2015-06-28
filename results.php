@@ -128,11 +128,35 @@
     
     <body>
         <div class="ro version"><?=$ver?></div>
-        <div class="container-fluid row">
+        <div class="container row">
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
+        <div class="container row">
+            <div class="col-md-6 title">
+                 <?php 
+                            if($mapId == 11){
+                                echo "<p style='display:inline;'>SUMMONERS </br>RIFT</p>";
+                            }
+                            else if($mapId == 12){
+                                echo "HOWLING </br>ABYSS";
+                            }
+                            else if($mapId == 10){
+                                echo "TWISTED </br>TREELINE";
+                            }
+                            else if($mapId == 8){
+                                echo "THE CRYSTAL </br>SCAR";
+                            }
+                            else{
+                                echo "SUMMONER NOT FOUND";
+                            }
+                    ?>
+                    </br>
+            </div>
+            <div class="col-md-6"><p class="gametype"><?=$gameType?></p></div>
+        </div>
+
         
-        <div class="container-fluid row team1">
+        <div class="container row team1">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 skew'>
@@ -146,35 +170,14 @@
                     </div>";
                 }
             ?>
-            <div class="col-md-2 title">
-             <?php 
-                        if($mapId == 11){
-                            echo "<p style='display:inline;'>SUMMONERS </br>RIFT</p>";
-                        }
-                        else if($mapId == 12){
-                            echo "HOWLING </br>ABYSS";
-                        }
-                        else if($mapId == 10){
-                            echo "TWISTED </br>TREELINE";
-                        }
-                        else if($mapId == 8){
-                            echo "THE CRYSTAL </br>SCAR";
-                        }
-                        else{
-                            echo "SUMMONER NOT FOUND";
-                        }
-                ?>
-                </br>
-                <p class="gametype"><?=$gameType?></p>
-            </div>
         
         </div>
-        <div class="container-fluid row"><?php
+        <div class="container row"><?php
             echo "<div class='versus ro' style='padding-left: ${'versusmargin'}px'>VS</div>";
             ?>
         </div>
         
-        <div class="container-fluid row team2">
+        <div class="container row team2">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 skew2'>

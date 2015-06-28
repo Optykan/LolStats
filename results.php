@@ -142,7 +142,7 @@
     
     <body>
         <div class="ro version"><?=$ver?></div>
-        <div class="container-fluid row">
+        <div class="container-fluid row" style="margin-left:auto; margin-right:auto;">
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
         <div class="container row resultshead">

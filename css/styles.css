@@ -151,13 +151,14 @@ body {
     margin-bottom:30px;
 }
 /* Ryan's crap for the index, remove if needed im so sorry */
+/* My god form inputs and buttons and submits are so finnicky holy jesus christ these were a pain in the ass I hope you appreciate how difficult it is form someone dumb like me to pull this crap off */
 .searchfield input[type="text"] {
   padding: 10px;
   border: solid 1px #dcdcdc;
-  transition: box-shadow 0.3s, border 0.3s;
+  transition: shadow 0.3s, border 0.3s;
 }
 .searchbutton, .searchbutton:visited, .searchbutton:hover, .searchbutton:active {
-	font-size: .8em;
+	font-size: 1em;
 	font-family: Arial;
 	text-align:center;
 	display: inline-block;
@@ -181,4 +182,7 @@ body {
 	background-color:rgba(255, 255, 255, 0.5);
 	padding:25 25 25 25;
 	text-align:center;
+}
+.search {
+	
 }

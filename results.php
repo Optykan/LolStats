@@ -18,10 +18,10 @@
         
        <?php
         //$key = readfile("api.txt");
-
+        
             $ver="v0.117a";
             
-
+            
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
@@ -48,7 +48,16 @@
 
             $time = $match['gameLength'];
             echo "<script>console.log('$gameQueue');</script>";
+            
 
+
+/*
+            function pg_connection_string(){
+                return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";
+            }
+            $db = pg_connect(pg_connection_string());
+            $result = pg_query($db, "SELECT statement goes here");
+*/
 
             if($gameQueue == 2 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 7 || $gameQueue == 33 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 25 || $gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42 || $gameQueue == 61 || $gameQueue == 65 || $gameQueue == 70 || $gameQueue == 76 || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93 || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
                 $players = 10;
@@ -196,7 +205,7 @@
             ?>
         </div>
         
-        <div class="containerd row team">
+        <div class="container row team">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 champimg'>

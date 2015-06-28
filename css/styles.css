@@ -150,29 +150,35 @@ body {
     width:100px;
     margin-bottom:30px;
 }
+/* Ryan's crap for the index, remove if needed im so sorry */
 .searchfield input[type="text"] {
   padding: 10px;
   border: solid 1px #dcdcdc;
   transition: box-shadow 0.3s, border 0.3s;
 }
-.searchbutton:visited {
+.searchbutton, .searchbutton:visited, .searchbutton:hover, .searchbutton:active {
+	font-size: .8em;
+	font-family: Arial;
+	text-align:center;
+	display: inline-block;
+}
+.searchbutton, .searchbutton:visited {
     color: #222;
     border-color: #f6c653 #bd6a23 #b6631f #e8ab4a;
-    background: #d79922 url("resources/images/lol-textures.jpg") no-repeat 50% -846px
 }
 
 .searchbutton:hover {
     color: #222;
     border-color: #fdeaba #bf712c #b66521 #edbd6e;
-    background-position: 50% -878px
+	opacity:1 ;
 }
 
 .searchbutton:active {
     color: #222;
     border-color: #e1b03d #7f3517 #772d16 #c17f30;
-    background-position: 50% -911px
 }
-.searchbox {
-	background-color:white;
-	opacity: 50%;
+.searchcontainer {
+	background-color:rgba(255, 255, 255, 0.5);
+	padding:25 25 25 25;
+	text-align:center;
 }

@@ -42,7 +42,8 @@
             $gameQueue = $match['gameQueueConfigId'];
 
             $time = $match['gameLength'];
-            echo "<script>console.log('$time');</script>";
+            echo "<script>console.log('$gameQueue');</script>";
+
 
             if($gameQueue == 2 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 7 || $gameQueue == 33 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 25 || $gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42 || $gameQueue == 61 || $gameQueue == 65 || $gameQueue == 70 || $gameQueue == 76 || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93 || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
                 $players = 10;

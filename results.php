@@ -49,25 +49,15 @@
 
             $time = $match['gameLength'];
 
-/*
-            $githubjson = file_get_contents("https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b");
-echo "<script>console.log('$githubjson')</script>";
-            $commitdata = json_decode($githubjson, true);
-
-            echo "<script>console.log('$commitdata')</script>";
-
-            $commit = $commitdata['commit']['author']['date'];
-
-            echo "<script>console.log('$commit')</script>";
-
-            list($commitdate,$committime) = explode("T",$commit);
-            $commitformattime = preg_replace("Z","",$committime);
-            echo "<script>console.log('$committime')</script>";
-            echo "<script>console.log('$commitformattime')</script>";
+            $githuburl="https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
+            $gitdata=file_get_contents($githuburl);
+            $git = json_decode($gitdata, true);
+            $time = $git['commit']['author']['date'];
+            echo "<script>console.log('$time');</script>";
             
             
 
-*/
+
 
 /*
             function pg_connection_string(){
@@ -129,7 +119,7 @@ echo "<script>console.log('$githubjson')</script>";
             }
 
 
-            $versusmargin = ($ppteam/2)*190+50;
+            $versusmargin = ($ppteam/2)*190+40;
  
             for($i=1; $i<=$players; $i++){
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];

@@ -50,8 +50,8 @@
             $time = $match['gameLength'];
 
             $githuburl = "https://api.github.com/repos/Optykan/LolStats/commits?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
-            $githubjson = file_get_contents($jsonurl);
-            $commitdata = json_decode($json, true);
+            $githubjson = file_get_contents($githuburl);
+            $commitdata = json_decode($githubjson, true);
 
             $commit = $commitdata[0]['commit']['author']['date'];
 

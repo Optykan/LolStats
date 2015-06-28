@@ -168,7 +168,7 @@
             <div class="col-md-2">
                 <p class="ro time" id="time"></p>
             </div>
-            <div class="col-md-5"><span class="gametype"><?=$gameType?></span></div>
+            <div class="col-md-5 gametype"><?=$gameType?></div>
         </div>
 
         

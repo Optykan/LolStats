@@ -48,14 +48,16 @@
             $gameQueue = $match['gameQueueConfigId'];
 
             $time = $match['gameLength'];
-            echo "<script>console.log('$gameQueue');</script>";
 
             $githuburl = "https://api.github.com/repos/Optykan/LolStats/commits?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
             $githubjson = file_get_contents($jsonurl);
             $commitdata = json_decode($json, true);
 
             $commit = $commitdata[0]['commit']['author']['date'];
-            list($commitdate,$committime) = explode('T',$commit);
+
+            echo "<script>console.log('$commit')</script>";
+
+            list($commitdate,$committime) = explode("T",$commit);
             $commitformattime = preg_replace("Z","",$committime);
             echo "<script>console.log('$committime')</script>";
             echo "<script>console.log('$commitformattime')</script>";

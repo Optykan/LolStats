@@ -178,7 +178,7 @@
                         <?php 
 
                         for($i=1;$i<=3;$i++){
-                            if(isset(${'banimg'.$i}{
+                            if(isset(${'banimg'.$i})){
                                  echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                             }
                            

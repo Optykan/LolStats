@@ -14,6 +14,7 @@
     width:300px;
     font-family: 'Roboto', sans-serif;
     font-size:4em;
+    color:white;
 }
 .title{
     font-family: 'Oswald', sans-serif;
@@ -214,4 +215,7 @@ input {
 	border: 2px solid white;
 	border-radius:3px;
 	margin-right:-5px;
+}
+.resultshead {
+    margin-left:100px;
 }

@@ -131,7 +131,7 @@
         <div class="container row">
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
-        <div class="container-fluid row">
+        <div class="container-fluid row resultshead">
             <div class="col-md-6 title">
                  <?php 
                             if($mapId == 11){

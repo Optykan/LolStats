@@ -306,8 +306,16 @@
                 if(h<10){
                     h = "0"+h;
                 }
+                if(uh<10){
+                    uh="0"+h;
+                }
+                if(um<10){
+                    um="0"+um;
+                }
                 var utctime= uh+um+"00";
+                console.log(utctime);
                 var formattedtime=h+m+"00";
+                console.log(formattedtime);
                 if(formattedtime>utctime){
                     console.log("build in progress");
                 }

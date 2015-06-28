@@ -135,7 +135,7 @@
             <div class="col-md-10 title">
                  <?php 
                             if($mapId == 11){
-                                echo "SUMMONERS RIFT";
+                                echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
                             }
                             else if($mapId == 12){
                                 echo "HOWLING ABYSS";
@@ -150,7 +150,7 @@
                                 echo "SUMMONER NOT FOUND";
                             }
                     ?>
-                <p class="gametype"><?=$gameType?></p>
+                <span class="gametype"><?=$gameType?></span>
             </div>
             <div class="col-md-2">
                 <p class="ro time" id="time"></p>

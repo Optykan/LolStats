@@ -3,6 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
+        
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -69,8 +70,11 @@
             if($gameQueue == 0){
                $gameType = 'Custom';
             }
-            else if($gameQueue == 2 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 65 || $gameQueue == 61 || $gameQueue == 70  || $gameQueue == 76  || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
+            else if($gameQueue == 2 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 65 || $gameQueue == 61 || $gameQueue == 70  || $gameQueue == 76  || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
                 $gameType = '5 vs 5 Unranked';
+            }
+            else if($gameQueue == 14){
+                $gameType = '5 vs 5 Draft';
             }
             else if($gameQueue == 7  || $gameQueue == 25 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 33  || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93){
                 $gameType = '5 vs 5 AI';
@@ -124,6 +128,7 @@
             }
             
         ?>
+        <title>Current Game Info for: <?=$name?></title>
     </head>
     
     <body>
@@ -174,17 +179,15 @@
             ?>
             <div class="col-md-2">
                 <div class="container-fluid bans">
-                    <div class="row">
                         <?php 
 
                         for($i=1;$i<=3;$i++){
                             if(isset(${'banimg'.$i})){
-                                 echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                             }
                            
                         }
                     ?>
-                    </div>
                 </div>
             </div>
         </div>
@@ -211,15 +214,13 @@
             ?>
             <div class="col-md-2">
                 <div class="container-fluid bans">
-                    <div class="row">
                         <?php 
                         for($i=4;$i<=6;$i++){
                             if(isset(${'banimg'.$i})){
-                                 echo "<div class='col-md-2'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                             }
                         }
                     ?>
-                    </div>
                 </div>
             </div>
             

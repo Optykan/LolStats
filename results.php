@@ -17,6 +17,10 @@
         
        <?php
         //$key = readfile("api.txt");
+
+            $ver="v0.113a";
+            
+
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
@@ -77,7 +81,7 @@
             else if($gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42){
                 $gameType = '5 vs 5 Ranked';
             }
-            else if($gameQueue == 9){
+            else if($gameQueue == 9 || $gameQueue == 41){
                 $gameType = '3 vs 3 Ranked';
             }
             else if($gameQueue == 52){
@@ -112,7 +116,7 @@
     </head>
     
     <body>
-        <div class="ro version">v0.112a</div>
+        <div class="ro version"><?=$ver?></div>
         <div class="container-fluid row">
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>

@@ -18,7 +18,7 @@
        <?php
         //$key = readfile("api.txt");
 
-            $ver="v0.115a";
+            $ver="v0.117a";
             
 
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -150,7 +150,6 @@
                                 echo "SUMMONER NOT FOUND";
                             }
                     ?>
-                    </br>
                 <p class="gametype"><?=$gameType?></p>
             </div>
             <div class="col-md-2">

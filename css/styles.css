@@ -42,7 +42,7 @@ body {
     position:relative;
     left:-25px;
     top:-25px;
-    width:220px;
+    width:190px;
     
 }
 
@@ -58,13 +58,13 @@ body {
     margin-left:200px;
 }
 .team1 .name{
-    margin-top:-200px;
+    margin-top:-180px;
     color:white;
     z-index:10;
     position:relative;
 }
 .team2 .name{
-    margin-top:-230px;
+    margin-top:-190px;
     color:white;
     z-index:10;
     position:relative;
@@ -84,7 +84,7 @@ body {
     background-color:rgba(0,0,0,0.7);
     height:400px;
     /*margin-top:-120px;*/
-    margin-top:-390px;
+    margin-top:-300px;
     z-index:9;
     width:225px;
     margin-left:-20px;

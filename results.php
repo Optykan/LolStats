@@ -98,8 +98,7 @@
             }
 
 
-            $versusmargin = floor($ppteam/2);
-            $versusmargin = $versusmargin*200;
+            $versusmargin = ($ppteam/2)*200;
  
             for($i=1; $i<=$players; $i++){
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];

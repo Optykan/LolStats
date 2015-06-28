@@ -33,8 +33,8 @@ body {
     -moz-backface-visibility : hidden;
     -moz-transform: skew(5deg, 0);
     overflow: hidden;
-    width: 225px;
-    height: 375px;
+    width:13em;
+    height:25em;
     position: relative;
     left: 150px;
     margin-left:1em;
@@ -55,8 +55,8 @@ body {
     -moz-backface-visibility : hidden;
     -moz-transform: skew(-5deg, 0);
     overflow: hidden;
-    width: 225px;
-    height: 375px;;
+    width: 13em;
+    height:25em;
     position: relative;
     left: 150px;
     margin-left:1em;

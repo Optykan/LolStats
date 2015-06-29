@@ -138,7 +138,7 @@
     </head>
     
     <body>
-        <div class="build">Build in progress</div>
+        <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
         <div class="ro version"><?=$ver?></div>
         <div class="container-fluid row" >
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
@@ -317,7 +317,7 @@
                 var utctime= uh+":"+um+":"+"00";
                 var formattedtime=h+":"+m+":"+"00";
                 if(formattedtime>utctime){
-                    console.log("build in progress");
+                    document.getElementById("build").style.opacity="1";
                 }
                 
             });

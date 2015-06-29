@@ -28,12 +28,12 @@
     font-family: 'Roboto', sans-serif;
 }
 .gametype{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size:5em;
     color:white;
-    padding-top:25px;
-    padding-left:10px;
+    padding-top:20px;
     text-align:left;
+    text-transform:uppercase;
 }
 .title{
     font-family: 'Oswald', sans-serif;

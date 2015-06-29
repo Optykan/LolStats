@@ -197,3 +197,10 @@ input {
 .container-fluid {
     
 }
+
+.build {
+    position:fixed;
+    top:10px;
+    right:10px;
+    background-color:rgba(255,0,0,0.7);
+}

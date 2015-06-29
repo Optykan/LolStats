@@ -138,6 +138,7 @@
     </head>
     
     <body>
+        <div class="build">Build in progress</div>
         <div class="ro version"><?=$ver?></div>
         <div class="container-fluid row" >
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
@@ -289,7 +290,6 @@
                 var time1 = time[1].replace("Z","");
                
                 var time2 = time1.split(":");
-                console.log(time2);
                 var h=time2[0];
                 var m=time2[1];
                 var d = new Date();
@@ -315,9 +315,7 @@
                     um="0"+um;
                 }
                 var utctime= uh+":"+um+":"+"00";
-                console.log(utctime);
                 var formattedtime=h+":"+m+":"+"00";
-                console.log(formattedtime);
                 if(formattedtime>utctime){
                     console.log("build in progress");
                 }

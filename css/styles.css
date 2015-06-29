@@ -204,5 +204,6 @@ input {
 	margin-right:-5px;
 }
 .resultshead {
-    margin-left:100px;
+    margin-left:auto;
+    margin-right:auto;
 }

@@ -19,7 +19,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.118a";
+            $ver="v0.119a";
             
             
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -143,7 +143,7 @@
         <div class="container-fluid row" >
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
-        <div class="container-fluid row resultshead" style="padding-left:auto; padding-right:auto;">
+        <div class="container row resultshead">
             <div class="col-md-5 title">
                  <?php 
                             if($mapId == 11){

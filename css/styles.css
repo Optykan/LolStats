@@ -1,3 +1,20 @@
+
+.build {
+    position:fixed;
+    top:10px;
+    right:10px;
+    background-color:rgba(255,0,0,0.7);
+    font-size:1.2em;
+    padding-right:1em;
+    padding-left:1em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    border-radius:15px;
+    opacity:0;
+    -webkit-transition:all 0.4s linear;
+    -moz-transition:all 0.4s linear;
+    
+}
 .splash{
     
 }
@@ -188,29 +205,4 @@ input {
 }
 .resultshead {
     margin-left:100px;
-}
-
-.container {
-    
-}
-
-.container-fluid {
-    
-}
-
-.build {
-    position:fixed;
-    top:10px;
-    right:10px;
-    background-color:rgba(255,0,0,0.7);
-    font-size:1.2em;
-    padding-right:1em;
-    padding-left:1em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    border-radius:15px;
-    opacity:0;
-    -webkit-transition:all 0.4s linear;
-    -moz-transition:all 0.4s linear;
-    
 }

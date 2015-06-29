@@ -33,12 +33,14 @@
     color:white;
     padding-top:25px;
     padding-left:10px;
+    text-align:left;
 }
 .title{
     font-family: 'Oswald', sans-serif;
     font-size:5em;
     padding-top:20px;
     color:white;
+    text-align:right;
 }
     
 body {
@@ -123,6 +125,7 @@ body {
     font-size:5em;
     color:white;
     padding-top:20px;
+    text-align:center;
 }
 
 .version {
@@ -204,6 +207,7 @@ input {
 	margin-right:-5px;
 }
 .resultshead {
-    margin-left:auto;
-    margin-right:auto;
+    padding-left:auto;
+    padding-right:auto;
+    width:100%;
 }

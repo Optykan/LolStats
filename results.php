@@ -26,7 +26,7 @@
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
 
-            $name = $_POST['inputname'];
+            $name = $_GET['inputname'];
             $name = preg_replace('/\s+/', '', $name);
             $name = strtolower($name);
 
@@ -143,7 +143,7 @@
         <div class="container-fluid row" >
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
-        <div class="container-fluid row resultshead">
+        <div class="row resultshead">
             <div class="col-md-5 title">
                  <?php 
                             if($mapId == 11){

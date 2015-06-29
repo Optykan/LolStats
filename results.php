@@ -170,7 +170,7 @@
         </div>
 
         
-        <div class="container row team">
+        <div class="container row team" style='<?php $ppteam*180+"px"?>'>
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 champimg'>
@@ -199,6 +199,7 @@
             </div>
         </div>
         <div class="container-fluid row">
+            
             <center><div class='versus ro'>VS</div></center>
         </div>
         

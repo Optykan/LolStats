@@ -298,6 +298,8 @@
                 var um = d.getUTCMinutes();
                 m=parseInt(m);
                 h=parseInt(h);
+                um=parseInt(um);
+                uh=parseInt(uh);
                 m=m+2;
                 if(m>59){
                     m=m-59;

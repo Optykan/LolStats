@@ -170,7 +170,7 @@
         </div>
 
         
-        <div class="container row team" style='<?php $ppteam*180+"px"?>'>
+        <div class="container row team" style='width:<?php $ppteam*180+"px"?>'>
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 champimg'>
@@ -317,6 +317,8 @@
                 }
                 var utctime= uh+":"+um+":"+"00";
                 var formattedtime=h+":"+m+":"+"00";
+                console.log("UTC: " +utctime);
+                console.log("LAST BUILD: "+formattedtime);
                 if(formattedtime>utctime){
                     document.getElementById("build").style.opacity="1";
                 }

@@ -170,7 +170,7 @@
         </div>
 
         
-        <div class="container row team" style='width:<?php echo $ppteam*200+150;?>px'>
+        <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 champimg'>
@@ -203,7 +203,7 @@
             <center><div class='versus ro'>VS</div></center>
         </div>
         
-        <div class="container row team">
+        <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 champimg'>
@@ -312,7 +312,7 @@
                     h = "0"+h;
                 }
                 if(uh<10){
-                    uh="0"+h;
+                    uh="0"+uh;
                 }
                 if(um<10){
                     um="0"+um;

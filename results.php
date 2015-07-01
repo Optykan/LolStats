@@ -51,7 +51,8 @@
             $time = $match['gameLength'];
 
             $after = microtime(true);
-            echo "<script>console.log('$after-$before');</script>";
+            $debug=date("H:i:s",$after-$before);
+            echo "<script>console.log('$debug');</script>";
 /*
             function pg_connection_string(){
                 return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";

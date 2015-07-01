@@ -282,7 +282,7 @@
             }
         }
     </script>-->
-      <script>
+<!--      <script>
             var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
 
             $.getJSON(gitAPI, function (json) {
@@ -326,6 +326,6 @@
                 }
                 
             });
-        </script>
+        </script>-->
     </body>
 </html>

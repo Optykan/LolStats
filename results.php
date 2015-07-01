@@ -198,9 +198,9 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid row">
+        <div class="container row versus">
             
-            <center><div class='versus ro'>VS</div></center>
+        <div class='ro'>VS</div>
         </div>
         
         <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>

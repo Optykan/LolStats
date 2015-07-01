@@ -1,13 +1,234 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en-US">
+
     <head>
-            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+        <meta charset="UTF-8">
+        
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-           <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-                <link href="css/styles.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+               <title>Current Game Info for: netfx</title>
     </head>
-<body>
-<div class="build os"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
-        </body>
-        </html>
+    
+    <body>
+        <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
+        <div class="ro version">v0.119a</div>
+        <div class="container-fluid row" >
+            <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
+        </div>
+        <div class="container-fluid row resultshead">
+            <div class="col-md-5 title">
+                 SUMMONERS RIF<span style='padding-left:3px'></span>T            </div>
+            <div class="col-md-2">
+                <p class="ro time" id="time"></p>
+            </div>
+            <div class="col-md-5 gametype">5 vs 5 Unranked</div>
+        </div>
+
+        <div class="container row team" style='width:1250px;'>
+        <div class='col-md-2 stats do' style='color:white; background-color:black;'><img src="/assets/spells/SummonerBarrier.png">SILVER IV</div>
+        </div>
+        <div class="container row team" style='width:1250px'>
+            
+            <div class='col-md-2 champimg'>
+                
+                        <img src='assets/splash/RekSai.png'></img>
+                        
+                        <div class='name' onmouseover='info(1,1)' onmouseout='info(1,0)'>
+                            
+                        <p class='ro champion'>Rek'Sai</p>
+                        <p class='ro summoner'>MonteCrispo</p>
+                        </div>
+                        <div class='dim' id='1' onmouseover='info(1,1)' onmouseout='info(1,0)'></div>
+                    </div><div class='col-md-2 champimg'>
+                        <img src='assets/splash/Heimerdinger.png'></img>
+                        
+                        <div class='name' onmouseover='info(2,1)' onmouseout='info(2,0)'>
+                        <p class='ro champion'>Heimerdinger</p>
+                        <p class='ro summoner'>Arcticker</p>
+                        </div>
+                        <div class='dim' id='2' onmouseover='info(2,1)' onmouseout='info(2,0)'></div>
+                    </div><div class='col-md-2 champimg'>
+                        <img src='assets/splash/Thresh.png'></img>
+                        
+                        <div class='name' onmouseover='info(3,1)' onmouseout='info(3,0)'>
+                        <p class='ro champion'>Thresh</p>
+                        <p class='ro summoner'>netFX</p>
+                        </div>
+                        <div class='dim' id='3' onmouseover='info(3,1)' onmouseout='info(3,0)'></div>
+                    </div><div class='col-md-2 champimg'>
+                        <img src='assets/splash/Lucian.png'></img>
+                        
+                        <div class='name' onmouseover='info(4,1)' onmouseout='info(4,0)'>
+                        <p class='ro champion'>Lucian</p>
+                        <p class='ro summoner'>ashvin52</p>
+                        </div>
+                        <div class='dim' id='4' onmouseover='info(4,1)' onmouseout='info(4,0)'></div>
+                    </div><div class='col-md-2 champimg'>
+                        <img src='assets/splash/Darius.png'></img>
+                        
+                        <div class='name' onmouseover='info(5,1)' onmouseout='info(5,0)'>
+                        <p class='ro champion'>Darius</p>
+                        <p class='ro summoner'>yomanpwnage</p>
+                        </div>
+                        <div class='dim' id='5' onmouseover='info(5,1)' onmouseout='info(5,0)'></div>
+                    </div>            <div class="col-md-2">
+                <div class="container-fluid bans">
+                                        </div>
+            </div>
+        </div>
+        <div class="container row versus">
+            
+        <div class='ro'>VS</div>
+        </div>
+        
+        <div class="container row team" style='width:1250px'>
+            <div class='col-md-2 champimg'>
+                        <img src='assets/splash/Heimerdinger.png'></img>
+                        
+                        <div class='name' onmouseover='info(6,1)' onmouseout='info(6,0)'>
+                        <p class='ro champion'>Heimerdinger</p>
+                        <p class='ro summoner'>Renae </p>
+                        </div>
+                        <div class='dim' id='6' onmouseover='info(6,1)' onmouseout='info(6,0)'></div>
+                    </div><div class='col-md-2 champimg'>
+                        <img src='assets/splash/Caitlyn.png'></img>
+                        
+                        <div class='name' onmouseover='info(7,1)' onmouseout='info(7,0)'>
+                        <p class='ro champion'>Caitlyn</p>
+                        <p class='ro summoner'>SDS Hawk</p>
+                        </div>
+                        <div class='dim' id='7' onmouseover='info(7,1)' onmouseout='info(7,0)'></div>
+                    </div><div class='col-md-2 champimg'>
+                        <img src='assets/splash/Aatrox.png'></img>
+                        
+                        <div class='name' onmouseover='info(8,1)' onmouseout='info(8,0)'>
+                        <p class='ro champion'>Aatrox</p>
+                        <p class='ro summoner'>SDS King</p>
+                        </div>
+                        <div class='dim' id='8' onmouseover='info(8,1)' onmouseout='info(8,0)'></div>
+                    </div><div class='col-md-2 champimg'>
+                        <img src='assets/splash/Tryndamere.png'></img>
+                        
+                        <div class='name' onmouseover='info(9,1)' onmouseout='info(9,0)'>
+                        <p class='ro champion'>Tryndamere</p>
+                        <p class='ro summoner'>Comrade Markov</p>
+                        </div>
+                        <div class='dim' id='9' onmouseover='info(9,1)' onmouseout='info(9,0)'></div>
+                    </div><div class='col-md-2 champimg'>
+                        <img src='assets/splash/Thresh.png'></img>
+                        
+                        <div class='name' onmouseover='info(10,1)' onmouseout='info(10,0)'>
+                        <p class='ro champion'>Thresh</p>
+                        <p class='ro summoner'>SDS Meliodas</p>
+                        </div>
+                        <div class='dim' id='10' onmouseover='info(10,1)' onmouseout='info(10,0)'></div>
+                    </div>            <div class="col-md-2">
+                <div class="container-fluid bans">
+                                        </div>
+            </div>
+            
+        
+        </div>
+            <script>
+                var time=0;
+                time=time+180;
+                    setInterval(function(){
+                    document.getElementById('time').innerHTML=SecondsToHMS(time);
+                    time=time+1;
+                    },1000);
+            </script>
+    <script>
+     function SecondsToHMS(d) {
+        d = Number(d);
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+        var min = format(m);
+        var sec = format(s);
+        val = min + ':' + sec;
+        return val;
+        }
+
+        function format(num)
+        {
+        if (num > 0){
+           if (num >= 10)
+             val = num;
+            else
+             val = '0' + num;
+        }
+        else
+          val = '00';
+
+        return val;
+        }
+    </script>
+    <script> $.backstretch("assets/bg.jpg");</script>
+<!--    <script>
+        function info(splashid, i){
+            if(i===1){
+                console.log(i);
+                document.getElementById(splashid).style.marginTop = "-380px";
+            }
+            else{
+                console.log('out');
+                document.getElementById(splashid).style.marginTop = "-120px";
+            }
+        }
+    </script>-->
+<!--      <script>
+            var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
+
+            $.getJSON(gitAPI, function (json) {
+                var commit = json.commit.author.date;
+                var time = commit.split("T");
+                var time1 = time[1].replace("Z","");
+               
+                var time2 = time1.split(":");
+                var h=time2[0];
+                var m=time2[1];
+                var d = new Date();
+                var uh = d.getUTCHours();
+                var um = d.getUTCMinutes();
+                m=parseInt(m);
+                h=parseInt(h);
+                um=parseInt(um);
+                uh=parseInt(uh);
+                m=m+2;
+                if(m>59){
+                    m=m-59;
+                    h=h+1;
+                }
+                if(m<10){
+                    m = "0"+m;
+                }
+                if(h<10){
+                    h = "0"+h;
+                }
+                if(uh<10){
+                    uh="0"+uh;
+                }
+                if(um<10){
+                    um="0"+um;
+                }
+                var utctime= uh+":"+um+":"+"00";
+                var formattedtime=h+":"+m+":"+"00";
+                console.log("UTC: " +utctime);
+                console.log("LAST BUILD: "+formattedtime);
+                if(formattedtime>utctime){
+                    document.getElementById("build").style.opacity="1";
+                }
+                
+            });
+        </script>-->
+    </body>
+</html>

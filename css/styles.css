@@ -212,3 +212,23 @@ input {
     padding-right:auto;
     width:100%;
 }
+
+.stats {
+    overflow: hidden;
+    left:50px;
+    width:13em;
+    position: relative;
+    margin-left:1em;
+    border-top:3px #111 solid;
+    border-right:3px #111 solid;
+    border-left:3px #111 solid;
+    box-shadow: 10px 10px 7px rgba(0,0,0,0.5);
+    background-color:black;
+    color:white;
+    padding-left:0px;
+    
+        
+}
+.stats img{
+    width:32px;
+}

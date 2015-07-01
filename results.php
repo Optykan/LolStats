@@ -19,7 +19,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.119a";
+            $ver="v0.120a";
             
             
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -56,51 +56,51 @@
             $result = pg_query($db, "SELECT statement goes here");
 */
 
-            if($gameQueue == 2 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 7 || $gameQueue == 33 || $gameQueue == 14 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 25 || $gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42 || $gameQueue == 61 || $gameQueue == 65 || $gameQueue == 70 || $gameQueue == 76 || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93 || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
+            if($gameQueue === 2 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 7 || $gameQueue === 33 || $gameQueue === 14 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 25 || $gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42 || $gameQueue === 61 || $gameQueue === 65 || $gameQueue === 70 || $gameQueue === 76 || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93 || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
                 $players = 10;
                 $ppteam = 5;
             }
-            else if($gameQueue == 8 || $gameQueue == 9 || $gameQueue == 41 || $gameQueue == 52){
+            else if($gameQueue === 8 || $gameQueue === 9 || $gameQueue === 41 || $gameQueue === 52){
                 $players=6;
                 $ppteam=3;
             }
-            else if($gameQueue == 72){
+            else if($gameQueue === 72){
                 $players=2;
                 $ppteam=1;
             }
-            else if($gameQueue == 73){
+            else if($gameQueue === 73){
                 $players=4;
                 $ppteam=2;
             }
                 
-            if($gameQueue == 0){
+            if($gameQueue === 0){
                $gameType = 'Custom';
             }
-            else if($gameQueue == 2 || $gameQueue == 16 || $gameQueue == 17 || $gameQueue == 65 || $gameQueue == 61 || $gameQueue == 70  || $gameQueue == 76  || $gameQueue == 96 || $gameQueue == 300 || $gameQueue == 310){
+            else if($gameQueue === 2 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 65 || $gameQueue === 61 || $gameQueue === 70  || $gameQueue === 76  || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
                 $gameType = '5 vs 5 Unranked';
             }
-            else if($gameQueue == 14){
+            else if($gameQueue === 14){
                 $gameType = '5 vs 5 Draft';
             }
-            else if($gameQueue == 7  || $gameQueue == 25 || $gameQueue == 31 || $gameQueue == 32 || $gameQueue == 33  || $gameQueue == 83 || $gameQueue == 91 || $gameQueue == 92 || $gameQueue == 93){
+            else if($gameQueue === 7  || $gameQueue === 25 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 33  || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93){
                 $gameType = '5 vs 5 AI';
             }
-            else if($gameQueue == 8){
+            else if($gameQueue === 8){
                 $gameType = '3 vs 3 Unranked';
             }
-            else if($gameQueue == 4 || $gameQueue == 6 || $gameQueue == 42){
+            else if($gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42){
                 $gameType = '5 vs 5 Ranked';
             }
-            else if($gameQueue == 9 || $gameQueue == 41){
+            else if($gameQueue === 9 || $gameQueue === 41){
                 $gameType = '3 vs 3 Ranked';
             }
-            else if($gameQueue == 52){
+            else if($gameQueue === 52){
                 $gameType = '3 vs 3 AI';
             }
-            else if($gameQueue == 72){
+            else if($gameQueue === 72){
                 $gameType = '1 vs 1';
             }
-            else if($gameQueue == 73){
+            else if($gameQueue === 73){
                 $gameType = '2 vs 2';
             }
             else{
@@ -160,16 +160,16 @@
         <div class="container-fluid row resultshead">
             <div class="col-md-5 title">
                  <?php 
-                            if($mapId == 11){
+                            if($mapId === 11){
                                 echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
                             }
-                            else if($mapId == 12){
+                            else if($mapId === 12){
                                 echo "HOWLING ABYSS";
                             }
-                            else if($mapId == 10){
+                            else if($mapId === 10){
                                 echo "TWISTED TREELINE";
                             }
-                            else if($mapId == 8){
+                            else if($mapId === 8){
                                 echo "THE CRYSTAL SCAR";
                             }
                             else{
@@ -286,7 +286,7 @@
     <script> $.backstretch("assets/bg.jpg");</script>
 <!--    <script>
         function info(splashid, i){
-            if(i===1){
+            if(i====1){
                 console.log(i);
                 document.getElementById(splashid).style.marginTop = "-380px";
             }

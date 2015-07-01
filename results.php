@@ -31,6 +31,7 @@
             $name = strtolower($name);
 
             //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/netfx?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
+            $before = microtime(true);
 
             $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
             
@@ -48,6 +49,9 @@
             $gameQueue = $match['gameQueueConfigId'];
 
             $time = $match['gameLength'];
+
+            $after = microtime(true);
+            echo "<script>console.log('$after-$before');</script>";
 /*
             function pg_connection_string(){
                 return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";

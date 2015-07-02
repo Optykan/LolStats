@@ -191,7 +191,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'1img'}'/></div>";
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/></div>";
                 }
             ?>
         
@@ -231,7 +231,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=$ppteam+1; $i<=$ppteam*2; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'1img'}'/></div>";
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/></div>";
                 }
             ?>
         

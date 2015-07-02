@@ -81,6 +81,10 @@ body {
    margin-left:75px;
     margin-top:25px;
 }
+.bans img:nth-child(2){
+    position:absolute;
+    right:0px;
+}
 .team .name{
     margin-top:-150px;
     color:white;

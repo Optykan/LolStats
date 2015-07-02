@@ -215,7 +215,7 @@
                         <?php 
 
                         for($i=1;$i<=3;$i++){
-                            if(isset(${'banimg'.$i})){
+                            if(${'banimg'.$i}!='.png'){
                                  echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                             }
                            

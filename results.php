@@ -191,7 +191,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='/assets/spells/${'champspell'.$i.'1img'}'/><img src='/assets/spells/${'champspell'.$i.'1img'}'/></div>";
+                    echo "<div class='col-md-2 stats do'><img src='/assets/spells/${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'1img'}'/></div>";
                 }
             ?>
         
@@ -228,10 +228,10 @@
             
         <div class='ro'>VS</div>
         </div>
-        <adiv class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
+        <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=$ppteam; $i<=$ppteam*2; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='/assets/spells/${'champspell'.$i.'1img'}'/><img src='/assets/spells/${'champspell'.$i.'1img'}'/></div>";
+                    echo "<div class='col-md-2 stats do'><img src='/assets/spells/${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'1img'}'/></div>";
                 }
             ?>
         
@@ -256,7 +256,7 @@
                 <div class="container-fluid bans">
                         <?php 
                         for($i=4;$i<=6;$i++){
-                            if(isset(${'banimg'.$i})){
+                            if(${'banimg'.$i}!='.png'){
                                  echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                             }
                         }

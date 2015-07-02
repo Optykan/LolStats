@@ -31,7 +31,6 @@
             $name = strtolower($name);
 
             //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/netfx?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
-            $before = microtime(true);
 
             $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
             
@@ -110,13 +109,12 @@
                 $gameType = 'Map Undefined';
             }
 
-            $after = microtime(true);
-            $debug=date("H:i:s",$after-$before);
-            echo "<script>console.log('$debug');</script>";
             $versusmargin = ($ppteam/2)*190+40;
 
             //SUMMONER DATA
             for($i=1; $i<=$players; $i++){
+                $before = microtime(true);
+                
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                 ${"championId" . $i} = $match['participants'][$i-1]['championId'];
                 ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
@@ -140,6 +138,10 @@
 
                 ${"champion" . $i} = $champname['name'];
                 ${"championimg" . $i} = $champname['image']['full'];
+
+                $after = microtime(true);
+                $debug=date("H:i:s",$after-$before);
+                echo "<script>console.log('$debug');</script>";
             }
             //BANS
             for($i=1; $i<=6; $i++){

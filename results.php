@@ -19,7 +19,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.120a";
+            $ver="v0.121a";
             
             
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -120,18 +120,16 @@
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                 ${"championId" . $i} = $match['participants'][$i-1]['championId'];
 
-                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"championId" . $i}."?champData=image&api_key=".$key;
-                $champdata = file_get_contents($champnamejson);
+                $champdata = file_get_contents("champions.json");
                 $champname = json_decode($champdata, true);
 
-                ${"champion" . $i} = $champname['name'];
-                ${"championimg" . $i} = $champname['image']['full'];
+                ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
+                ${"championimg" . $i} = $champname[${'championId'.$i}]['key'];
                 
                 ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
                 ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
                 
                 $spelldata = file_get_contents("spells.json");
-                
                 $spells = json_decode($spelldata,true);
                 
                 ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
@@ -147,11 +145,10 @@
             for($i=1; $i<=6; $i++){
                 ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
                 
-                $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"ban" . $i}."?champData=image&api_key=".$key;
-                $champdata = file_get_contents($champnamejson);
+                $champdata = file_get_contents("champions.json");
                 $champname = json_decode($champdata, true);
                 
-                ${"banimg" . $i} = $champname['image']['full'];
+                ${"banimg" . $i} = $champname[${'ban'.$i}]['key'];
                 
             }
             

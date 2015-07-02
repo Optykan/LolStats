@@ -124,7 +124,7 @@
                 $champname = json_decode($champdata, true);
 
                 ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
-                ${"championimg" . $i} = $champname[${'championId'.$i}]['key'];
+                ${"championimg" . $i} = $champname[${'championId'.$i}]['key'].".png";
                 
                 ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
                 ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
@@ -209,7 +209,7 @@
 
                         for($i=1;$i<=3;$i++){
                             if(isset(${'banimg'.$i})){
-                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}.png'></img></div>";
+                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                             }
                            
                         }
@@ -289,18 +289,18 @@
         }
     </script>
     <script> $.backstretch("assets/bg.jpg");</script>
-<!--    <script>
+  <script>
         function info(splashid, i){
-            if(i====1){
+/*            if(i====1){
                 console.log(i);
                 document.getElementById(splashid).style.marginTop = "-380px";
             }
             else{
                 console.log('out');
                 document.getElementById(splashid).style.marginTop = "-120px";
-            }
+            }*/
         }
-    </script>-->
+    </script>
 <!--      <script>
             var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
 

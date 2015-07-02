@@ -81,10 +81,7 @@ body {
    margin-left:75px;
     margin-top:25px;
 }
-.bans img:nth-child(2){
-    position:absolute;
-    right:0px;
-}
+
 .team .name{
     margin-top:-150px;
     color:white;
@@ -235,4 +232,8 @@ input {
 }
 .stats img{
     width:32px;
+}
+.stats img:nth-child(2){
+    position:absolute;
+    right:0px;
 }

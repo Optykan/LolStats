@@ -111,9 +111,11 @@
 
             $versusmargin = ($ppteam/2)*190+40;
 
+            $before = microtime(true);
+
             //SUMMONER DATA
             for($i=1; $i<=$players; $i++){
-                $before = microtime(true);
+                
                 
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                 ${"championId" . $i} = $match['participants'][$i-1]['championId'];
@@ -139,10 +141,12 @@
                 ${"champion" . $i} = $champname['name'];
                 ${"championimg" . $i} = $champname['image']['full'];
 
+            }
+
+
                 $after = microtime(true);
                 $debug=date("H:i:s",$after-$before);
                 echo "<script>console.log('$debug');</script>";
-            }
             //BANS
             for($i=1; $i<=6; $i++){
                 ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];

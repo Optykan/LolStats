@@ -163,9 +163,9 @@
             $rankedcontents = file_get_contents($rankedinfourl);
             $rankedinfo = json_decode($rankedcontents,true);
             
-            for($i=1;$i<$players;$i++){
-                ${'playerQueue'.$i}=$rankedinfo[${'summonerId'.$i}][$i-1]['queue'];
-                if(${'playerQueue'.$i} == "RANKED_SOLO_5x5"){
+            for($i=1;$i<=$players;$i++){
+                $playerQueue=$rankedinfo[${'summonerId'.$i}][0]['queue'];
+                if($playerQueue == "RANKED_SOLO_5x5"){
                     ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
                     ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
                     ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'};

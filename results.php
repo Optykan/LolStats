@@ -119,20 +119,6 @@
                 
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                 ${"championId" . $i} = $match['participants'][$i-1]['championId'];
-                ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
-                ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
-                
-                $champspell1json = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/summoner-spell/".${'champSpell'.$i.'1'}."?spellData=image&api_key=".$key;
-                $champspell2json = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/summoner-spell/".${'champSpell'.$i.'2'}."?spellData=image&api_key=".$key;
-                
-                $spell1data = file_get_contents($champspell1json);
-                $spell2data = file_get_contents($champspell2json);
-                
-                $spell1 = json_decode($spell1date,true);
-                $spell2 = json_decode($spell2date,true);
-                
-                ${'champspell'.$i.'1img'}=$spell1['image']['full'];
-                ${'champspell'.$i.'2img'}=$spell2['image']['full'];
 
                 $champnamejson = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/".${"championId" . $i}."?champData=image&api_key=".$key;
                 $champdata = file_get_contents($champnamejson);
@@ -140,6 +126,16 @@
 
                 ${"champion" . $i} = $champname['name'];
                 ${"championimg" . $i} = $champname['image']['full'];
+                
+                ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
+                ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
+                
+                $spelldata = file_get_contents("spells.json");
+                
+                $spells = json_decode($spelldata,true);
+                
+                ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
+                ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."1"}]['image'];
 
             }
 

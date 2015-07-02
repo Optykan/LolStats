@@ -19,7 +19,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.121a";
+            $ver="v0.122a";
             
             
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -191,7 +191,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='/assets/spells/${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'1img'}'/></div>";
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'1img'}'/></div>";
                 }
             ?>
         
@@ -230,8 +230,8 @@
         </div>
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
-                for ($i=$ppteam; $i<=$ppteam*2; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='/assets/spells/${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'1img'}'/></div>";
+                for ($i=$ppteam+1; $i<=$ppteam*2; $i++){
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'1img'}'/></div>";
                 }
             ?>
         

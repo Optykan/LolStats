@@ -19,7 +19,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.121a";
+            $ver="v0.122a";
             
             
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -124,7 +124,7 @@
                 $champname = json_decode($champdata, true);
 
                 ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
-                ${"championimg" . $i} = $champname[${'championId'.$i}]['key'];
+                ${"championimg" . $i} = $champname[${'championId'.$i}]['key'].".png";
                 
                 ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
                 ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
@@ -133,7 +133,7 @@
                 $spells = json_decode($spelldata,true);
                 
                 ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
-                ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."1"}]['image'];
+                ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."2"}]['image'];
 
             }
 
@@ -148,7 +148,7 @@
                 $champdata = file_get_contents("champions.json");
                 $champname = json_decode($champdata, true);
                 
-                ${"banimg" . $i} = $champname[${'ban'.$i}]['key'];
+                ${"banimg" . $i} = $champname[${'ban'.$i}]['key'].".png";
                 
             }
             
@@ -188,7 +188,14 @@
             <div class="col-md-5 gametype"><?=$gameType?></div>
         </div>
 
+        <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
+            <?php 
+                for ($i=1; $i<=$ppteam; $i++){
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/></div>";
+                }
+            ?>
         
+        </div>
         <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
@@ -208,7 +215,7 @@
                         <?php 
 
                         for($i=1;$i<=3;$i++){
-                            if(isset(${'banimg'.$i})){
+                            if(${'banimg'.$i}!='.png'){
                                  echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                             }
                            
@@ -221,7 +228,14 @@
             
         <div class='ro'>VS</div>
         </div>
+        <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
+            <?php 
+                for ($i=$ppteam+1; $i<=$ppteam*2; $i++){
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/></div>";
+                }
+            ?>
         
+        </div>
         <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
@@ -242,7 +256,7 @@
                 <div class="container-fluid bans">
                         <?php 
                         for($i=4;$i<=6;$i++){
-                            if(isset(${'banimg'.$i})){
+                            if(${'banimg'.$i}!='.png'){
                                  echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
                             }
                         }
@@ -289,18 +303,18 @@
         }
     </script>
     <script> $.backstretch("assets/bg.jpg");</script>
-<!--    <script>
+  <script>
         function info(splashid, i){
-            if(i====1){
+/*            if(i====1){
                 console.log(i);
                 document.getElementById(splashid).style.marginTop = "-380px";
             }
             else{
                 console.log('out');
                 document.getElementById(splashid).style.marginTop = "-120px";
-            }
+            }*/
         }
-    </script>-->
+    </script>
 <!--      <script>
             var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
 

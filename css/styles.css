@@ -81,6 +81,7 @@ body {
    margin-left:75px;
     margin-top:25px;
 }
+
 .team .name{
     margin-top:-150px;
     color:white;
@@ -223,7 +224,7 @@ input {
     border-right:3px #111 solid;
     border-left:3px #111 solid;
     box-shadow: 10px 10px 7px rgba(0,0,0,0.5);
-    background-color:black;
+    background-color:rgba(0,0,0,0.7);
     color:white;
     padding-left:0px;
     
@@ -231,4 +232,8 @@ input {
 }
 .stats img{
     width:32px;
+}
+.stats img:nth-child(2){
+    position:absolute;
+    right:0px;
 }

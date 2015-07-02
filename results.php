@@ -148,7 +148,7 @@
                 $champdata = file_get_contents("champions.json");
                 $champname = json_decode($champdata, true);
                 
-                ${"banimg" . $i} = $champname[${'ban'.$i}]['key'];
+                ${"banimg" . $i} = $champname[${'ban'.$i}]['key'].".png";
                 
             }
             

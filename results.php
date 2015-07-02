@@ -32,6 +32,7 @@
             $name = strtolower($name);
 
             //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/netfx?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
+            //https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/45346019/entry?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
 
             $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
             
@@ -168,7 +169,8 @@
                 if($playerQueue == "RANKED_SOLO_5x5"){
                     ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
                     ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
-                    ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'};
+                    ${'player'.$i.'lp'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['leaguePoints'];
+                    ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
                 }
                 else{
                     ${'playerStats'.$i}="Unranked";

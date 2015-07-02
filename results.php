@@ -159,6 +159,7 @@
             }
 
             $rankedinfourl = "https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/".$stringrequest."/entry?api_key=".$key;
+            echo "<script>console.log('$rankedinfourl')</script>";
             $rankedcontents = file_get_contents($rankedinfourl);
             $rankedinfo = json_decode($rankedcontents,true);
             
@@ -213,7 +214,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/><span>$${'playerStats'.$i}</span></div>";
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/><span>${'playerStats'.$i}</span></div>";
                 }
             ?>
         
@@ -253,7 +254,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/><span>$${'playerStats'.$i}</span></div>";
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/><span>${'playerStats'.$i}</span></div>";
                 }
             ?>
         

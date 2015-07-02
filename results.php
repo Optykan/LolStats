@@ -19,9 +19,10 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.122a";
+            $ver="v0.123a";
             
-            
+            $stringrequest = NULL;
+
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
@@ -112,44 +113,65 @@
             $versusmargin = ($ppteam/2)*190+40;
 
             $before = microtime(true);
+            date_default_timezone_set('Etc/UTC');
+            $after = microtime(true);
+            $debug=date("H:i:s",$after-$before);
+            echo "<script>console.log('$debug');</script>";
+
+            $champdata = file_get_contents("champions.json");
+            $champname = json_decode($champdata, true);
+
+            $spelldata = file_get_contents("spells.json");
+            $spells = json_decode($spelldata,true);
 
             //SUMMONER DATA
             for($i=1; $i<=$players; $i++){
-                
-                
+                    
+                ${"summonerId" . $i} = $match['participants'][$i-1]['summonerId'];
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
                 ${"championId" . $i} = $match['participants'][$i-1]['championId'];
 
-                $champdata = file_get_contents("champions.json");
-                $champname = json_decode($champdata, true);
+
 
                 ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
                 ${"championimg" . $i} = $champname[${'championId'.$i}]['key'].".png";
                 
                 ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
                 ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
-                
-                $spelldata = file_get_contents("spells.json");
-                $spells = json_decode($spelldata,true);
+
                 
                 ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
                 ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."2"}]['image'];
+                
+                $stringrequest = $stringrequest.${"summonerId" . $i}.',';
 
             }
 
+                
+            $champdata = file_get_contents("champions.json");
+            $champname = json_decode($champdata, true);
 
-                $after = microtime(true);
-                $debug=date("H:i:s",$after-$before);
-                echo "<script>console.log('$debug');</script>";
             //BANS
             for($i=1; $i<=6; $i++){
                 ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
-                
-                $champdata = file_get_contents("champions.json");
-                $champname = json_decode($champdata, true);
-                
+
                 ${"banimg" . $i} = $champname[${'ban'.$i}]['key'].".png";
-                
+            }
+
+            $rankedinfourl = "https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/".$stringrequest."/entry?api_key=".$key;
+            $rankedcontents = file_get_contents($rankedinfourl);
+            $rankedinfo = json_decode($rankedcontents,true);
+            
+            for($i=1;$i<$players;$i++){
+                ${'playerQueue'.$i}=$rankedinfo[${'summonerId'.$i}][$i-1]['queue'];
+                if(${'playerQueue'.$i} === "RANKED_SOLO_5x5"){
+                    ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
+                    ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
+                    ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'};
+                }
+                else{
+                    ${'playerStats'.$i}="Unranked";
+                }
             }
             
         ?>
@@ -191,7 +213,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/></div>";
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/><span>$${'playerStats'.$i}</span></div>";
                 }
             ?>
         
@@ -230,8 +252,8 @@
         </div>
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
-                for ($i=$ppteam+1; $i<=$ppteam*2; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/></div>";
+                for ($i=$ppteam+1; $i<=$players; $i++){
+                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/><span>$${'playerStats'.$i}</span></div>";
                 }
             ?>
         

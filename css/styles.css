@@ -227,8 +227,18 @@ input {
     background-color:rgba(0,0,0,0.7);
     color:white;
     padding-left:0px;
+    z-index:10;
+   
     
         
+}
+.stats span{
+    position:absolute;
+    width:112px;
+    text-align:center;
+    padding-top:3px;
+    font-size:1em;
+    text-transform: uppercase;
 }
 .stats img{
     width:32px;

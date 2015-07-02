@@ -133,7 +133,7 @@
                 $spells = json_decode($spelldata,true);
                 
                 ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
-                ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."1"}]['image'];
+                ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."2"}]['image'];
 
             }
 

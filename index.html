@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 
-		<title>Lolstats (Ayy Lmao)</title>
+		<title>Lolstats (Subreddit sold separately)</title>
 		<!-- FONTS -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
@@ -17,13 +17,11 @@
 
     </head>
     <body>
-		<div class="searchcontainer">
-			<h1>In-game Champion Lookup</h1><br>
-			<!--Im gonna need a separate style for whatever text we put here but screw that Im going to bed its like 4.-->
-        	<form action="results.php" method="get" class="search">
-        		<input type="text" name="inputname" placeholder="Summoner Name" required>
-				<button type="submit" class="searchbutton"><span>
-					<label for="submit">Search Game</label>
+		<div class="sarch">
+			<p class="gametype">LolStats</p><br>
+        	<form action="results.php" method="get" class="searchbox">
+        		<input type="text" name="inputname" class="search" placeholder="Summoner Name" required>
+				<input type="submit" value="Search" class="submit">
         	</form>
 		</div>
         <!--Summoner Name: <input type="text" name="inputname"><br>
@@ -65,7 +63,6 @@
         }
 
         </script>-->
-			<!--Linebump, Git got confused who was editing and fucked it up-->
 		<script> $.backstretch("assets/bg.jpg");</script>
     </body>
 </html>

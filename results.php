@@ -7,21 +7,26 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
         
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/switchery.css">
         
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/switchery.js"></script>
         
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.122a";
+            $ver="v0.129a";
             
-            
+            $stringrequest = NULL;
+
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
@@ -31,6 +36,7 @@
             $name = strtolower($name);
 
             //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/netfx?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
+            //https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/45346019/entry?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
 
             $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
             
@@ -39,117 +45,166 @@
 
             $id = $data[$name]['id'];
 
-            $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
-
-            $matchdata = file_get_contents($currentmatchjson);
-            $match = json_decode($matchdata, true);
-
-            $mapId = $match['mapId'];
-            $gameQueue = $match['gameQueueConfigId'];
-
-            $time = $match['gameLength'];
+            $vars = get_defined_vars();
+            
+            if(array_key_exists('id', $vars)){
 
 
-/*
-            function pg_connection_string(){
-                return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";
-            }
-            $db = pg_connect(pg_connection_string());
-            $result = pg_query($db, "SELECT statement goes here");
-*/
+                $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
 
-            if($gameQueue === 2 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 7 || $gameQueue === 33 || $gameQueue === 14 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 25 || $gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42 || $gameQueue === 61 || $gameQueue === 65 || $gameQueue === 70 || $gameQueue === 76 || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93 || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
-                $players = 10;
-                $ppteam = 5;
-            }
-            else if($gameQueue === 8 || $gameQueue === 9 || $gameQueue === 41 || $gameQueue === 52){
-                $players=6;
-                $ppteam=3;
-            }
-            else if($gameQueue === 72){
-                $players=2;
-                $ppteam=1;
-            }
-            else if($gameQueue === 73){
-                $players=4;
-                $ppteam=2;
-            }
-                
-            if($gameQueue === 0){
-               $gameType = 'Custom';
-            }
-            else if($gameQueue === 2 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 65 || $gameQueue === 61 || $gameQueue === 70  || $gameQueue === 76  || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
-                $gameType = '5 vs 5 Unranked';
-            }
-            else if($gameQueue === 14){
-                $gameType = '5 vs 5 Draft';
-            }
-            else if($gameQueue === 7  || $gameQueue === 25 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 33  || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93){
-                $gameType = '5 vs 5 AI';
-            }
-            else if($gameQueue === 8){
-                $gameType = '3 vs 3 Unranked';
-            }
-            else if($gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42){
-                $gameType = '5 vs 5 Ranked';
-            }
-            else if($gameQueue === 9 || $gameQueue === 41){
-                $gameType = '3 vs 3 Ranked';
-            }
-            else if($gameQueue === 52){
-                $gameType = '3 vs 3 AI';
-            }
-            else if($gameQueue === 72){
-                $gameType = '1 vs 1';
-            }
-            else if($gameQueue === 73){
-                $gameType = '2 vs 2';
-            }
-            else{
-                $gameType = 'Map Undefined';
-            }
+                $matchdata = file_get_contents($currentmatchjson);
+                $match = json_decode($matchdata, true);
 
-            $versusmargin = ($ppteam/2)*190+40;
+                $mapId = $match['mapId'];
+                $gameQueue = $match['gameQueueConfigId'];
 
-            $before = microtime(true);
-
-            //SUMMONER DATA
-            for($i=1; $i<=$players; $i++){
-                
-                
-                ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
-                ${"championId" . $i} = $match['participants'][$i-1]['championId'];
-
-                $champdata = file_get_contents("champions.json");
-                $champname = json_decode($champdata, true);
-
-                ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
-                ${"championimg" . $i} = $champname[${'championId'.$i}]['key'].".png";
-                
-                ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
-                ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
-                
-                $spelldata = file_get_contents("spells.json");
-                $spells = json_decode($spelldata,true);
-                
-                ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
-                ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."2"}]['image'];
-
-            }
+                $time = $match['gameLength'];
 
 
+    /*
+                function pg_connection_string(){
+                    return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";
+                }
+                $db = pg_connect(pg_connection_string());
+                $result = pg_query($db, "SELECT statement goes here");
+    */
+
+                if($gameQueue === 2 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 7 || $gameQueue === 33 || $gameQueue === 14 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 25 || $gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42 || $gameQueue === 61 || $gameQueue === 65 || $gameQueue === 70 || $gameQueue === 76 || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93 || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
+                    $players = 10;
+                    $ppteam = 5;
+                }
+                else if($gameQueue === 8 || $gameQueue === 9 || $gameQueue === 41 || $gameQueue === 52){
+                    $players=6;
+                    $ppteam=3;
+                }
+                else if($gameQueue === 72){
+                    $players=2;
+                    $ppteam=1;
+                }
+                else if($gameQueue === 73){
+                    $players=4;
+                    $ppteam=2;
+                }
+
+                if($gameQueue === 0){
+                   $gameType = 'Custom';
+                }
+                else if($gameQueue === 2 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 65 || $gameQueue === 61 || $gameQueue === 70  || $gameQueue === 76  || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
+                    $gameType = '5 vs 5 Unranked';
+                }
+                else if($gameQueue === 14){
+                    $gameType = '5 vs 5 Draft';
+                }
+                else if($gameQueue === 7  || $gameQueue === 25 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 33  || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93){
+                    $gameType = '5 vs 5 AI';
+                }
+                else if($gameQueue === 8){
+                    $gameType = '3 vs 3 Unranked';
+                }
+                else if($gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42){
+                    $gameType = '5 vs 5 Ranked';
+                }
+                else if($gameQueue === 9 || $gameQueue === 41){
+                    $gameType = '3 vs 3 Ranked';
+                }
+                else if($gameQueue === 52){
+                    $gameType = '3 vs 3 AI';
+                }
+                else if($gameQueue === 72){
+                    $gameType = '1 vs 1';
+                }
+                else if($gameQueue === 73){
+                    $gameType = '2 vs 2';
+                }
+                else{
+                    $gameType = 'Map Undefined';
+                }
+
+                $versusmargin = ($ppteam/2)*190+40;
+
+                $before = microtime(true);
+                date_default_timezone_set('Etc/UTC');
                 $after = microtime(true);
                 $debug=date("H:i:s",$after-$before);
                 echo "<script>console.log('$debug');</script>";
-            //BANS
-            for($i=1; $i<=6; $i++){
-                ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
-                
+
                 $champdata = file_get_contents("champions.json");
                 $champname = json_decode($champdata, true);
-                
-                ${"banimg" . $i} = $champname[${'ban'.$i}]['key'].".png";
-                
+
+                $spelldata = file_get_contents("spells.json");
+                $spells = json_decode($spelldata,true);
+
+                //SUMMONER DATA
+                for($i=1; $i<=$players; $i++){
+
+                    ${"summonerId" . $i} = $match['participants'][$i-1]['summonerId'];
+                    ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
+                    ${"championId" . $i} = $match['participants'][$i-1]['championId'];
+
+
+
+                    ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
+                    ${"championimg" . $i} = $champname[${'championId'.$i}]['key'].".png";
+
+                    ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
+                    ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
+
+
+                    ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
+                    ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."2"}]['image'];
+
+                    $stringrequest = $stringrequest.${"summonerId" . $i}.',';
+
+                }
+
+
+                $champdata = file_get_contents("champions.json");
+                $champname = json_decode($champdata, true);
+
+                //BANS
+
+                for($i=1; $i<=6; $i++){
+                    ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
+
+                    ${"banimg" . $i} = $champname[${'ban'.$i}]['key'].".png";
+                }
+
+                $rankedinfourl = "https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/".$stringrequest."/entry?api_key=".$key;
+                //echo "<script>console.log('$rankedinfourl')</script>";
+                $rankedcontents = file_get_contents($rankedinfourl);
+                $rankedinfo = json_decode($rankedcontents,true);
+
+                for($i=1;$i<=$players;$i++){
+                    $playerQueue=$rankedinfo[${'summonerId'.$i}][0]['queue'];
+                    if($playerQueue == "RANKED_SOLO_5x5"){
+                        ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
+                        ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
+                        ${'player'.$i.'lp'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['leaguePoints'];
+                        ${'player'.$i.'wins'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['wins'];
+                        ${'player'.$i.'loss'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['losses'];
+                        ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
+                        ${'series'.$i}=$rankedinfo[${'summonerId'.$i}][0]['entries'][0]['miniSeries']['progress'];
+                        if(isset(${'series'.$i})){
+                            ${'serieslength'.$i}=strlen(${'series'.$i});
+                            ${'seriesprogress'.$i}=str_split(${'series'.$i});
+                        }
+                    }
+                    else{
+                        ${'player'.$i.'tier'}='ETC';
+                        ${'player'.$i.'div'}='Unranked';
+                        ${'playerStats'.$i}='Unranked';
+                        ${'player'.$i.'wins'} = '0';
+                        ${'player'.$i.'loss'} = '0';
+                    }
+                }
+
+            }
+
+            else{
+                $status=$data['status']['status_code'];
+                if($status=='503'){
+                    http_redirect("503.php", array(), true, HTTP_REDIRECT_PERM);
+                }
             }
             
         ?>
@@ -157,6 +212,9 @@
     </head>
     
     <body>
+        <div class="options">
+            Lock Ranked Info: <input type="checkbox" class="js-switch" id="switch">
+        </div>
         <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
         <div class="ro version"><?=$ver?></div>
         <div class="container-fluid row" >
@@ -187,12 +245,14 @@
             </div>
             <div class="col-md-5 gametype"><?=$gameType?></div>
         </div>
-
+        
+<!--<img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/>-->
+        
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
-                for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/></div>";
-                }
+/*                for ($i=1; $i<=$ppteam; $i++){
+                    echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
+                }*/
             ?>
         
         </div>
@@ -200,11 +260,45 @@
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 champimg'>
-                        <img src='assets/splash/${'championimg' . $i}'></img>
+                        <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
-                        <p class='ro champion'>${'champion'.$i}</p>
-                        <p class='ro summoner'>${'summoner'.$i}</p>
+                        <div class='row spellrow' id='spellrow$i'>
+                            <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
+                            <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
+                        </div>
+                        <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
+                        <div class='rank row' id='rank$i'>
+                            <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
+                            <p class='tier'>${'playerStats'.$i}</p>";
+                    
+                            if(isset(${'series'.$i})){
+                                ${'seriesset'.$i}=true;
+                                echo "<div class='series'><span>";
+                                for($d=1;$d<=${'serieslength'.$i};$d++){
+                                    if(${'seriesprogress'.$i}[$d-1]=='W'){
+                                        echo "<i class='fa fa-check'></i>";
+                                    }
+                                    else if(${'seriesprogress'.$i}[$d-1]=='L'){
+                                        echo "<i class='fa fa-times'></i>";
+                                    }
+                                    else{
+                                        echo "<i class='fa fa-minus'></i>";
+                                    }
+                                }
+                                echo "</span></div>";
+                            }
+                    
+                    echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
+                        </div>
+                        <p class='osans ";
+                            if(${'seriesset'.$i}==true){
+                                echo "seriesset";
+                            }
+                            else{
+                                echo "summoner";
+                            }
+                    echo "'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";
@@ -228,11 +322,11 @@
             
         <div class='ro'>VS</div>
         </div>
-        <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
-            <?php 
-                for ($i=$ppteam+1; $i<=$ppteam*2; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/></div>";
-                }
+       <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
+           <?php 
+/*                for ($i=$ppteam+1; $i<=$players; $i++){
+                    echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
+                }*/
             ?>
         
         </div>
@@ -240,11 +334,45 @@
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 champimg'>
-                        <img src='assets/splash/${'championimg' . $i}'></img>
+                        <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
-                        <p class='ro champion'>${'champion'.$i}</p>
-                        <p class='ro summoner'>${'summoner'.$i}</p>
+                        <div class='row spellrow' id='spellrow$i'>
+                            <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
+                            <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
+                        </div>
+                        <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
+                        <div class='rank row' id='rank$i'>
+                            <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
+                            <p class='tier'>${'playerStats'.$i}</p>";
+                    
+                            if(isset(${'series'.$i})){
+                                ${'seriesset'.$i}=true;
+                                echo "<div class='series'><span>";
+                                for($d=1;$d<=${'serieslength'.$i};$d++){
+                                    if(${'seriesprogress'.$i}[$d-1]=='W'){
+                                        echo "<i class='fa fa-check'></i>";
+                                    }
+                                    else if(${'seriesprogress'.$i}[$d-1]=='L'){
+                                        echo "<i class='fa fa-times'></i>";
+                                    }
+                                    else{
+                                        echo "<i class='fa fa-minus'></i>";
+                                    }
+                                }
+                                echo "</span></div>";
+                            }
+                    
+                    echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
+                        </div>
+                        <p class='osans ";
+                            if(${'seriesset'.$i}==true){
+                                echo "seriesset";
+                            }
+                            else{
+                                echo "summoner";
+                            }
+                    echo "'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";
@@ -303,20 +431,92 @@
         }
     </script>
     <script> $.backstretch("assets/bg.jpg");</script>
-  <script>
-        function info(splashid, i){
-/*            if(i====1){
-                console.log(i);
-                document.getElementById(splashid).style.marginTop = "-380px";
+ <script>$(function() {
+    if($.cookie('lock')=='true'){
+        document.getElementById("switch").checked = true;
+          for(var i=1;i<=10;i++){
+            up(i);
+          }
+    }
+    else{
+        document.getElementById("switch").checked = false;
+          for(var i=1;i<=10;i++){
+            down(i);
+          }
+    }
+    $('.js-switch').click();
+    $('.js-switch').click();
+    });
+    </script>
+    <script>
+      
+        
+        var elem = document.querySelector('.js-switch');
+        var init = new Switchery(elem, { size: 'small' });
+        var changeCheckbox = document.querySelector('.js-switch');
+        changeCheckbox.onchange = function() {
+          if(changeCheckbox.checked==false){
+              $.cookie('lock', 'false', { expires: 365 });
+              for(var i=1;i<=10;i++){
+              down(i);
+              }
+          }
+            else{
+              $.cookie('lock', 'true', { expires: 365 });
+              for(var i=1;i<=10;i++){
+                up(i);
+              }
+            }
+        };
+        function info(splash, updown){
+            if(changeCheckbox.checked==false){
+               if(updown===1){
+                   up(splash);
+                }
+                else{
+                    down(splash);
+                }
             }
             else{
-                console.log('out');
-                document.getElementById(splashid).style.marginTop = "-120px";
-            }*/
+                for(var i=1;i<=10;i++){
+                        
+                   document.getElementById(i).style.marginTop = "-450px";
+                   document.getElementById('spellrow'+i).style.marginTop = "-160px";
+                   document.getElementById('spellrow'+i).style.marginLeft = "31px";
+                    //document.getElementById('champ'+splashid).style.top = "-230px";
+                   document.getElementById('rank'+i).style.opacity="1";
+                   document.getElementById('spell'+i+'1').style.width="30px";
+                   document.getElementById('spell'+i+'2').style.width="30px";
+                   document.getElementById('spell'+i+'1').style.height="30px";
+                   document.getElementById('spell'+i+'2').style.height="30px";
+                }
+            }
         }
+        function up(splashid){
+                    document.getElementById(splashid).style.marginTop = "-450px";
+                    document.getElementById('spellrow'+splashid).style.marginTop = "-160px";
+                    document.getElementById('spellrow'+splashid).style.marginLeft = "31px";
+                    //document.getElementById('champ'+splashid).style.top = "-230px";
+                   document.getElementById('rank'+splashid).style.opacity="1";
+                   document.getElementById('spell'+splashid+'1').style.width="30px";
+                   document.getElementById('spell'+splashid+'2').style.width="30px";
+                   document.getElementById('spell'+splashid+'1').style.height="30px";
+                   document.getElementById('spell'+splashid+'2').style.height="30px";
+        }
+      function down(splashid){
+                    document.getElementById(splashid).style.marginTop = "-250px";
+                    document.getElementById('spellrow'+splashid).style.marginTop = "0px";
+                    document.getElementById('spellrow'+splashid).style.marginLeft = "21px";
+                    document.getElementById('champ'+splashid).style.top = "0px";
+                    document.getElementById('rank'+splashid).style.opacity="0";
+                    document.getElementById('spell'+splashid+'1').style.width="40px";
+                    document.getElementById('spell'+splashid+'2').style.width="40px";
+                    document.getElementById('spell'+splashid+'1').style.height="40px";
+                    document.getElementById('spell'+splashid+'2').style.height="40px";
+      }
     </script>
 <!--      <script>
-            var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
+            var gitAPI = "https://api.github.com/repos/:owner/:repo/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
 
             $.getJSON(gitAPI, function (json) {
                 var commit = json.commit.author.date;

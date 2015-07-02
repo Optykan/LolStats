@@ -212,11 +212,13 @@
             </div>
             <div class="col-md-5 gametype"><?=$gameType?></div>
         </div>
-
+        
+<!--<img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/>-->
+        
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/><span>${'playerStats'.$i}</span></div>";
+                    echo "<div class='col-md-2 stats do'><span>${'summoner'.$i}</span></div>";
                 }
             ?>
         
@@ -229,7 +231,6 @@
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
                         <p class='ro champion'>${'champion'.$i}</p>
-                        <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";
@@ -256,7 +257,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 stats do'><img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/><span>${'playerStats'.$i}</span></div>";
+                    echo "<div class='col-md-2 stats do'><span>${'summoner'.$i}</span></div>";
                 }
             ?>
         
@@ -269,7 +270,6 @@
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
                         <p class='ro champion'>${'champion'.$i}</p>
-                        <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";

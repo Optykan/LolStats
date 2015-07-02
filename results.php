@@ -50,9 +50,7 @@
 
             $time = $match['gameLength'];
 
-            $after = microtime(true);
-            $debug=date("H:i:s",$after-$before);
-            echo "<script>console.log('$debug');</script>";
+
 /*
             function pg_connection_string(){
                 return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";
@@ -112,8 +110,11 @@
                 $gameType = 'Map Undefined';
             }
 
-
+            $after = microtime(true);
+            $debug=date("H:i:s",$after-$before);
+            echo "<script>console.log('$debug');</script>";
             $versusmargin = ($ppteam/2)*190+40;
+
             //SUMMONER DATA
             for($i=1; $i<=$players; $i++){
                 ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];

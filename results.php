@@ -209,7 +209,7 @@
 
                         for($i=1;$i<=3;$i++){
                             if(isset(${'banimg'.$i})){
-                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}.png'></img></div>";
                             }
                            
                         }

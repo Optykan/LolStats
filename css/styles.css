@@ -214,7 +214,7 @@ input {
     width:100%;
 }
 
-.stats {
+.summname {
     overflow: hidden;
     left:50px;
     width:13em;
@@ -228,22 +228,15 @@ input {
     color:white;
     padding-left:0px;
     z-index:10;
+    height:32px;
    
-    
-        
 }
-.stats span{
+.summname span{
+    height:32px;
     position:absolute;
-    width:112px;
+    width:100%;
     text-align:center;
     padding-top:3px;
     font-size:1em;
     text-transform: uppercase;
-}
-.stats img{
-    width:32px;
-}
-.stats img:nth-child(2){
-    position:absolute;
-    right:0px;
 }

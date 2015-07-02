@@ -218,7 +218,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 stats do'><span>${'summoner'.$i}</span></div>";
+                    echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
                 }
             ?>
         
@@ -257,7 +257,7 @@
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
                 for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 stats do'><span>${'summoner'.$i}</span></div>";
+                    echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
                 }
             ?>
         

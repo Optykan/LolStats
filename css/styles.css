@@ -208,6 +208,8 @@ input {
     padding-left:auto;
     padding-right:auto;
     width:100%;
+    text-align:center;
+    margin-left:65px;
 }
 
 .summname {

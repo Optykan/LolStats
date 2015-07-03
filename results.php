@@ -217,9 +217,9 @@
         
         <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
             <?php 
-                for ($i=1; $i<=$ppteam; $i++){
+/*                for ($i=1; $i<=$ppteam; $i++){
                     echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
-                }
+                }*/
             ?>
         
         </div>
@@ -230,6 +230,11 @@
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
+                        <div class='row' style="margin-left:21px;">
+                            <img class='spell' src='${'champspell'.$i.'1img'}'>
+                            <img class='spell' src='${'champspell'.$i.'2img'}'>
+                        </div>
+                        <p class='ro summoner'>${'summoner'.$i}</p>
                         <p class='ro champion'>${'champion'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
@@ -254,11 +259,11 @@
             
         <div class='ro'>VS</div>
         </div>
-        <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
-            <?php 
-                for ($i=$ppteam+1; $i<=$players; $i++){
+       <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
+           <?php 
+/*                for ($i=$ppteam+1; $i<=$players; $i++){
                     echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
-                }
+                }*/
             ?>
         
         </div>
@@ -269,6 +274,11 @@
                         <img src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
+                        <div class='row' style="margin-left:21px;">
+                            <img class='spell' src='${'champspell'.$i.'1img'}'>
+                            <img class='spell' src='${'champspell'.$i.'2img'}'>
+                        </div>
+                        <p class='ro summoner'>${'summoner'.$i}</p>
                         <p class='ro champion'>${'champion'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>

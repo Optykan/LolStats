@@ -16,7 +16,10 @@
     
 }
 .splash{
-    
+    position:relative;
+    left:-25px;
+    top:-25px;
+    width:190px;
 }
 .os{
     font-family: 'Oswald', sans-serif;
@@ -58,13 +61,6 @@ body {
     box-shadow: 10px 10px 7px rgba(0,0,0,0.5);
         
 }
-.champimg img{
-    position:relative;
-    left:-25px;
-    top:-25px;
-    width:190px;
-    
-}
 
 .team {
     margin-left:auto;
@@ -83,7 +79,7 @@ body {
 }
 
 .team .name{
-    margin-top:-150px;
+    margin-top:-225px;
     color:white;
     z-index:10;
     position:relative;
@@ -109,7 +105,7 @@ body {
     background-color:rgba(0,0,0,0.7);
     height:400px;
     /*margin-top:-120px;*/
-    margin-top:-300px;
+    margin-top:-350px;
     z-index:9;
     width:225px;
     margin-left:-20px;
@@ -239,4 +235,14 @@ input {
     padding-top:3px;
     font-size:1em;
     text-transform: uppercase;
+}
+
+.spell {
+    width: 40px;
+	height: 40px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+    margin-bottom:20px;
+    margin-right:20px;
 }

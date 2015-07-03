@@ -16,12 +16,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         
-               <title>Current Game Info for: netfx</title>
+       <script>console.log('00:00:00');</script><script>console.log('https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/10077,23419429,21456134,308639,26399537,29624024,40938801,26699733,39077042,26463128,/entry?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3')</script>        <title>Current Game Info for: scarra</title>
     </head>
     
     <body>
         <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
-        <div class="ro version">v0.119a</div>
+        <div class="ro version">v0.123a</div>
         <div class="container-fluid row" >
             <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
         </div>
@@ -31,128 +31,157 @@
             <div class="col-md-2">
                 <p class="ro time" id="time"></p>
             </div>
-            <div class="col-md-5 gametype">5 vs 5 Unranked</div>
+            <div class="col-md-5 gametype">5 vs 5 Ranked</div>
         </div>
-
-       <div class="container row team" style="width:1250px">
-           
-             
-                   <div class='col-md-2 summname do'><span>yep</span></div>
-                
-         
         
+<!--<img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/>-->
+        
+        <div class="container row team" style="width:1250px">
+                    
         </div>
         <div class="container row team" style='width:1250px'>
-            
-                    <div class='col-md-2 champimg'>
-                            
-                        <img class='splash' src='assets/splash/RekSai.png'></img>
-            
+            <div class='col-md-2 champimg'>
+                        <img class='splash' src='assets/splash/Jax.png'></img>
                         
                         <div class='name' onmouseover='info(1,1)' onmouseout='info(1,0)'>
-                        <div class='row' style="margin-left:21px;">
-                            <img class='spell' src='assets/spells/SummonerMana.png'>
-                            <img class='spell' src='assets/spells/SummonerFlash.png'>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                            <img class='spell' src='/assets/spells/SummonerSmite.png'>
                         </div>
-                        
-                        <p class='ro champion'>Rek'Sai</p>
-                        <p class='ro summoner'>MonteCrispo</p>
-                            
+                        <p class='ro summoner'>scarra</p>
+                        <p class='ro champion'>Jax</p>
                         </div>
                         <div class='dim' id='1' onmouseover='info(1,1)' onmouseout='info(1,0)'></div>
                     </div><div class='col-md-2 champimg'>
-                        <img class='splash' src='assets/splash/Heimerdinger.png'></img>
+                        <img src='assets/splash/Tristana.png'></img>
                         
                         <div class='name' onmouseover='info(2,1)' onmouseout='info(2,0)'>
-                        
-                        <p class='ro champion'>Heimerdinger</p>
-                        <p class='ro summoner'>Arcticker</p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerHeal.png'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                        </div>
+                        <p class='ro summoner'>Vestubule</p>
+                        <p class='ro champion'>Tristana</p>
                         </div>
                         <div class='dim' id='2' onmouseover='info(2,1)' onmouseout='info(2,0)'></div>
                     </div><div class='col-md-2 champimg'>
-                        <img class='splash' src='assets/splash/Thresh.png'></img>
+                        <img src='assets/splash/Zac.png'></img>
                         
                         <div class='name' onmouseover='info(3,1)' onmouseout='info(3,0)'>
-                        <p class='ro champion'>Thresh</p>
-                        <p class='ro summoner'>netFX</p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                            <img class='spell' src='/assets/spells/SummonerSmite.png'>
+                        </div>
+                        <p class='ro summoner'>blue cat</p>
+                        <p class='ro champion'>Zac</p>
                         </div>
                         <div class='dim' id='3' onmouseover='info(3,1)' onmouseout='info(3,0)'></div>
                     </div><div class='col-md-2 champimg'>
-                        <img class='splash' src='assets/splash/Lucian.png'></img>
+                        <img src='assets/splash/Zilean.png'></img>
                         
                         <div class='name' onmouseover='info(4,1)' onmouseout='info(4,0)'>
-                        <p class='ro champion'>Lucian</p>
-                        <p class='ro summoner'>ashvin52</p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerExhaust.png'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                        </div>
+                        <p class='ro summoner'>GOAT Titan</p>
+                        <p class='ro champion'>Zilean</p>
                         </div>
                         <div class='dim' id='4' onmouseover='info(4,1)' onmouseout='info(4,0)'></div>
                     </div><div class='col-md-2 champimg'>
-                        <img class='splash' src='assets/splash/Darius.png'></img>
+                        <img src='assets/splash/Vladimir.png'></img>
                         
                         <div class='name' onmouseover='info(5,1)' onmouseout='info(5,0)'>
-                        <p class='ro champion'>Darius</p>
-                        <p class='ro summoner'>yomanpwnage</p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerTeleport.png'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                        </div>
+                        <p class='ro summoner'>Kat In the Hat</p>
+                        <p class='ro champion'>Vladimir</p>
                         </div>
                         <div class='dim' id='5' onmouseover='info(5,1)' onmouseout='info(5,0)'></div>
                     </div>            <div class="col-md-2">
                 <div class="container-fluid bans">
-                                        </div>
+                        <div class='row'><img class='banimg' src='assets/square/Gragas.png'></img></div><div class='row'><img class='banimg' src='assets/square/Ryze.png'></img></div><div class='row'><img class='banimg' src='assets/square/Ezreal.png'></img></div>                </div>
             </div>
         </div>
         <div class="container row versus">
             
         <div class='ro'>VS</div>
         </div>
-        
+       <div class="container row team" style="width:1250px">
+                   
+        </div>
         <div class="container row team" style='width:1250px'>
             <div class='col-md-2 champimg'>
-                        <img src='assets/splash/Heimerdinger.png'></img>
+                        <img src='assets/splash/Pantheon.png'></img>
                         
                         <div class='name' onmouseover='info(6,1)' onmouseout='info(6,0)'>
-                        <p class='ro champion'>Heimerdinger</p>
-                        <p class='ro summoner'>Renae </p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerSmite.png'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                        </div>
+                        <p class='ro summoner'>Swufty</p>
+                        <p class='ro champion'>Pantheon</p>
                         </div>
                         <div class='dim' id='6' onmouseover='info(6,1)' onmouseout='info(6,0)'></div>
                     </div><div class='col-md-2 champimg'>
-                        <img src='assets/splash/Caitlyn.png'></img>
+                        <img src='assets/splash/Volibear.png'></img>
                         
                         <div class='name' onmouseover='info(7,1)' onmouseout='info(7,0)'>
-                        <p class='ro champion'>Caitlyn</p>
-                        <p class='ro summoner'>SDS Hawk</p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                            <img class='spell' src='/assets/spells/SummonerTeleport.png'>
+                        </div>
+                        <p class='ro summoner'>ArmoredBearsRULE</p>
+                        <p class='ro champion'>Volibear</p>
                         </div>
                         <div class='dim' id='7' onmouseover='info(7,1)' onmouseout='info(7,0)'></div>
                     </div><div class='col-md-2 champimg'>
-                        <img src='assets/splash/Aatrox.png'></img>
+                        <img src='assets/splash/Alistar.png'></img>
                         
                         <div class='name' onmouseover='info(8,1)' onmouseout='info(8,0)'>
-                        <p class='ro champion'>Aatrox</p>
-                        <p class='ro summoner'>SDS King</p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                            <img class='spell' src='/assets/spells/SummonerDot.png'>
+                        </div>
+                        <p class='ro summoner'>NubScrubzz</p>
+                        <p class='ro champion'>Alistar</p>
                         </div>
                         <div class='dim' id='8' onmouseover='info(8,1)' onmouseout='info(8,0)'></div>
                     </div><div class='col-md-2 champimg'>
-                        <img src='assets/splash/Tryndamere.png'></img>
+                        <img src='assets/splash/Orianna.png'></img>
                         
                         <div class='name' onmouseover='info(9,1)' onmouseout='info(9,0)'>
-                        <p class='ro champion'>Tryndamere</p>
-                        <p class='ro summoner'>Comrade Markov</p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerDot.png'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                        </div>
+                        <p class='ro summoner'>Victim Of Talent</p>
+                        <p class='ro champion'>Orianna</p>
                         </div>
                         <div class='dim' id='9' onmouseover='info(9,1)' onmouseout='info(9,0)'></div>
                     </div><div class='col-md-2 champimg'>
-                        <img src='assets/splash/Thresh.png'></img>
+                        <img src='assets/splash/Vayne.png'></img>
                         
                         <div class='name' onmouseover='info(10,1)' onmouseout='info(10,0)'>
-                        <p class='ro champion'>Thresh</p>
-                        <p class='ro summoner'>SDS Meliodas</p>
+                        <div class='row' style='margin-left:21px;'>
+                            <img class='spell' src='/assets/spells/SummonerFlash.png'>
+                            <img class='spell' src='/assets/spells/SummonerHeal.png'>
+                        </div>
+                        <p class='ro summoner'>sneakysu</p>
+                        <p class='ro champion'>Vayne</p>
                         </div>
                         <div class='dim' id='10' onmouseover='info(10,1)' onmouseout='info(10,0)'></div>
                     </div>            <div class="col-md-2">
                 <div class="container-fluid bans">
-                                        </div>
+                        <div class='row'><img class='banimg' src='assets/square/Rengar.png'></img></div><div class='row'><img class='banimg' src='assets/square/RekSai.png'></img></div><div class='row'><img class='banimg' src='assets/square/Kalista.png'></img></div>                </div>
             </div>
             
         
         </div>
             <script>
-                var time=0;
+                var time=449;
                 time=time+180;
                     setInterval(function(){
                     document.getElementById('time').innerHTML=SecondsToHMS(time);
@@ -185,18 +214,18 @@
         }
     </script>
     <script> $.backstretch("assets/bg.jpg");</script>
-<!--    <script>
+  <script>
         function info(splashid, i){
-            if(i===1){
+/*            if(i====1){
                 console.log(i);
                 document.getElementById(splashid).style.marginTop = "-380px";
             }
             else{
                 console.log('out');
                 document.getElementById(splashid).style.marginTop = "-120px";
-            }
+            }*/
         }
-    </script>-->
+    </script>
 <!--      <script>
             var gitAPI = "https://api.github.com/repos/Optykan/LolStats/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
 

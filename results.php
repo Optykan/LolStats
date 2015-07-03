@@ -160,7 +160,6 @@
             }
 
             $rankedinfourl = "https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/".$stringrequest."/entry?api_key=".$key;
-            echo "<script>console.log('$rankedinfourl')</script>";
             $rankedcontents = file_get_contents($rankedinfourl);
             $rankedinfo = json_decode($rankedcontents,true);
             

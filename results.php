@@ -340,14 +340,12 @@
     <script> $.backstretch("assets/bg.jpg");</script>
   <script>
         function info(splashid, i){
-/*            if(i====1){
-                console.log(i);
+           if(i===1){
                 document.getElementById(splashid).style.marginTop = "-380px";
             }
             else{
-                console.log('out');
-                document.getElementById(splashid).style.marginTop = "-120px";
-            }*/
+                document.getElementById(splashid).style.marginTop = "-100px";
+            }
         }
     </script>
 <!--      <script>

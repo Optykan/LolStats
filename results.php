@@ -273,7 +273,7 @@
                         <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
-                        <div class='row' style='margin-left:21px;'>
+                        <div class='row spellrow' id='spellrow$i'>
                             <img class='spell' src='${'champspell'.$i.'1img'}'>
                             <img class='spell' src='${'champspell'.$i.'2img'}'>
                         </div>

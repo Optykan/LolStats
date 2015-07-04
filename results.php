@@ -19,7 +19,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.124a";
+            $ver="v0.125a";
             
             $stringrequest = NULL;
 
@@ -355,10 +355,12 @@
                document.getElementById('rank'+splashid).style.opacity="1";
             }
             else{
-/*               document.getElementById(splashid).style.marginTop = "-200px";
+                document.getElementById(splashid).style.marginTop = "-200px";
                 document.getElementById('spellrow'+splashid).style.marginTop = "0px";
                 document.getElementById('champ'+splashid).style.top = "0px";
-                document.getElementById('rank'+splashid).style.opacity="0";*/
+                document.getElementById('rank'+splashid).style.opacity="0";
+                
+                
             }
         }
     </script>

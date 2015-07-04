@@ -79,7 +79,7 @@ body {
 }
 
 .team .name{
-    margin-top:-200px;
+    margin-top:-150px;
     color:white;
     z-index:10;
     position:relative;
@@ -248,4 +248,12 @@ input {
 	-moz-border-radius: 150px;
     margin-bottom:20px;
     margin-right:20px;
+}
+
+.spellrow {
+    position:absolute;
+    margin-left:21px;
+    top:-50px;
+    -webkit-transition:all 0.7s ease;
+    -moz-transition:all 0.7s ease;
 }

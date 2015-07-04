@@ -229,7 +229,7 @@
                         <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
-                        <div class='row' style='margin-left:21px;'>
+                        <div class='row spellrow' id='spellrow$i'>
                             <img class='spell' src='${'champspell'.$i.'1img'}'>
                             <img class='spell' src='${'champspell'.$i.'2img'}'>
                         </div>
@@ -338,12 +338,15 @@
     </script>
     <script> $.backstretch("assets/bg.jpg");</script>
   <script>
-        function info(splashid, i){
-           if(i===1){
+        function info(splashid, updown){
+           if(updown===1){
                 document.getElementById(splashid).style.marginTop = "-380px";
+                document.getElementById('spellrow'+splashid).style.marginTop = "-140px";
             }
             else{
                 document.getElementById(splashid).style.marginTop = "-100px";
+                document.getElementById('spellrow'+splashid).style.marginTop = "0px";
+                console.log('spellrow'+splashid);
             }
         }
     </script>

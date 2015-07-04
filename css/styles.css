@@ -193,3 +193,22 @@ body {
     -webkit-transition:all 0.7s ease;
     -moz-transition:all 0.7s ease;
 }
+/*Thus begins more shitty code that will need to be fixed later*/
+.searchcontainer {
+    margin:0;
+    margin-top: 10px;
+    padding: 0;
+}
+.searchbutton {
+    border: 0;
+    background: none;
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#D9230F;
+}

@@ -18,12 +18,19 @@
     </head>
     <body>
 		<div class="container">
-			<h1>LolStats</h1><br>
-        	<form action="results.php" method="get" class="search">
-        		<input type="text" name="inputname" placeholder="Summoner Name" required>
-				<button type="submit" class="searchbutton" placeholder="Search"><span>
-					<!--<label for="submit">Search</label>-->
+		<div class="row">
+		<div class=searchcontainer>
+			<p class="gametype">LolStats</p><br>
+        	<form action="results.php" method="get" class="navbar-form">
+        		<input type="text" class="search" placeholder="Summoner Name" required>
+				<span class="searchbutton">
+				<Button type="submit" class="searchbutton">
+				<span class="glyphicon-search"></span>
+				</button>
+				</span>
         	</form>
+		</div>
+		</div>
 		</div>
         <!--Summoner Name: <input type="text" name="inputname"><br>
 		<Input class="searchbutton" type="submit">

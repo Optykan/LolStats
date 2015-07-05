@@ -164,6 +164,7 @@
             }
 
             $rankedinfourl = "https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/".$stringrequest."/entry?api_key=".$key;
+            echo "<script>console.log('$rankedinfourl')</script>";
             $rankedcontents = file_get_contents($rankedinfourl);
             $rankedinfo = json_decode($rankedcontents,true);
             
@@ -173,7 +174,7 @@
                     ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
                     ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
                     ${'player'.$i.'lp'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['leaguePoints'];
-                    ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'};
+                    ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
                 }
                 else{
                     ${'player'.$i.'tier'}='ETC';

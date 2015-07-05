@@ -30,6 +30,9 @@
 .ro{
     font-family: 'Roboto', sans-serif;
 }
+.la{
+     font-family: 'Lato', sans-serif;
+}
 .gametype{
     font-family: 'Oswald', sans-serif;
     font-size:4em;
@@ -205,7 +208,7 @@ body {
 }
 .rank {
     position:relative;
-    bottom:150px;
+    bottom:175px;
     opacity:0;
     -webkit-transition: all 0.7s ease;
     -moz-transition:all 0.7s ease;
@@ -280,4 +283,17 @@ body {
     right:20px;
     bottom:20px;
     color:white;
+}
+
+.wins {
+    color:green;
+    margin-bottom:0px;
+}
+
+.loss {
+    color:red;
+}
+
+.tier {
+    margin-bottom:0px;
 }

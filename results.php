@@ -170,7 +170,7 @@
                     ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
                     ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
                     ${'player'.$i.'lp'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['leaguePoints'];
-                    ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
+                    ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'};
                 }
                 else{
                     ${'player'.$i.'tier'}='ETC';
@@ -240,6 +240,7 @@
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
                         </div>
+                        <p class='ro'>${'playerStats'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
@@ -287,6 +288,7 @@
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
                         </div>
+                        <p class='ro'>${'playerStats'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>

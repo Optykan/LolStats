@@ -95,7 +95,7 @@ body {
     font-size:1em;
     text-align:center;
     padding-bottom:10px;
-    top:-100px;
+    top:-105px;
 }
 .champion{
     top:0px;
@@ -206,14 +206,14 @@ body {
 .rank {
     position:relative;
     bottom:150px;
-    left:37px;
     opacity:0;
     -webkit-transition: all 0.7s ease;
     -moz-transition:all 0.7s ease;
+    text-align:center;
     
 }
 .rank img{
-    width:100px;
+    width:75px;
 }
 .sarch {
 	width:60%;

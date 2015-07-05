@@ -359,12 +359,12 @@
         var changeCheckbox = document.querySelector('.js-switch');
         changeCheckbox.onchange = function() {
           if(changeCheckbox.checked==false){
-              for(var i=0;i<=<?=$players?>;i++){
+              for(var i=1;i<=<?=$players?>;i++){
               down(i);
               }
           }
             else{
-              for(var i=0;i<=<?=$players?>;i++){
+              for(var i=1;i<=<?=$players?>;i++){
                 up(i);
               }
             }

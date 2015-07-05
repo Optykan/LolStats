@@ -349,13 +349,13 @@
   <script>
         function info(splashid, updown){
            if(updown===1){
-                document.getElementById(splashid).style.marginTop = "-380px";
+                document.getElementById(splashid).style.marginTop = "-450px";
                 document.getElementById('spellrow'+splashid).style.marginTop = "-140px";
                 document.getElementById('champ'+splashid).style.top = "-230px";
                document.getElementById('rank'+splashid).style.opacity="1";
             }
             else{
-                document.getElementById(splashid).style.marginTop = "-200px";
+                document.getElementById(splashid).style.marginTop = "-250px";
                 document.getElementById('spellrow'+splashid).style.marginTop = "0px";
                 document.getElementById('champ'+splashid).style.top = "0px";
                 document.getElementById('rank'+splashid).style.opacity="0";

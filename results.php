@@ -187,7 +187,7 @@
     
     <body>
         <div class="options">
-            Lock Ranked Info: <input type="checkbox" class="js-switch">
+            Lock Ranked Info: <input type="checkbox" class="js-switch" id="switch">
         </div>
         <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
         <div class="ro version"><?=$ver?></div>
@@ -353,18 +353,39 @@
         }
     </script>
     <script> $.backstretch("assets/bg.jpg");</script>
-  <script>
+ <script>$(function() {
+    if($.cookie('lock')=='true'){
+        document.getElementById("switch").checked = true;
+          for(var i=1;i<=10;i++){
+            up(i);
+          }
+    }
+    else{
+        document.getElementById("switch").checked = false;
+          for(var i=1;i<=10;i++){
+            down(i);
+          }
+    }
+    $('.js-switch').click();
+    $('.js-switch').click();
+    });
+    </script>
+    <script>
+      
+        
         var elem = document.querySelector('.js-switch');
         var init = new Switchery(elem, { size: 'small' });
         var changeCheckbox = document.querySelector('.js-switch');
         changeCheckbox.onchange = function() {
           if(changeCheckbox.checked==false){
-              for(var i=1;i<=<?=$players?>;i++){
+              $.cookie('lock', 'false', { expires: 365 });
+              for(var i=1;i<=10;i++){
               down(i);
               }
           }
             else{
-              for(var i=1;i<=<?=$players?>;i++){
+              $.cookie('lock', 'true', { expires: 365 });
+              for(var i=1;i<=10;i++){
                 up(i);
               }
             }
@@ -379,7 +400,7 @@
                 }
             }
             else{
-                for(var i=1;i<=<?=$players?>;i++){
+                for(var i=1;i<=10;i++){
                         
                    document.getElementById(i).style.marginTop = "-450px";
                    document.getElementById('spellrow'+i).style.marginTop = "-160px";

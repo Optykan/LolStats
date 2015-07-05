@@ -239,8 +239,8 @@
                         <p class='ro champion' id='champ$i'>${'champion'.$i}</p>
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
+                            <p class='ro'>${'playerStats'.$i}</p>
                         </div>
-                        <p class='ro'>${'playerStats'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
@@ -287,8 +287,8 @@
                         <p class='ro champion' id='champ$i'>${'champion'.$i}</p>
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
+                            <p class='ro'>${'playerStats'.$i}</p>
                         </div>
-                        <p class='ro'>${'playerStats'.$i}</p>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>

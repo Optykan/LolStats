@@ -11,15 +11,17 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/switchery.css">
         
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/switchery.js"></script>
         
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.126a";
+            $ver="v0.127a";
             
             $stringrequest = NULL;
 
@@ -184,6 +186,9 @@
     </head>
     
     <body>
+        <div class="options">
+            Lock Ranked Info: <input type="checkbox" class="js-switch">
+        </div>
         <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
         <div class="ro version"><?=$ver?></div>
         <div class="container-fluid row" >
@@ -349,32 +354,67 @@
     </script>
     <script> $.backstretch("assets/bg.jpg");</script>
   <script>
-        function info(splashid, updown){
-           if(updown===1){
-                document.getElementById(splashid).style.marginTop = "-450px";
-                document.getElementById('spellrow'+splashid).style.marginTop = "-140px";
-                document.getElementById('spellrow'+splashid).style.marginLeft = "31px";
-                //document.getElementById('champ'+splashid).style.top = "-230px";
-               document.getElementById('rank'+splashid).style.opacity="1";
-               document.getElementById('spell'+splashid+'1').style.width="30px";
-               document.getElementById('spell'+splashid+'2').style.width="30px";
-               document.getElementById('spell'+splashid+'1').style.height="30px";
-               document.getElementById('spell'+splashid+'2').style.height="30px";
+        var elem = document.querySelector('.js-switch');
+        var init = new Switchery(elem, { size: 'small' });
+        var changeCheckbox = document.querySelector('.js-switch');
+        changeCheckbox.onchange = function() {
+          if(changeCheckbox.checked==false){
+              for(var i=0;i<=<?=$players?>;i++){
+              down(i);
+              }
+          }
+            else{
+              for(var i=0;i<=<?=$players?>;i++){
+                up(i);
+              }
+            }
+        };
+        function info(splash, updown){
+            if(changeCheckbox.checked==false){
+               if(updown===1){
+                   up(splash);
+                }
+                else{
+                    down(splash);
+                }
             }
             else{
-                document.getElementById(splashid).style.marginTop = "-250px";
-                document.getElementById('spellrow'+splashid).style.marginTop = "0px";
-                document.getElementById('spellrow'+splashid).style.marginLeft = "21px";
-                document.getElementById('champ'+splashid).style.top = "0px";
-                document.getElementById('rank'+splashid).style.opacity="0";
-                document.getElementById('spell'+splashid+'1').style.width="40px";
-                document.getElementById('spell'+splashid+'2').style.width="40px";
-                document.getElementById('spell'+splashid+'1').style.height="40px";
-                document.getElementById('spell'+splashid+'2').style.height="40px";
-                
-                
+                for(var i=1;i<=<?=$players?>;i++){
+                        
+                   document.getElementById(i).style.marginTop = "-450px";
+                   document.getElementById('spellrow'+i).style.marginTop = "-160px";
+                   document.getElementById('spellrow'+i).style.marginLeft = "31px";
+                    //document.getElementById('champ'+splashid).style.top = "-230px";
+                   document.getElementById('rank'+i).style.opacity="1";
+                   document.getElementById('spell'+i+'1').style.width="30px";
+                   document.getElementById('spell'+i+'2').style.width="30px";
+                   document.getElementById('spell'+i+'1').style.height="30px";
+                   document.getElementById('spell'+i+'2').style.height="30px";
+                }
             }
         }
+        function up(splashid){
+                    document.getElementById(splashid).style.marginTop = "-450px";
+                    document.getElementById('spellrow'+splashid).style.marginTop = "-160px";
+                    document.getElementById('spellrow'+splashid).style.marginLeft = "31px";
+                    //document.getElementById('champ'+splashid).style.top = "-230px";
+                   document.getElementById('rank'+splashid).style.opacity="1";
+                   document.getElementById('spell'+splashid+'1').style.width="30px";
+                   document.getElementById('spell'+splashid+'2').style.width="30px";
+                   document.getElementById('spell'+splashid+'1').style.height="30px";
+                   document.getElementById('spell'+splashid+'2').style.height="30px";
+        }
+      function down(splashid){
+                    document.getElementById(splashid).style.marginTop = "-250px";
+                    document.getElementById('spellrow'+splashid).style.marginTop = "0px";
+                    document.getElementById('spellrow'+splashid).style.marginLeft = "21px";
+                    document.getElementById('champ'+splashid).style.top = "0px";
+                    document.getElementById('rank'+splashid).style.opacity="0";
+                    document.getElementById('spell'+splashid+'1').style.width="40px";
+                    document.getElementById('spell'+splashid+'2').style.width="40px";
+                    document.getElementById('spell'+splashid+'1').style.height="40px";
+                    document.getElementById('spell'+splashid+'2').style.height="40px";
+      }
     </script>
 <!--      <script>
             var gitAPI = "https://api.github.com/repos/:owner/:repo/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";

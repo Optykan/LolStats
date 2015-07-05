@@ -19,7 +19,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.125a";
+            $ver="v0.126a";
             
             $stringrequest = NULL;
 

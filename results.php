@@ -233,8 +233,8 @@
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
                         <div class='row spellrow' id='spellrow$i'>
-                            <img class='spell' src='${'champspell'.$i.'1img'}'>
-                            <img class='spell' src='${'champspell'.$i.'2img'}'>
+                            <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
+                            <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
                         </div>
                         <p class='ro champion' id='champ$i'>${'champion'.$i}</p>
                         <div class='rank row' id='rank$i'>
@@ -280,8 +280,8 @@
                         
                         <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
                         <div class='row spellrow' id='spellrow$i'>
-                            <img class='spell' src='${'champspell'.$i.'1img'}'>
-                            <img class='spell' src='${'champspell'.$i.'2img'}'>
+                            <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
+                            <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
                         </div>
                         <p class='ro champion' id='champ$i'>${'champion'.$i}</p>
                         <div class='rank row' id='rank$i'>
@@ -351,14 +351,24 @@
            if(updown===1){
                 document.getElementById(splashid).style.marginTop = "-450px";
                 document.getElementById('spellrow'+splashid).style.marginTop = "-140px";
-                document.getElementById('champ'+splashid).style.top = "-230px";
+                document.getElementById('spellrow'+splashid).style.marginLeft = "31px";
+                //document.getElementById('champ'+splashid).style.top = "-230px";
                document.getElementById('rank'+splashid).style.opacity="1";
+               document.getElementById('spell'+splashid+'1').style.width="30px";
+               document.getElementById('spell'+splashid+'2').style.width="30px";
+               document.getElementById('spell'+splashid+'1').style.height="30px";
+               document.getElementById('spell'+splashid+'2').style.height="30px";
             }
             else{
                 document.getElementById(splashid).style.marginTop = "-250px";
                 document.getElementById('spellrow'+splashid).style.marginTop = "0px";
+                document.getElementById('spellrow'+splashid).style.marginLeft = "21px";
                 document.getElementById('champ'+splashid).style.top = "0px";
                 document.getElementById('rank'+splashid).style.opacity="0";
+                document.getElementById('spell'+splashid+'1').style.width="40px";
+                document.getElementById('spell'+splashid+'2').style.width="40px";
+                document.getElementById('spell'+splashid+'1').style.height="40px";
+                document.getElementById('spell'+splashid+'2').style.height="40px";
                 
                 
             }

@@ -191,6 +191,8 @@ body {
 	-moz-border-radius: 150px;
     margin-bottom:20px;
     margin-right:20px;
+    -webkit-transition: all 0.7s ease;
+    -moz-transition:all 0.7s ease;
 }
 
 .spellrow {

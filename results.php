@@ -247,13 +247,13 @@
                             <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
                             <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
                         </div>
-                        <p class='ro champion' id='champ$i'>${'champion'.$i}</p>
+                        <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
-                            <p class='ro'>${'playerStats'.$i}</p>
-                            <span class='wins la'>W : ${'player'.$i.'wins'} /</span><span class='loss la'>/ L : ${'player'.$i.'loss'}</span>
+                            <p>${'playerStats'.$i}</p>
+                            <span class='wins'>W : ${'player'.$i.'wins'} /</span><span class='loss'>/ L : ${'player'.$i.'loss'}</span>
                         </div>
-                        <p class='ro summoner'>${'summoner'.$i}</p>
+                        <p class='osans summoner'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";

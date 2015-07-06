@@ -249,7 +249,7 @@
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
                             <p class='ro'>${'playerStats'.$i}</p>
-                            <span class='wins la'>W : ${'player'.$i.'wins'}</span>//<span class='loss la'> L : ${'player'.$i.'loss'}</span>
+                            <span class='wins la'>W : ${'player'.$i.'wins'} /</span><span class='loss la'>/ L : ${'player'.$i.'loss'}</span>
                         </div>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
@@ -298,7 +298,7 @@
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
                             <p class='ro'>${'playerStats'.$i}</p>
-                            <span class='wins la'>W : ${'player'.$i.'wins'}</span>//<span class='loss la'> L : ${'player'.$i.'loss'}</span>
+                            <span class='wins la'>W : ${'player'.$i.'wins'} /</span><span class='loss la'>/ L : ${'player'.$i.'loss'}</span>
                         </div>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>

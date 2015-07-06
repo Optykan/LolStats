@@ -182,6 +182,8 @@
                     ${'player'.$i.'tier'}='ETC';
                     ${'player'.$i.'div'}='Unranked';
                     ${'playerStats'.$i}='Unranked';
+                    ${'player'.$i.'wins'} = '0';
+                    ${'player'.$i.'loss'} = '0';
                 }
             }
             

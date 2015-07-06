@@ -22,7 +22,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.127a";
+            $ver="v0.128a";
             
             $stringrequest = NULL;
 
@@ -164,7 +164,7 @@
             }
 
             $rankedinfourl = "https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/".$stringrequest."/entry?api_key=".$key;
-            echo "<script>console.log('$rankedinfourl')</script>";
+            //echo "<script>console.log('$rankedinfourl')</script>";
             $rankedcontents = file_get_contents($rankedinfourl);
             $rankedinfo = json_decode($rankedcontents,true);
             
@@ -174,6 +174,8 @@
                     ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
                     ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
                     ${'player'.$i.'lp'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['leaguePoints'];
+                    ${'player'.$i.'wins'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['wins'];
+                    ${'player'.$i.'loss'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['losses'];
                     ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
                 }
                 else{
@@ -247,6 +249,7 @@
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
                             <p class='ro'>${'playerStats'.$i}</p>
+                            <span class='wins la'>W : ${'player'.$i.'wins'}</span>//<span class='loss la'> L : ${'player'.$i.'loss'}</span>
                         </div>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>
@@ -295,6 +298,7 @@
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
                             <p class='ro'>${'playerStats'.$i}</p>
+                            <span class='wins la'>W : ${'player'.$i.'wins'}</span>//<span class='loss la'> L : ${'player'.$i.'loss'}</span>
                         </div>
                         <p class='ro summoner'>${'summoner'.$i}</p>
                         </div>

@@ -23,7 +23,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.128a";
+            $ver="v0.129a";
             
             $stringrequest = NULL;
 
@@ -179,8 +179,9 @@
                     ${'player'.$i.'loss'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['losses'];
                     ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
                     if(${'player'.$i.'lp'}=='100'){
-                        ${'player'.$i.'serieswin'}=$rankedinfo[${'summonerId'.$i}][0]['entries'][0]['miniSeries']['wins'];
-                        ${'player'.$i.'seriesloss'}=$rankedinfo[${'summonerId'.$i}][0]['entries'][0]['miniSeries']['losses'];
+                        ${'series'.$i}=$rankedinfo[${'summonerId'.$i}][0]['entries'][0]['miniSeries']['progress'];
+                        ${'serieslength'.$i}=strlen(${'series'.$i});
+                        ${'seriesprogress'.$i}=str_split(${'series'.$i});
                     }
                 }
                 else{
@@ -255,8 +256,25 @@
                         <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
-                            <p>${'playerStats'.$i}</p>
-                            <span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
+                            <p class='tier'>${'playerStats'.$i}</p>";
+                    
+                            if(${'player'.$i.'lp'}=='100'){
+                                echo "<div class='series'><span>";
+                                for($i=1;$i<=${'serieslength'.$i};i++){
+                                    if(${'seriesprogress'.$i}[i+1]=='W'){
+                                        echo "<i class='fa fa-check-circle'></i>";
+                                    }
+                                    else if(${'seriesprogress'.$i}[i+1]=='L'){
+                                        echo "<i class='fa fa-times-circle'></i>";
+                                    }
+                                    else{
+                                        echo "<i class='fa fa-minus-circle'></i>";
+                                    }
+                                }
+                                echo "</span></div>";
+                            }
+                    
+                    echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
                         </div>
                         <p class='osans summoner'>${'summoner'.$i}</p>
                         </div>
@@ -304,8 +322,25 @@
                         <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
                         <div class='rank row' id='rank$i'>
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
-                            <p>${'playerStats'.$i}</p>
-                            <span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
+                            <p class='tier'>${'playerStats'.$i}</p>";
+                    
+                            if(${'player'.$i.'lp'}=='100'){
+                                echo "<div class='series'><span>";
+                                for($i=1;$i<=${'serieslength'.$i};i++){
+                                    if(${'seriesprogress'.$i}[i+1]=='W'){
+                                        echo "<i class='fa fa-check-circle'></i>";
+                                    }
+                                    else if(${'seriesprogress'.$i}[i+1]=='L'){
+                                        echo "<i class='fa fa-times-circle'></i>";
+                                    }
+                                    else{
+                                        echo "<i class='fa fa-minus-circle'></i>";
+                                    }
+                                }
+                                echo "</span></div>";
+                            }
+                    
+                    echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
                         </div>
                         <p class='osans summoner'>${'summoner'.$i}</p>
                         </div>

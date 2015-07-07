@@ -282,7 +282,7 @@ body {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;        
 }
 
-.submit::-moz-focus-inner {
+.submit:-moz-focus-inner {
        border: 0;  /* Small centering fix for Firefox */
 }
 .options {

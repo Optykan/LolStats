@@ -260,7 +260,7 @@
                     
                             if(${'player'.$i.'lp'}=='100'){
                                 echo "<div class='series'><span>";
-                                for($d=1;$d<=${'serieslength'.$d};$d++){
+                                for($d=1;$d<=${'serieslength'.$i};$d++){
                                     if(${'seriesprogress'.$d}[$d-1]=='W'){
                                         echo "<i class='fa fa-check-circle'></i>";
                                     }
@@ -326,7 +326,7 @@
                     
                             if(${'player'.$i.'lp'}=='100'){
                                 echo "<div class='series'><span>";
-                                for($d=1;$d<=${'serieslength'.$d};$d++){
+                                for($d=1;$d<=${'serieslength'.$i};$d++){
                                     if(${'seriesprogress'.$d}[$d-1]=='W'){
                                         echo "<i class='fa fa-check-circle'></i>";
                                     }

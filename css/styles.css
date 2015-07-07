@@ -98,7 +98,14 @@ body {
     font-size:1em;
     text-align:center;
     padding-bottom:10px;
-    top:-125px;
+    top:-120px;
+}
+.seriesset{
+    position:relative;
+    font-size:1em;
+    text-align:center;
+    padding-bottom:10px;
+    top:-140px;
 }
 .champion{
     top:0px;

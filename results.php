@@ -178,8 +178,8 @@
                     ${'player'.$i.'wins'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['wins'];
                     ${'player'.$i.'loss'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['losses'];
                     ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
-                    if(${'player'.$i.'lp'}=='100'){
-                        ${'series'.$i}=$rankedinfo[${'summonerId'.$i}][0]['entries'][0]['miniSeries']['progress'];
+                    ${'series'.$i}=$rankedinfo[${'summonerId'.$i}][0]['entries'][0]['miniSeries']['progress'];
+                    if(isset(${'series'.$i})){
                         ${'serieslength'.$i}=strlen(${'series'.$i});
                         ${'seriesprogress'.$i}=str_split(${'series'.$i});
                     }
@@ -258,13 +258,13 @@
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
                             <p class='tier'>${'playerStats'.$i}</p>";
                     
-                            if(${'player'.$i.'lp'}=='100'){
+                            if(isset(${'series'.$i})){
                                 echo "<div class='series'><span>";
                                 for($d=1;$d<=${'serieslength'.$i};$d++){
-                                    if(${'seriesprogress'.$d}[$d-1]=='W'){
+                                    if(${'seriesprogress'.$i}[$d-1]=='W'){
                                         echo "<i class='fa fa-check-circle'></i>";
                                     }
-                                    else if(${'seriesprogress'.$d}[$d-1]=='L'){
+                                    else if(${'seriesprogress'.$i}[$d-1]=='L'){
                                         echo "<i class='fa fa-times-circle'></i>";
                                     }
                                     else{
@@ -324,13 +324,14 @@
                             <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
                             <p class='tier'>${'playerStats'.$i}</p>";
                     
-                            if(${'player'.$i.'lp'}=='100'){
+                            if(isset(${'series'.$i})){
+                                ${'seriesset'.$i}=true;
                                 echo "<div class='series'><span>";
                                 for($d=1;$d<=${'serieslength'.$i};$d++){
-                                    if(${'seriesprogress'.$d}[$d-1]=='W'){
+                                    if(${'seriesprogress'.$i}[$d-1]=='W'){
                                         echo "<i class='fa fa-check-circle'></i>";
                                     }
-                                    else if(${'seriesprogress'.$d}[$d-1]=='L'){
+                                    else if(${'seriesprogress'.$i}[$d-1]=='L'){
                                         echo "<i class='fa fa-times-circle'></i>";
                                     }
                                     else{
@@ -342,7 +343,14 @@
                     
                     echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
                         </div>
-                        <p class='osans summoner'>${'summoner'.$i}</p>
+                        <p class='osans";
+                            if(${'seriesset'.$i}==true){
+                                echo 'seriesset';
+                            }
+                            else{
+                                echo 'summoner';
+                            }
+                    echo "'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";

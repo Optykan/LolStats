@@ -260,11 +260,11 @@
                     
                             if(${'player'.$i.'lp'}=='100'){
                                 echo "<div class='series'><span>";
-                                for($i=1;$i<=${'serieslength'.$i};$i++){
-                                    if(${'seriesprogress'.$i}[$i-1]=='W'){
+                                for($d=1;$d<=${'serieslength'.$d};$d++){
+                                    if(${'seriesprogress'.$d}[$d-1]=='W'){
                                         echo "<i class='fa fa-check-circle'></i>";
                                     }
-                                    else if(${'seriesprogress'.$i}[$i-1]=='L'){
+                                    else if(${'seriesprogress'.$d}[$d-1]=='L'){
                                         echo "<i class='fa fa-times-circle'></i>";
                                     }
                                     else{
@@ -326,11 +326,11 @@
                     
                             if(${'player'.$i.'lp'}=='100'){
                                 echo "<div class='series'><span>";
-                                for($i=1;$i<=${'serieslength'.$i};$i++){
-                                    if(${'seriesprogress'.$i}[$i-1]=='W'){
+                                for($d=1;$d<=${'serieslength'.$d};$d++){
+                                    if(${'seriesprogress'.$d}[$d-1]=='W'){
                                         echo "<i class='fa fa-check-circle'></i>";
                                     }
-                                    else if(${'seriesprogress'.$i}[$i-1]=='L'){
+                                    else if(${'seriesprogress'.$d}[$d-1]=='L'){
                                         echo "<i class='fa fa-times-circle'></i>";
                                     }
                                     else{

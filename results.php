@@ -259,6 +259,7 @@
                             <p class='tier'>${'playerStats'.$i}</p>";
                     
                             if(isset(${'series'.$i})){
+                                ${'seriesset'.$i}=true;
                                 echo "<div class='series'><span>";
                                 for($d=1;$d<=${'serieslength'.$i};$d++){
                                     if(${'seriesprogress'.$i}[$d-1]=='W'){
@@ -276,7 +277,14 @@
                     
                     echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
                         </div>
-                        <p class='osans summoner'>${'summoner'.$i}</p>
+                        <p class='osans";
+                            if(${'seriesset'.$i}==true){
+                                echo "seriesset";
+                            }
+                            else{
+                                echo "summoner";
+                            }
+                    echo "'>${'summoner'.$i}</p>
                         </div>
                         <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
                     </div>";
@@ -345,10 +353,10 @@
                         </div>
                         <p class='osans";
                             if(${'seriesset'.$i}==true){
-                                echo 'seriesset';
+                                echo "seriesset";
                             }
                             else{
-                                echo 'summoner';
+                                echo "summoner";
                             }
                     echo "'>${'summoner'.$i}</p>
                         </div>

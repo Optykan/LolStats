@@ -44,152 +44,164 @@
             $data = json_decode($json, true);
 
             $id = $data[$name]['id'];
-
-            $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
-
-            $matchdata = file_get_contents($currentmatchjson);
-            $match = json_decode($matchdata, true);
-
-            $mapId = $match['mapId'];
-            $gameQueue = $match['gameQueueConfigId'];
-
-            $time = $match['gameLength'];
-
-
-/*
-            function pg_connection_string(){
-                return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";
-            }
-            $db = pg_connect(pg_connection_string());
-            $result = pg_query($db, "SELECT statement goes here");
-*/
-
-            if($gameQueue === 2 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 7 || $gameQueue === 33 || $gameQueue === 14 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 25 || $gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42 || $gameQueue === 61 || $gameQueue === 65 || $gameQueue === 70 || $gameQueue === 76 || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93 || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
-                $players = 10;
-                $ppteam = 5;
-            }
-            else if($gameQueue === 8 || $gameQueue === 9 || $gameQueue === 41 || $gameQueue === 52){
-                $players=6;
-                $ppteam=3;
-            }
-            else if($gameQueue === 72){
-                $players=2;
-                $ppteam=1;
-            }
-            else if($gameQueue === 73){
-                $players=4;
-                $ppteam=2;
-            }
-                
-            if($gameQueue === 0){
-               $gameType = 'Custom';
-            }
-            else if($gameQueue === 2 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 65 || $gameQueue === 61 || $gameQueue === 70  || $gameQueue === 76  || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
-                $gameType = '5 vs 5 Unranked';
-            }
-            else if($gameQueue === 14){
-                $gameType = '5 vs 5 Draft';
-            }
-            else if($gameQueue === 7  || $gameQueue === 25 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 33  || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93){
-                $gameType = '5 vs 5 AI';
-            }
-            else if($gameQueue === 8){
-                $gameType = '3 vs 3 Unranked';
-            }
-            else if($gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42){
-                $gameType = '5 vs 5 Ranked';
-            }
-            else if($gameQueue === 9 || $gameQueue === 41){
-                $gameType = '3 vs 3 Ranked';
-            }
-            else if($gameQueue === 52){
-                $gameType = '3 vs 3 AI';
-            }
-            else if($gameQueue === 72){
-                $gameType = '1 vs 1';
-            }
-            else if($gameQueue === 73){
-                $gameType = '2 vs 2';
-            }
-            else{
-                $gameType = 'Map Undefined';
-            }
-
-            $versusmargin = ($ppteam/2)*190+40;
-
-            $before = microtime(true);
-            date_default_timezone_set('Etc/UTC');
-            $after = microtime(true);
-            $debug=date("H:i:s",$after-$before);
-            echo "<script>console.log('$debug');</script>";
-
-            $champdata = file_get_contents("champions.json");
-            $champname = json_decode($champdata, true);
-
-            $spelldata = file_get_contents("spells.json");
-            $spells = json_decode($spelldata,true);
-
-            //SUMMONER DATA
-            for($i=1; $i<=$players; $i++){
-                    
-                ${"summonerId" . $i} = $match['participants'][$i-1]['summonerId'];
-                ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
-                ${"championId" . $i} = $match['participants'][$i-1]['championId'];
-
-
-
-                ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
-                ${"championimg" . $i} = $champname[${'championId'.$i}]['key'].".png";
-                
-                ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
-                ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
-
-                
-                ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
-                ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."2"}]['image'];
-                
-                $stringrequest = $stringrequest.${"summonerId" . $i}.',';
-
-            }
-
-                
-            $champdata = file_get_contents("champions.json");
-            $champname = json_decode($champdata, true);
-
-            //BANS
             
-            for($i=1; $i<=6; $i++){
-                ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
+            if(isset($id)){
 
-                ${"banimg" . $i} = $champname[${'ban'.$i}]['key'].".png";
-            }
 
-            $rankedinfourl = "https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/".$stringrequest."/entry?api_key=".$key;
-            //echo "<script>console.log('$rankedinfourl')</script>";
-            $rankedcontents = file_get_contents($rankedinfourl);
-            $rankedinfo = json_decode($rankedcontents,true);
-            
-            for($i=1;$i<=$players;$i++){
-                $playerQueue=$rankedinfo[${'summonerId'.$i}][0]['queue'];
-                if($playerQueue == "RANKED_SOLO_5x5"){
-                    ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
-                    ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
-                    ${'player'.$i.'lp'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['leaguePoints'];
-                    ${'player'.$i.'wins'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['wins'];
-                    ${'player'.$i.'loss'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['losses'];
-                    ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
-                    ${'series'.$i}=$rankedinfo[${'summonerId'.$i}][0]['entries'][0]['miniSeries']['progress'];
-                    if(isset(${'series'.$i})){
-                        ${'serieslength'.$i}=strlen(${'series'.$i});
-                        ${'seriesprogress'.$i}=str_split(${'series'.$i});
-                    }
+                $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
+
+                $matchdata = file_get_contents($currentmatchjson);
+                $match = json_decode($matchdata, true);
+
+                $mapId = $match['mapId'];
+                $gameQueue = $match['gameQueueConfigId'];
+
+                $time = $match['gameLength'];
+
+
+    /*
+                function pg_connection_string(){
+                    return "dbname=d39lujf7bsqfo4 host=ec2-54-227-249-165.compute-1.amazonaws.com port=5432 user=atsokaxrphxmkf password=bGCIwgCw-MfVEI-4dIoSvMr0_A sslmode=require";
+                }
+                $db = pg_connect(pg_connection_string());
+                $result = pg_query($db, "SELECT statement goes here");
+    */
+
+                if($gameQueue === 2 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 7 || $gameQueue === 33 || $gameQueue === 14 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 25 || $gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42 || $gameQueue === 61 || $gameQueue === 65 || $gameQueue === 70 || $gameQueue === 76 || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93 || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
+                    $players = 10;
+                    $ppteam = 5;
+                }
+                else if($gameQueue === 8 || $gameQueue === 9 || $gameQueue === 41 || $gameQueue === 52){
+                    $players=6;
+                    $ppteam=3;
+                }
+                else if($gameQueue === 72){
+                    $players=2;
+                    $ppteam=1;
+                }
+                else if($gameQueue === 73){
+                    $players=4;
+                    $ppteam=2;
+                }
+
+                if($gameQueue === 0){
+                   $gameType = 'Custom';
+                }
+                else if($gameQueue === 2 || $gameQueue === 16 || $gameQueue === 17 || $gameQueue === 65 || $gameQueue === 61 || $gameQueue === 70  || $gameQueue === 76  || $gameQueue === 96 || $gameQueue === 300 || $gameQueue === 310){
+                    $gameType = '5 vs 5 Unranked';
+                }
+                else if($gameQueue === 14){
+                    $gameType = '5 vs 5 Draft';
+                }
+                else if($gameQueue === 7  || $gameQueue === 25 || $gameQueue === 31 || $gameQueue === 32 || $gameQueue === 33  || $gameQueue === 83 || $gameQueue === 91 || $gameQueue === 92 || $gameQueue === 93){
+                    $gameType = '5 vs 5 AI';
+                }
+                else if($gameQueue === 8){
+                    $gameType = '3 vs 3 Unranked';
+                }
+                else if($gameQueue === 4 || $gameQueue === 6 || $gameQueue === 42){
+                    $gameType = '5 vs 5 Ranked';
+                }
+                else if($gameQueue === 9 || $gameQueue === 41){
+                    $gameType = '3 vs 3 Ranked';
+                }
+                else if($gameQueue === 52){
+                    $gameType = '3 vs 3 AI';
+                }
+                else if($gameQueue === 72){
+                    $gameType = '1 vs 1';
+                }
+                else if($gameQueue === 73){
+                    $gameType = '2 vs 2';
                 }
                 else{
-                    ${'player'.$i.'tier'}='ETC';
-                    ${'player'.$i.'div'}='Unranked';
-                    ${'playerStats'.$i}='Unranked';
-                    ${'player'.$i.'wins'} = '0';
-                    ${'player'.$i.'loss'} = '0';
+                    $gameType = 'Map Undefined';
+                }
+
+                $versusmargin = ($ppteam/2)*190+40;
+
+                $before = microtime(true);
+                date_default_timezone_set('Etc/UTC');
+                $after = microtime(true);
+                $debug=date("H:i:s",$after-$before);
+                echo "<script>console.log('$debug');</script>";
+
+                $champdata = file_get_contents("champions.json");
+                $champname = json_decode($champdata, true);
+
+                $spelldata = file_get_contents("spells.json");
+                $spells = json_decode($spelldata,true);
+
+                //SUMMONER DATA
+                for($i=1; $i<=$players; $i++){
+
+                    ${"summonerId" . $i} = $match['participants'][$i-1]['summonerId'];
+                    ${"summoner" . $i} = $match['participants'][$i-1]['summonerName'];
+                    ${"championId" . $i} = $match['participants'][$i-1]['championId'];
+
+
+
+                    ${"champion" . $i} = $champname[${'championId'.$i}]['name'];
+                    ${"championimg" . $i} = $champname[${'championId'.$i}]['key'].".png";
+
+                    ${"champSpell".$i."1"}= $match['participants'][$i-1]['spell1Id'];
+                    ${"champSpell".$i."2"}= $match['participants'][$i-1]['spell2Id'];
+
+
+                    ${'champspell'.$i.'1img'}=$spells[${"champSpell".$i."1"}]['image'];
+                    ${'champspell'.$i.'2img'}=$spells[${"champSpell".$i."2"}]['image'];
+
+                    $stringrequest = $stringrequest.${"summonerId" . $i}.',';
+
+                }
+
+
+                $champdata = file_get_contents("champions.json");
+                $champname = json_decode($champdata, true);
+
+                //BANS
+
+                for($i=1; $i<=6; $i++){
+                    ${"ban".$i} = $match['bannedChampions'][$i-1]['championId'];
+
+                    ${"banimg" . $i} = $champname[${'ban'.$i}]['key'].".png";
+                }
+
+                $rankedinfourl = "https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/".$stringrequest."/entry?api_key=".$key;
+                //echo "<script>console.log('$rankedinfourl')</script>";
+                $rankedcontents = file_get_contents($rankedinfourl);
+                $rankedinfo = json_decode($rankedcontents,true);
+
+                for($i=1;$i<=$players;$i++){
+                    $playerQueue=$rankedinfo[${'summonerId'.$i}][0]['queue'];
+                    if($playerQueue == "RANKED_SOLO_5x5"){
+                        ${'player'.$i.'tier'} = $rankedinfo[${'summonerId'.$i}][0]['tier'];
+                        ${'player'.$i.'div'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['division'];
+                        ${'player'.$i.'lp'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['leaguePoints'];
+                        ${'player'.$i.'wins'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['wins'];
+                        ${'player'.$i.'loss'} = $rankedinfo[${'summonerId'.$i}][0]['entries'][0]['losses'];
+                        ${'playerStats'.$i}=${'player'.$i.'tier'}." ".${'player'.$i.'div'}." (".${'player'.$i.'lp'}.")";
+                        ${'series'.$i}=$rankedinfo[${'summonerId'.$i}][0]['entries'][0]['miniSeries']['progress'];
+                        if(isset(${'series'.$i})){
+                            ${'serieslength'.$i}=strlen(${'series'.$i});
+                            ${'seriesprogress'.$i}=str_split(${'series'.$i});
+                        }
+                    }
+                    else{
+                        ${'player'.$i.'tier'}='ETC';
+                        ${'player'.$i.'div'}='Unranked';
+                        ${'playerStats'.$i}='Unranked';
+                        ${'player'.$i.'wins'} = '0';
+                        ${'player'.$i.'loss'} = '0';
+                    }
+                }
+
+            }
+
+            else{
+                $status=['status']['status_code'];
+                if($status=='503'){
+                    http_redirect("503.php", array(), true, HTTP_REDIRECT_PERM);
                 }
             }
             

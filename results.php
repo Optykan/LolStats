@@ -277,7 +277,7 @@
                     
                     echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
                         </div>
-                        <p class='osans";
+                        <p class='osans ";
                             if(${'seriesset'.$i}==true){
                                 echo "seriesset";
                             }
@@ -351,7 +351,7 @@
                     
                     echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
                         </div>
-                        <p class='osans";
+                        <p class='osans ";
                             if(${'seriesset'.$i}==true){
                                 echo "seriesset";
                             }

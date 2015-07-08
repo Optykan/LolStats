@@ -43,12 +43,10 @@
             $json = file_get_contents($jsonurl);
             $data = json_decode($json, true);
 
-            $id = $data[$name]['id'];
-
-            $vars = get_defined_vars();
+            $id = $data[$name]['id'];    
             
-            if(array_key_exists('id', $vars)){
-
+            if(strpos($http_response_header[0],'200') !== false){
+                echo "<script>console.log('PASS');</script>";
 
                 $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
 
@@ -201,10 +199,13 @@
             }
 
             else{
-                $status=$data['status']['status_code'];
-                if($status=='503'){
-                    http_redirect("503.php", array(), true, HTTP_REDIRECT_PERM);
+                if(strpos($http_response_header[0],'503')!==false){
+                    echo "<META http-equiv='refresh' content='0; URL=503.php'>";
                 }
+                else if(strpos($http_response_header[0],'404')!==false){
+                    echo "<META http-equiv='refresh' content='0; URL=404.php'>";
+                }
+                
             }
             
         ?>

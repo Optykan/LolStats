@@ -263,13 +263,13 @@
                                 echo "<div class='series'><span>";
                                 for($d=1;$d<=${'serieslength'.$i};$d++){
                                     if(${'seriesprogress'.$i}[$d-1]=='W'){
-                                        echo "<i class='fa fa-check-circle'></i>";
+                                        echo "<i class='fa fa-check'></i>";
                                     }
                                     else if(${'seriesprogress'.$i}[$d-1]=='L'){
-                                        echo "<i class='fa fa-times-circle'></i>";
+                                        echo "<i class='fa fa-times'></i>";
                                     }
                                     else{
-                                        echo "<i class='fa fa-minus-circle'></i>";
+                                        echo "<i class='fa fa-minus'></i>";
                                     }
                                 }
                                 echo "</span></div>";
@@ -337,13 +337,13 @@
                                 echo "<div class='series'><span>";
                                 for($d=1;$d<=${'serieslength'.$i};$d++){
                                     if(${'seriesprogress'.$i}[$d-1]=='W'){
-                                        echo "<i class='fa fa-check-circle'></i>";
+                                        echo "<i class='fa fa-check'></i>";
                                     }
                                     else if(${'seriesprogress'.$i}[$d-1]=='L'){
-                                        echo "<i class='fa fa-times-circle'></i>";
+                                        echo "<i class='fa fa-times'></i>";
                                     }
                                     else{
-                                        echo "<i class='fa fa-minus-circle'></i>";
+                                        echo "<i class='fa fa-minus'></i>";
                                     }
                                 }
                                 echo "</span></div>";

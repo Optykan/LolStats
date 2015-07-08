@@ -201,7 +201,7 @@
             }
 
             else{
-                $status=['status']['status_code'];
+                $status=$data['status']['status_code'];
                 if($status=='503'){
                     http_redirect("503.php", array(), true, HTTP_REDIRECT_PERM);
                 }

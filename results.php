@@ -200,10 +200,10 @@
 
             else{
                 if(strpos($http_response_header[0],'503')!==false){
-                    echo "<META http-equiv='refresh' content='0; URL=503.php'>";
+                    echo "<META http-equiv='refresh' content='0; URL=503.html'>";
                 }
                 else if(strpos($http_response_header[0],'404')!==false){
-                    echo "<META http-equiv='refresh' content='0; URL=404.php'>";
+                    echo "<META http-equiv='refresh' content='0; URL=404.html'>";
                 }
                 
             }

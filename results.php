@@ -44,8 +44,10 @@
             $data = json_decode($json, true);
 
             $id = $data[$name]['id'];
+
+            $vars = get_defined_vars();
             
-            if(isset($id)){
+            if(array_key_exists('id', $vars)){
 
 
                 $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;

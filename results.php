@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/switchery.css">
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/0.1.6/jquery.scrollify.min.js"></script>
@@ -30,7 +31,7 @@
                 $.scrollify({
                     section : "section",
                     sectionName : "section-name",
-                    easing: "easeInOutCubic",
+                    easing: "easeOutExpo",
                     scrollSpeed: 1100,
                     offset : 0,
                     scrollbars: true,

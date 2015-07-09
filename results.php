@@ -431,7 +431,26 @@
         return val;
         }
     </script>
-    <script> $.backstretch("assets/bg.jpg");</script>
+    <script> 
+                           <?php 
+echo "$.backstretch('assets/maps/";
+                            if($mapId === 11){
+                                echo "summonersriftT";
+                            }
+                            else if($mapId === 12){
+                                echo "howlingabyss";
+                            }
+                            else if($mapId === 10){
+                                echo "twistedtreeline";
+                            }
+                            else if($mapId === 8){
+                                echo "crystalscar";
+                            }
+                            else{
+                                echo "bg";
+                            }
+echo ".jpg');"
+                    ?></script>
  <script>$(function() {
     if($.cookie('lock')=='true'){
         document.getElementById("switch").checked = true;

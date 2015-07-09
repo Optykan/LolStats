@@ -14,9 +14,10 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/switchery.css">
         
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/0.1.6/jquery.scrollify.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/switchery.js"></script>
         
@@ -213,189 +214,211 @@
     </head>
     
     <body>
-        <div class="options">
-            Lock Ranked Info: <input type="checkbox" class="js-switch" id="switch">
-        </div>
-        <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
-        <div class="ro version"><?=$ver?></div>
-        <div class="container-fluid row" >
-            <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
-        </div>
-        <div class="container-fluid row resultshead">
-            <div class="col-md-5 title">
-                 <?php 
-                            if($mapId === 11){
-                                echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
-                            }
-                            else if($mapId === 12){
-                                echo "HOWLING ABYSS";
-                            }
-                            else if($mapId === 10){
-                                echo "TWISTED TREELINE";
-                            }
-                            else if($mapId === 8){
-                                echo "THE CRYSTAL SCAR";
-                            }
-                            else{
-                                echo "SUMMONER NOT FOUND";
-                            }
-                    ?>
+        <!------------------------------------------>
+        <!---------------SECTION 1------------------>
+        <!------------------------------------------>
+        <section>
+            <div class="options">
+                Lock Ranked Info: <input type="checkbox" class="js-switch" id="switch">
             </div>
-            <div class="col-md-2">
-                <p class="ro time" id="time"></p>
+            <div class="build os" id="build"><i class="fa fa-exclamation-triangle"></i>&nbsp;Build in progress<p style="font-size:0.7em;">Expect service interruptions</p></div>
+            <div class="ro version"><?=$ver?></div>
+            <div class="container-fluid row" >
+                <!--<div class="col-md-3 col-md-offset-9 title">SUMMONER'S RIF<span style="padding-left:3px;"></span>T</div>-->
             </div>
-            <div class="col-md-5 gametype"><?=$gameType?></div>
-        </div>
-        
-<!--<img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/>-->
-        
-        <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
-            <?php 
-/*                for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
-                }*/
-            ?>
-        
-        </div>
-        <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
-            <?php 
-                for ($i=1; $i<=$ppteam; $i++){
-                    echo "<div class='col-md-2 champimg'>
-                        <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
-                        
-                        <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
-                        <div class='row spellrow' id='spellrow$i'>
-                            <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
-                            <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
-                        </div>
-                        <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
-                        <div class='rank row' id='rank$i'>
-                            <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
-                            <p class='tier'>${'playerStats'.$i}</p>";
-                    
-                            if(isset(${'series'.$i})){
-                                ${'seriesset'.$i}=true;
-                                echo "<div class='series'><span>";
-                                for($d=1;$d<=${'serieslength'.$i};$d++){
-                                    if(${'seriesprogress'.$i}[$d-1]=='W'){
-                                        echo "<i class='fa fa-check'></i>";
-                                    }
-                                    else if(${'seriesprogress'.$i}[$d-1]=='L'){
-                                        echo "<i class='fa fa-times'></i>";
-                                    }
-                                    else{
-                                        echo "<i class='fa fa-minus'></i>";
-                                    }
+            <div class="container-fluid row resultshead">
+                <div class="col-md-5 title">
+                     <?php 
+                                if($mapId === 11){
+                                    echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
                                 }
-                                echo "</span></div>";
-                            }
-                    
-                    echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
-                        </div>
-                        <p class='osans ";
-                            if(${'seriesset'.$i}==true){
-                                echo "seriesset";
-                            }
-                            else{
-                                echo "summoner";
-                            }
-                    echo "'>${'summoner'.$i}</p>
-                        </div>
-                        <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
-                    </div>";
-                }
-            ?>
-            <div class="col-md-2">
-                <div class="container-fluid bans">
-                        <?php 
+                                else if($mapId === 12){
+                                    echo "HOWLING ABYSS";
+                                }
+                                else if($mapId === 10){
+                                    echo "TWISTED TREELINE";
+                                }
+                                else if($mapId === 8){
+                                    echo "THE CRYSTAL SCAR";
+                                }
+                                else{
+                                    echo "SUMMONER NOT FOUND";
+                                }
+                        ?>
+                </div>
+                <div class="col-md-2">
+                    <p class="ro time" id="time"></p>
+                </div>
+                <div class="col-md-5 gametype"><?=$gameType?></div>
+            </div>
 
-                        for($i=1;$i<=3;$i++){
-                            if(${'banimg'.$i}!='.png'){
-                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
-                            }
-                           
-                        }
-                    ?>
-                </div>
+    <!--<img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/>-->
+
+            <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
+                <?php 
+    /*                for ($i=1; $i<=$ppteam; $i++){
+                        echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
+                    }*/
+                ?>
+
             </div>
-        </div>
-        <div class="container row versus">
-            
-        <div class='ro'>VS</div>
-        </div>
-       <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
-           <?php 
-/*                for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
-                }*/
-            ?>
-        
-        </div>
-        <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
-            <?php 
-                for ($i=$ppteam+1; $i<=$players; $i++){
-                    echo "<div class='col-md-2 champimg'>
-                        <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
-                        
-                        <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
-                        <div class='row spellrow' id='spellrow$i'>
-                            <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
-                            <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
-                        </div>
-                        <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
-                        <div class='rank row' id='rank$i'>
-                            <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
-                            <p class='tier'>${'playerStats'.$i}</p>";
-                    
-                            if(isset(${'series'.$i})){
-                                ${'seriesset'.$i}=true;
-                                echo "<div class='series'><span>";
-                                for($d=1;$d<=${'serieslength'.$i};$d++){
-                                    if(${'seriesprogress'.$i}[$d-1]=='W'){
-                                        echo "<i class='fa fa-check'></i>";
+            <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
+                <?php 
+                    for ($i=1; $i<=$ppteam; $i++){
+                        echo "<div class='col-md-2 champimg'>
+                            <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
+
+                            <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
+                            <div class='row spellrow' id='spellrow$i'>
+                                <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
+                                <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
+                            </div>
+                            <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
+                            <div class='rank row' id='rank$i'>
+                                <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
+                                <p class='tier'>${'playerStats'.$i}</p>";
+
+                                if(isset(${'series'.$i})){
+                                    ${'seriesset'.$i}=true;
+                                    echo "<div class='series'><span>";
+                                    for($d=1;$d<=${'serieslength'.$i};$d++){
+                                        if(${'seriesprogress'.$i}[$d-1]=='W'){
+                                            echo "<i class='fa fa-check'></i>";
+                                        }
+                                        else if(${'seriesprogress'.$i}[$d-1]=='L'){
+                                            echo "<i class='fa fa-times'></i>";
+                                        }
+                                        else{
+                                            echo "<i class='fa fa-minus'></i>";
+                                        }
                                     }
-                                    else if(${'seriesprogress'.$i}[$d-1]=='L'){
-                                        echo "<i class='fa fa-times'></i>";
-                                    }
-                                    else{
-                                        echo "<i class='fa fa-minus'></i>";
-                                    }
+                                    echo "</span></div>";
                                 }
-                                echo "</span></div>";
+
+                        echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
+                            </div>
+                            <p class='osans ";
+                                if(${'seriesset'.$i}==true){
+                                    echo "seriesset";
+                                }
+                                else{
+                                    echo "summoner";
+                                }
+                        echo "'>${'summoner'.$i}</p>
+                            </div>
+                            <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
+                        </div>";
+                    }
+                ?>
+                <div class="col-md-2">
+                    <div class="container-fluid bans">
+                            <?php 
+
+                            for($i=1;$i<=3;$i++){
+                                if(${'banimg'.$i}!='.png'){
+                                     echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                                }
+
                             }
-                    
-                    echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
-                        </div>
-                        <p class='osans ";
-                            if(${'seriesset'.$i}==true){
-                                echo "seriesset";
-                            }
-                            else{
-                                echo "summoner";
-                            }
-                    echo "'>${'summoner'.$i}</p>
-                        </div>
-                        <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
-                    </div>";
-                }
-                
-               
-            ?>
-            <div class="col-md-2">
-                <div class="container-fluid bans">
-                        <?php 
-                        for($i=4;$i<=6;$i++){
-                            if(${'banimg'.$i}!='.png'){
-                                 echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
-                            }
-                        }
-                    ?>
+                        ?>
+                    </div>
                 </div>
             </div>
+            <div class="container row versus">
+
+            <div class='ro'>VS</div>
+            </div>
+           <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
+               <?php 
+    /*                for ($i=$ppteam+1; $i<=$players; $i++){
+                        echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
+                    }*/
+                ?>
+
+            </div>
+            <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
+                <?php 
+                    for ($i=$ppteam+1; $i<=$players; $i++){
+                        echo "<div class='col-md-2 champimg'>
+                            <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
+
+                            <div class='name' onmouseover='info($i,1)' onmouseout='info($i,0)'>
+                            <div class='row spellrow' id='spellrow$i'>
+                                <img class='spell' src='${'champspell'.$i.'1img'}' id='spell${i}1'>
+                                <img class='spell' src='${'champspell'.$i.'2img'}' id='spell${i}2'>
+                            </div>
+                            <p class='osans champion' id='champ$i'>${'champion'.$i}</p>
+                            <div class='rank row' id='rank$i'>
+                                <img src='assets/ranked/${'player'.$i.'tier'}/${'player'.$i.'div'}.png'>
+                                <p class='tier'>${'playerStats'.$i}</p>";
+
+                                if(isset(${'series'.$i})){
+                                    ${'seriesset'.$i}=true;
+                                    echo "<div class='series'><span>";
+                                    for($d=1;$d<=${'serieslength'.$i};$d++){
+                                        if(${'seriesprogress'.$i}[$d-1]=='W'){
+                                            echo "<i class='fa fa-check'></i>";
+                                        }
+                                        else if(${'seriesprogress'.$i}[$d-1]=='L'){
+                                            echo "<i class='fa fa-times'></i>";
+                                        }
+                                        else{
+                                            echo "<i class='fa fa-minus'></i>";
+                                        }
+                                    }
+                                    echo "</span></div>";
+                                }
+
+                        echo  "<span class='wins'>W:${'player'.$i.'wins'} /</span><span class='loss'>/ L:${'player'.$i.'loss'}</span>
+                            </div>
+                            <p class='osans ";
+                                if(${'seriesset'.$i}==true){
+                                    echo "seriesset";
+                                }
+                                else{
+                                    echo "summoner";
+                                }
+                        echo "'>${'summoner'.$i}</p>
+                            </div>
+                            <div class='dim' id='$i' onmouseover='info($i,1)' onmouseout='info($i,0)'></div>
+                        </div>";
+                    }
+
+
+                ?>
+                <div class="col-md-2">
+                    <div class="container-fluid bans">
+                            <?php 
+                            for($i=4;$i<=6;$i++){
+                                if(${'banimg'.$i}!='.png'){
+                                     echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+        
+        <!------------------------------------------>
+        <!---------------SECTION 2------------------>
+        <!------------------------------------------>
+        <section>
+            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>lol
+        
+        
+        
+        
+        </section>
+        
             
         
-        </div>
-            <?php 
+        
+        
+        
+        <?php 
         echo "<script>
                 var time=$time;
                 time=time+180;
@@ -417,8 +440,7 @@
         return val;
         }
 
-        function format(num)
-        {
+     function format(num){
         if (num > 0){
            if (num >= 10)
              val = num;
@@ -432,7 +454,7 @@
         }
     </script>
     <script> 
-                           <?php 
+    <?php 
 echo "$.backstretch('assets/maps/";
                             if($mapId === 11){
                                 echo "summonersrift";
@@ -450,7 +472,8 @@ echo "$.backstretch('assets/maps/";
                                 echo "bg";
                             }
 echo ".jpg');"
-                    ?></script>
+                    ?>
+     </script>
  <script>$(function() {
     if($.cookie('lock')=='true'){
         document.getElementById("switch").checked = true;
@@ -468,9 +491,8 @@ echo ".jpg');"
     $('.js-switch').click();
     });
     </script>
-    <script>
-      
         
+<script>    
         var elem = document.querySelector('.js-switch');
         var init = new Switchery(elem, { size: 'small' });
         var changeCheckbox = document.querySelector('.js-switch');
@@ -523,7 +545,7 @@ echo ".jpg');"
                    document.getElementById('spell'+splashid+'1').style.height="30px";
                    document.getElementById('spell'+splashid+'2').style.height="30px";
         }
-      function down(splashid){
+        function down(splashid){
                     document.getElementById(splashid).style.marginTop = "-250px";
                     document.getElementById('spellrow'+splashid).style.marginTop = "0px";
                     document.getElementById('spellrow'+splashid).style.marginLeft = "21px";

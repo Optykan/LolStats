@@ -23,7 +23,7 @@
        <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.129a";
+            $ver="v0.130a";
             
             $stringrequest = NULL;
 
@@ -435,7 +435,7 @@
                            <?php 
 echo "$.backstretch('assets/maps/";
                             if($mapId === 11){
-                                echo "summonersriftT";
+                                echo "summonersrift";
                             }
                             else if($mapId === 12){
                                 echo "howlingabyss";

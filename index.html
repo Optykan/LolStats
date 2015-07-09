@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html lang="en-US">
-	<head>
-		<meta charset="UTF-8">
 
-		<title>Lolstats (Subreddit sold separately)</title>
-		<!-- FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        
-        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
-        
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+<head>
+    <meta charset="UTF-8">
 
-    </head>
-    <body>
-		<div class="sarch">
-			<p class="gametype">LolStats</p><br>
-        	<form action="results.php" method="get" class="searchbox">
-        		<input type="text" name="inputname" class="search" placeholder="Summoner Name" required>
-				<input type="submit" value="Search" class="submit">
-        	</form>
-		</div>
-        <!--Summoner Name: <input type="text" name="inputname"><br>
-		<Input class="searchbutton" type="submit">
-        -->
-			
-<!--        <script>
-            function request(){
-                
-                
-                var name = document.getElementById('inputname').value;
-                var idnum=data.name.id;
-                $.ajax({
-                    url:"https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+name+"?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3",
-                    dataType:"json",
-                    type:"GET",
-                    data: {"id": idnum},
-                    success:function(data) {
-                        
-                        console.log(idnum);
-                        $("#idresult").text(data);
-                        
-                    }
-                });
-            }
+    <title>LolStats</title>
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
-        </script>-->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
 
-<!--        <script>
-        function submitreq(){
-            console.log("err");
-            var name = document.getElementById('inputname').value;
-            var summIDAPI = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+name+"?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 
-            $.getJSON(summIDAPI, function (json) {
-                var summID = json..id;
-                $("#idresult").text(summID);
+</head>
+
+<body>
+    <div class="container">
+
+        <span class="vfix ral ticker">
+                <p id="header" class="ovfix default animated fadeInRight">live game lookup</p>
+                <p id="error" class="ovfix error hidden">enter a name between 3-16 characters</p>
+                <p id="other" class="ovfix error hidden">error_msg</p>
+                <p id="loading" class="ovfix loading hidden">loading...</p>
+        </span>
+        <br></br>
+        <center>
+            <form id="form">
+                <input type="text" name="inputname" id="inputname" class="ral search" placeholder="name" required>
+                <i onclick='submit()' class="icon ion-ios-arrow-right"></i>
+            </form>
+        </center>
+    </div>
+    <script>
+        var runError = false;
+        var load = false;
+        var inter = false;
+        var attempt = false;
+
+        $(function () {
+            $("#form").keypress(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    submit();
+                }
+            });
+        });
+        $(window).load(function () {
+            setTimeout(function () {
+                $("#header").removeClass("animated fadeInRight");
+                if (urlError('error') == 1) {
+                    error("summoner not in active game");
+                } else if (urlError('error') == 2) {
+                    error("api error");
+                }
+            }, 1000);
+        });
+
+        function verify(cb) {
+            $.ajax({
+                type: "GET",
+                url: "verify.php",
+                data: $("#form").serialize(),
+                success: cb
             });
         }
 
-        </script>-->
-		<script> $.backstretch("assets/maps/bg.jpg");</script>
-    </body>
+        function submit() {
+            if (attempt == false) {
+                attempt = true;
+                var name = document.getElementById('inputname').value;
+
+                if (name.length > 2 && name.length < 17) {
+                    loading("loading...");
+                    verify(callback);
+
+                } else {
+                    error("enter a name between 3-16 characters");
+                }
+                setTimeout(function () {
+                    attempt = false;
+                }, 10000);
+
+            } else {
+                error("wait 10 seconds before attempting again");
+            }
+        }
+
+        $.backstretch("assets/menu.jpg");
+    </script>
+</body>
+
 </html>

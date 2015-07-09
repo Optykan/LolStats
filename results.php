@@ -21,6 +21,14 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/switchery.js"></script>
         
+            <script>
+                $(function() {
+                    $.scrollify({
+                        section : "section",
+                    });
+                });
+            </script>
+        
        <?php
         //$key = readfile("api.txt");
         

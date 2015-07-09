@@ -27,6 +27,16 @@
                         section : "section",
                     });
                 });
+                $.scrollify({
+                    section : "section",
+                    sectionName : "section-name",
+                    easing: "easeInOutCubic",
+                    scrollSpeed: 1100,
+                    offset : 0,
+                    scrollbars: true,
+                    before:function() {},
+                    after:function() {}
+                });
             </script>
         
        <?php
@@ -414,7 +424,7 @@
         <!---------------SECTION 2------------------>
         <!------------------------------------------>
         <section>
-            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>lol
+            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>lol
         
         
         

@@ -34,8 +34,7 @@
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
 
-            //$name = $_GET['inputname'];
-            $name='voyboy';
+            $name = $_GET['inputname'];
             $name = preg_replace('/\s+/', '', $name);
             $name = strtolower($name);
 
@@ -218,9 +217,11 @@
     
     <body>
         <div id="fullpage">
+            
             <!------------------------------------------>
             <!---------------SECTION 1------------------>
             <!------------------------------------------>
+            
             <div class="section">
                 <div class="options">
                     Lock Ranked Info: <input type="checkbox" class="js-switch" id="switch">
@@ -409,8 +410,7 @@
             <!------------------------------------------>
             <!---------------SECTION 2------------------>
             <!------------------------------------------>
-            <div class="section">
-                <p style="margin-top:1000px;">maybe we should have real text</p>
+            <div class="section"></div>
 
 
 

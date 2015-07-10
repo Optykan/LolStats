@@ -460,23 +460,23 @@
     </script>
     <script> 
     <?php 
-echo "$.backstretch('assets/maps/";
-                            if($mapId === 11){
-                                echo "summonersrift";
-                            }
-                            else if($mapId === 12){
-                                echo "howlingabyss";
-                            }
-                            else if($mapId === 10){
-                                echo "twistedtreeline";
-                            }
-                            else if($mapId === 8){
-                                echo "crystalscar";
-                            }
-                            else{
-                                echo "bg";
-                            }
-echo ".jpg');"
+    echo "$.backstretch('assets/maps/";
+        if($mapId === 11){
+            echo "summonersrift";
+        }
+        else if($mapId === 12){
+            echo "howlingabyss";
+        }
+        else if($mapId === 10){
+            echo "twistedtreeline";
+        }
+        else if($mapId === 8){
+            echo "crystalscar";
+        }
+        else{
+            echo "bg";
+        }
+    echo ".jpg');"
                     ?>
      </script>
  <script>$(function() {
@@ -562,7 +562,10 @@ echo ".jpg');"
                     document.getElementById('spell'+splashid+'2').style.height="40px";
       }
         $(document).ready(function() {
-            $('#fullpage').fullpage();
+            $('#fullpage').fullpage({
+               verticalCentered: false,
+               easing: 'easeInOutExpo',
+            });
         });
     </script>
 <!--      <script>

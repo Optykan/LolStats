@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html lang="en-US">
-	<head>
-		<meta charset="UTF-8">
 
-		<title>Lolstats (Subreddit sold separately)</title>
-		<!-- FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        
-        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
-        
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+<head>
+    <meta charset="UTF-8">
 
-    </head>
-    <body>
-		<div class="sarch">
-			<p class="gametype">LolStats</p><br>
-        	<form action="results.php" method="get" class="searchbox">
-        		<input type="text" name="inputname" class="search" placeholder="Summoner Name" required>
-				<input type="submit" value="Search" class="submit">
-        	</form>
-		</div>
-        <!--Summoner Name: <input type="text" name="inputname"><br>
-		<Input class="searchbutton" type="submit">
-        -->
-			
-<!--        <script>
-            function request(){
-                
-                
-                var name = document.getElementById('inputname').value;
-                var idnum=data.name.id;
-                $.ajax({
-                    url:"https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+name+"?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3",
-                    dataType:"json",
-                    type:"GET",
-                    data: {"id": idnum},
-                    success:function(data) {
-                        
-                        console.log(idnum);
-                        $("#idresult").text(data);
-                        
-                    }
-                });
+    <title>LolStats</title>
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <span class="vfix ral ticker"><p id="header" class="ovfix default animated fadeInRight">live game lookup</p></span>
+            <br>
+            <center>
+                <form class="form" action="results.php" method="get">
+                    <input type="text" name="inputname" id="name" class="ral search" placeholder="name" required>
+                    <i onclick='submit()' class="icon ion-ios-arrow-right"></i>
+                </form>
+            </center>
+    </div>
+    <script>
+        $(window).load(function () {
+            setTimeout(function () {
+                $("#header").removeClass("animated fadeInRight");
+            }, 1000);
+        });
+
+        $.backstretch("assets/maps/bg.jpg");
+
+
+        function submit() {
+            var name = document.getElementById('name').value;
+            if (name.length > 2 && name.length < 17) {
+                window.location.replace("results.php?name=" + name);
+            } else {
+                $("#header").addClass("animated fadeOutLeft");
+                setTimeout(function () {
+                    $("#header").text("enter a name between 3-16 characters").removeClass("default animated fadeOutLeft").addClass("animated fadeInRight error");
+
+                }, 100);
+
+                setTimeout(function () {
+                    $("#header").removeClass("animated fadeInRight").addClass("animated fadeOutLeft");
+
+                }, 2100);
+
+                setTimeout(function () {
+                    $("#header").text("live game lookup").removeClass("animated fadeOutLeft error").addClass("default animated fadeInRight");
+
+                }, 2200);
+
             }
-
-        </script>-->
-
-<!--        <script>
-        function submitreq(){
-            console.log("err");
-            var name = document.getElementById('inputname').value;
-            var summIDAPI = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"+name+"?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
-
-            $.getJSON(summIDAPI, function (json) {
-                var summID = json..id;
-                $("#idresult").text(summID);
-            });
         }
+    </script>
+</body>
 
-        </script>-->
-		<script> $.backstretch("assets/maps/bg.jpg");</script>
-    </body>
 </html>

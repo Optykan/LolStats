@@ -14,55 +14,69 @@
     <link href="css/home.css" rel="stylesheet">
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/home.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 
 </head>
 
 <body>
     <div class="container">
+
+        <span class="vfix ral ticker">
+                <p id="header" class="ovfix default animated fadeInRight">live game lookup</p>
+                <p id="error" class="ovfix error hidden">enter a name between 3-16 characters</p>
+                <p id="other" class="ovfix error hidden">error_msg</p>
+                <p id="loading" class="ovfix loading hidden">loading...</p>
+        </span>
+        <br></br>
         <center>
-            <span class="vfix ral ticker"><p id="header" class="ovfix default animated fadeInRight">live game lookup</p></span>
-            <br>
-            <center>
-                <form class="form" action="results.php" method="get">
-                    <input type="text" name="inputname" id="name" class="ral search" placeholder="name" required>
-                    <i onclick='submit()' class="icon ion-ios-arrow-right"></i>
-                </form>
-            </center>
+            <form id="form">
+                <input type="text" name="inputname" id="inputname" class="ral search" placeholder="name" required>
+                <i onclick='submit()' class="icon ion-ios-arrow-right"></i>
+            </form>
+        </center>
     </div>
     <script>
+        var runError = false;
+        var load = false;
+        var inter = false;
+
+        $(function () {
+            $("#form").keypress(function (e) {
+                if (e.keyCode == 13) {
+                    event.preventDefault();
+                    submit();
+                }
+            });
+        });
         $(window).load(function () {
             setTimeout(function () {
                 $("#header").removeClass("animated fadeInRight");
             }, 1000);
         });
 
-        $.backstretch("assets/maps/bg.jpg");
-
+        function verify(cb) {
+            $.ajax({
+                type: "GET",
+                url: "verify.php",
+                data: $("#form").serialize(),
+                success: cb
+            });
+        }
 
         function submit() {
-            var name = document.getElementById('name').value;
+            var name = document.getElementById('inputname').value;
+
             if (name.length > 2 && name.length < 17) {
-                window.location.replace("results.php?name=" + name);
+                loading("loading...");
+                verify(callback);
+
             } else {
-                $("#header").addClass("animated fadeOutLeft");
-                setTimeout(function () {
-                    $("#header").text("enter a name between 3-16 characters").removeClass("default animated fadeOutLeft").addClass("animated fadeInRight error");
-
-                }, 100);
-
-                setTimeout(function () {
-                    $("#header").removeClass("animated fadeInRight").addClass("animated fadeOutLeft");
-
-                }, 2100);
-
-                setTimeout(function () {
-                    $("#header").text("live game lookup").removeClass("animated fadeOutLeft error").addClass("default animated fadeInRight");
-
-                }, 2200);
-
+                error("enter a name between 3-16 characters");
             }
         }
+
+        $.backstretch("assets/maps/bg.jpg");
     </script>
 </body>
 

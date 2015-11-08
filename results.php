@@ -26,7 +26,7 @@
     <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.130a";
+            $ver="v0.132a";
             
             $stringrequest = NULL;
 
@@ -34,27 +34,14 @@
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
 
-            $name = $_GET['name'];
-            $name = preg_replace('/\s+/', '', $name);
-            $name = strtolower($name);
+            $id= $_GET['id'];
 
-            //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/netfx?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
-            //https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/45346019/entry?api_key=b0cc9773-08ca-4a5b-8d05-f767de88fcc3
+            $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
 
-            $jsonurl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$name."?api_key=".$key;
-            
-            $json = file_get_contents($jsonurl);
-            $data = json_decode($json, true);
-
-            $id = $data[$name]['id'];    
-            
+            $matchdata = file_get_contents($currentmatchjson);
+            $match = json_decode($matchdata, true);
+    
             if(strpos($http_response_header[0],'200') !== false){
-                echo "<script>console.log('PASS');</script>";
-
-                $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
-
-                $matchdata = file_get_contents($currentmatchjson);
-                $match = json_decode($matchdata, true);
 
                 $mapId = $match['mapId'];
                 $gameQueue = $match['gameQueueConfigId'];
@@ -198,7 +185,6 @@
                         ${'player'.$i.'loss'} = '0';
                     }
                 }
-
             }
 
             else{
@@ -208,7 +194,7 @@
                 else if(strpos($http_response_header[0],'404')!==false){
                     echo "<META http-equiv='refresh' content='0; URL=404.html'>";
                 }
-                
+
             }
             
         ?>

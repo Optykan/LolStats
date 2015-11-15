@@ -315,3 +315,7 @@ body {
 .qs {
     font-family: 'Quicksand', sans-serif;
 }
+
+ul {
+    list-style: none;
+}

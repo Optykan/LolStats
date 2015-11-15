@@ -42,6 +42,11 @@ body {
     border-bottom: 2px solid rgba(81, 203, 238, 1);
 }
 
+.search:-moz-submit-invalid,
+.search:invalid {
+    box-shadow: none;
+}
+
 .icon {
     color: white;
     font-size: 3em;

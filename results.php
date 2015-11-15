@@ -26,15 +26,15 @@
     <?php
         //$key = readfile("api.txt");
         
-            $ver="v0.132a";
+            $ver="v0.133a";
             
             $stringrequest = NULL;
 
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
 			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
 
-
             $id= $_GET['id'];
+            $name=$_GET['name'];
 
             $currentmatchjson = "https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/".$id."?api_key=".$key;
 
@@ -190,9 +190,11 @@
             else{
                 if(strpos($http_response_header[0],'503')!==false){
                     echo "<META http-equiv='refresh' content='0; URL=503.html'>";
+                    exit(0);
                 }
                 else if(strpos($http_response_header[0],'404')!==false){
-                    echo "<META http-equiv='refresh' content='0; URL=404.html'>";
+                    echo "<META http-equiv='refresh' content='0; URL=index.html?error=1'>";
+                    exit(0);
                 }
 
             }
@@ -227,22 +229,22 @@
             <div class="container-fluid row resultshead">
                 <div class="col-md-5 title">
                     <?php 
-                                    if($mapId === 11){
-                                        echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
-                                    }
-                                    else if($mapId === 12){
-                                        echo "HOWLING ABYSS";
-                                    }
-                                    else if($mapId === 10){
-                                        echo "TWISTED TREELINE";
-                                    }
-                                    else if($mapId === 8){
-                                        echo "THE CRYSTAL SCAR";
-                                    }
-                                    else{
-                                        echo "SUMMONER NOT FOUND";
-                                    }
-                            ?>
+                            if($mapId === 11){
+                                echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
+                            }
+                            else if($mapId === 12){
+                                echo "HOWLING ABYSS";
+                            }
+                            else if($mapId === 10){
+                                echo "TWISTED TREELINE";
+                            }
+                            else if($mapId === 8){
+                                echo "THE CRYSTAL SCAR";
+                            }
+                            else{
+                                echo "SUMMONER NOT FOUND";
+                            }
+                    ?>
                 </div>
                 <div class="col-md-2">
                     <p class="ro time" id="time"></p>
@@ -405,9 +407,8 @@
         <!------------------------------------------>
         <!---------------SECTION 2------------------>
         <!------------------------------------------>
-        <div class="section"></div>
 
-
+        <!--<div class="section"></div>-->
 
 
     </div>
@@ -569,7 +570,7 @@
             });
         </script>
         <!--      <script>
-            var gitAPI = "https://api.github.com/repos/:owner/:repo/commits/master?access_token=8bb2c4af9f0fbc0392bdd18ebbc4a8a884d88f9b";
+            var gitAPI = "https://api.github.com/repos/:owner/:repo/commits/master?access_token=TOKEN";
 
             $.getJSON(gitAPI, function (json) {
                 var commit = json.commit.author.date;

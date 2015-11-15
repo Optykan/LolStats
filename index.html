@@ -40,6 +40,7 @@
         var runError = false;
         var load = false;
         var inter = false;
+        var attempt = false;
 
         $(function () {
             $("#form").keypress(function (e) {
@@ -52,6 +53,11 @@
         $(window).load(function () {
             setTimeout(function () {
                 $("#header").removeClass("animated fadeInRight");
+                if (urlError('error') == 1) {
+                    error("summoner not in active game");
+                } else if (urlError('error') == 2) {
+                    error("api error");
+                }
             }, 1000);
         });
 
@@ -65,18 +71,27 @@
         }
 
         function submit() {
-            var name = document.getElementById('inputname').value;
+            if (attempt == false) {
+                attempt = true;
+                var name = document.getElementById('inputname').value;
 
-            if (name.length > 2 && name.length < 17) {
-                loading("loading...");
-                verify(callback);
+                if (name.length > 2 && name.length < 17) {
+                    loading("loading...");
+                    verify(callback);
+
+                } else {
+                    error("enter a name between 3-16 characters");
+                }
+                setTimeout(function () {
+                    attempt = false;
+                }, 10000);
 
             } else {
-                error("enter a name between 3-16 characters");
+                error("wait 10 seconds before attempting again");
             }
         }
 
-        $.backstretch("assets/maps/bg.jpg");
+        $.backstretch("assets/menu.jpg");
     </script>
 </body>
 

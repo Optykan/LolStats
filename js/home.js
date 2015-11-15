@@ -29,9 +29,8 @@ function error(msg) {
 
 function interCheck(msg) {
     setTimeout(function () {
-        loadToError("msg")
+        loadToError(msg)
     }, 1000);
-
 }
 
 function loadToError(msg) {
@@ -79,10 +78,10 @@ function loading(msg) {
 function callback(vfd) {
     if (vfd.indexOf("ID") > -1) {
         var idarr = vfd.split("=");
-        window.location.replace("results.php?id=" + idarr[1]);
+        window.location.replace("results.php?id=" + idarr[1] + "&name=" + idarr[2]);
     } else {
         setTimeout(function () {
-            loadToError(vfd)
+            loadToError(vfd);
         }, 1000);
     }
 }
@@ -90,4 +89,11 @@ function callback(vfd) {
 function test(msg) {
     loading(msg);
     callback("test");
+}
+
+function urlError(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }

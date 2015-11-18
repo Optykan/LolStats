@@ -237,8 +237,8 @@ body {
     -webkit-transition: all 0.7s ease;
     -moz-transition: all 0.7s ease;
     text-align: center;
-    '
- font-family: 'Open Sans', sans-serif;
+    text-transform: capitalize;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .rank img {

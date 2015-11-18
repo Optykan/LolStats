@@ -25,9 +25,9 @@
 
     <?php
         //$key = readfile("api.txt");
-        
+
             $ver="v0.133a";
-            
+
             $stringrequest = NULL;
 
             $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
@@ -40,7 +40,7 @@
 
             $matchdata = file_get_contents($currentmatchjson);
             $match = json_decode($matchdata, true);
-    
+
             if(strpos($http_response_header[0],'200') !== false){
 
                 $mapId = $match['mapId'];
@@ -189,7 +189,7 @@
 
             else{
                 if(strpos($http_response_header[0],'503')!==false){
-                    echo "<META http-equiv='refresh' content='0; URL=503.html'>";
+                    echo "<META http-equiv='refresh' content='0; URL=index.html?error=2'>";
                     exit(0);
                 }
                 else if(strpos($http_response_header[0],'404')!==false){
@@ -198,7 +198,7 @@
                 }
 
             }
-            
+
         ?>
         <title>Current Game Info for:
             <?=$name?>
@@ -228,7 +228,7 @@
             </div>
             <div class="container-fluid row resultshead">
                 <div class="col-md-5 title">
-                    <?php 
+                    <?php
                             if($mapId === 11){
                                 echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
                             }
@@ -257,7 +257,7 @@
             <!--<img src='${'champspell'.$i.'1img'}'/><img src='${'champspell'.$i.'2img'}'/>-->
 
             <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
-                <?php 
+                <?php
         /*                for ($i=1; $i<=$ppteam; $i++){
                             echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
                         }*/
@@ -265,7 +265,7 @@
 
             </div>
             <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
-                <?php 
+                <?php
                         for ($i=1; $i<=$ppteam; $i++){
                             echo "<div class='col-md-2 champimg'>
                                 <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
@@ -314,7 +314,7 @@
                     ?>
                     <div class="col-md-2">
                         <div class="container-fluid bans">
-                            <?php 
+                            <?php
 
                                 for($i=1;$i<=3;$i++){
                                     if(${'banimg'.$i}!='.png'){
@@ -331,7 +331,7 @@
                 <div class='ro'>VS</div>
             </div>
             <div class="container row team" style="width:<?php echo $ppteam*200+250;?>px">
-                <?php 
+                <?php
         /*                for ($i=$ppteam+1; $i<=$players; $i++){
                             echo "<div class='col-md-2 summname do'><span>${'summoner'.$i}</span></div>";
                         }*/
@@ -339,7 +339,7 @@
 
             </div>
             <div class="container row team" style='width:<?php echo $ppteam*200+250;?>px'>
-                <?php 
+                <?php
                         for ($i=$ppteam+1; $i<=$players; $i++){
                             echo "<div class='col-md-2 champimg'>
                                 <img class='splash' src='assets/splash/${'championimg' . $i}'></img>
@@ -390,7 +390,7 @@
                     ?>
                     <div class="col-md-2">
                         <div class="container-fluid bans">
-                            <?php 
+                            <?php
                                 for($i=4;$i<=6;$i++){
                                     if(${'banimg'.$i}!='.png'){
                                          echo "<div class='row'><img class='banimg' src='assets/square/${'banimg'.$i}'></img></div>";
@@ -419,7 +419,7 @@
 
 
 
-    <?php 
+    <?php
         echo "<script>
                 var time=$time;
                 time=time+180;
@@ -454,7 +454,7 @@
             }
         </script>
         <script>
-            <?php 
+            <?php
     echo "$.backstretch('assets/maps/";
         if($mapId === 11){
             echo "summonersrift";
@@ -576,7 +576,7 @@
                 var commit = json.commit.author.date;
                 var time = commit.split("T");
                 var time1 = time[1].replace("Z","");
-               
+
                 var time2 = time1.split(":");
                 var h=time2[0];
                 var m=time2[1];
@@ -611,7 +611,7 @@
                 if(formattedtime>utctime){
                     document.getElementById("build").style.opacity="1";
                 }
-                
+
             });
         </script>-->
 </body>

@@ -237,7 +237,6 @@ body {
     -webkit-transition: all 0.7s ease;
     -moz-transition: all 0.7s ease;
     text-align: center;
-    text-transform: capitalize;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -298,6 +297,7 @@ body {
 
 .tier {
     margin-bottom: 0px;
+    text-transform: uppercase;
 }
 
 .osans {

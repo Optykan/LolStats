@@ -79,7 +79,7 @@
         }
 
         function lmsg(msg) {
-            return msg;
+            loading(msg);
         }
 
         function submit() {
@@ -88,7 +88,7 @@
                 var name = document.getElementById('inputname').value;
 
                 if (name.length > 2 && name.length < 17) {
-                    loading(lmsg);
+                    fun(lmsg);
                     verify(callback);
 
                 } else {

@@ -105,7 +105,7 @@
                     $gameType = '2 vs 2';
                 }
                 else{
-                    $gameType = 'Map Undefined';
+                    $gameType = 'Mode Undefined';
                 }
 
                 $versusmargin = ($ppteam/2)*190+40;
@@ -228,23 +228,26 @@
             </div>
             <div class="container-fluid row resultshead">
                 <div class="col-md-5 title">
-                    <?php
-                            if($mapId === 11){
-                                echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
-                            }
-                            else if($mapId === 12){
+                    <?php 
+                        if($mapId === 11){
+                            echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
+                        }
+                        else if($mapId === 12){
+                            if (rand (0,10)==7)
+                                echo "MURDER BRIDGE";
+                            else
                                 echo "HOWLING ABYSS";
-                            }
-                            else if($mapId === 10){
-                                echo "TWISTED TREELINE";
-                            }
-                            else if($mapId === 8){
-                                echo "THE CRYSTAL SCAR";
-                            }
-                            else{
-                                echo "SUMMONER NOT FOUND";
-                            }
-                    ?>
+                        }
+                        else if($mapId === 10){
+                            echo "TWISTED TREELINE";
+                        }
+                        else if($mapId === 8){
+                            echo "THE CRYSTAL SCAR";
+                        }
+                        else{
+                            echo "SUMMONER NOT FOUND";
+                        }
+                ?>
                 </div>
                 <div class="col-md-2">
                     <p class="ro time" id="time"></p>

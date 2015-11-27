@@ -70,13 +70,25 @@
             });
         }
 
+        function fun(next) {
+            $.ajax({
+                type: "GET",
+                url: "loading.php",
+                success: next
+            });
+        }
+
+        function lmsg(msg) {
+            return msg;
+        }
+
         function submit() {
             if (attempt == false) {
                 attempt = true;
                 var name = document.getElementById('inputname').value;
 
                 if (name.length > 2 && name.length < 17) {
-                    loading("loading...");
+                    loading(lmsg);
                     verify(callback);
 
                 } else {

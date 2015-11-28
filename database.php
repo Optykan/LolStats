@@ -18,8 +18,8 @@
             exit;
         }
 
-        //$sql="INSERT INTO keys (id, apikey) VALUES (2, 'f9b65dec-9317-4051-a031-b1a875a3a11f')";
-        $sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
+        $sql="INSERT INTO keys (id, apikey) VALUES (1, 'f9b65dec-9317-4051-a031-b1a875a3a11f');";
+        //$sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
     
     $result = pg_query($db, $sql);
     if(!result){

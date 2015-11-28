@@ -19,7 +19,7 @@
         }
 
         $sql="INSERT INTO keys (id, apikey)
-        VALUES (1, 'b0cc9773-08ca-4a5b-8d05-f767de88fcc3')";
+        VALUES (2, 'f9b65dec-9317-4051-a031-b1a875a3a11f')";
         //$sql="CREATE TABLE keys (id INT(6) UNSIGNED PRIMARY KEY,apikey VARCHAR(36))";
     
     $result = pg_query($db, $sql);

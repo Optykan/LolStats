@@ -18,14 +18,18 @@
             exit;
         }
 
-        $sql="CREATE TABLE keys (
-        id INT(6) UNSIGNED PRIMARY KEY,
-        apikey VARCHAR(36))";
+        $sql="INSERT INTO keys (id, apikey)
+        VALUES (1, 'b0cc9773-08ca-4a5b-8d05-f767de88fcc3')";
+        //$sql="CREATE TABLE keys (id INT(6) UNSIGNED PRIMARY KEY,apikey VARCHAR(36))";
     
     $result = pg_query($db, $sql);
     if(!result){
-        echo '<div class="alert alert-danger" role="alert">Something happened. Table not created.</div>';
+        echo '<div class="alert alert-danger" role="alert">Something happened. Row not updated.</div>';
     }
+    else{
+        echo '<div class="alert alert-success" role="alert">Row updated.</div>';
+    }
+        
                                   
         
     ?>

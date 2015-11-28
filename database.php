@@ -28,15 +28,12 @@
     else{
         echo '<div class="alert alert-success" role="alert">Row updated.</div>';
     }
-    $result2 = pg_query($db, "SELECT * FROM keys");
-    if(!result2){
-        echo '<div class="alert alert-danger" role="alert">Something happened.</div>';
-        exit;
-    }
-    $arr=pg_fetch_all($result2);
     
-    print_r($arr);                                
-        
+    $result = pg_exec($conn, "SELECT * FROM keys");
+    while ($row = pg_fetch_array($result))
+    {
+         echo "data: ".$row["id"];
+    } 
     ?>
 </body>
 

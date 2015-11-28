@@ -18,24 +18,24 @@
             exit;
         }
 
-        //$sql="INSERT INTO keys (id, apikey) VALUES (2, 'f9b65dec-9317-4051-a031-b1a875a3a11f')";
+        $sql="INSERT INTO keys (id, apikey) VALUES (2, 'f9b65dec-9317-4051-a031-b1a875a3a11f')";
         //$sql="CREATE TABLE keys (id INT(6) UNSIGNED PRIMARY KEY,apikey VARCHAR(36))";
     
-    /*$result = pg_query($db, $sql);
+    $result = pg_query($db, $sql);
     if(!result){
         echo '<div class="alert alert-danger" role="alert">Something happened. Row not updated.</div>';
     }
     else{
         echo '<div class="alert alert-success" role="alert">Row updated.</div>';
-    }*/
-    $result = pg_query($db, "SELECT * FROM keys");
-    if(!result){
+    }
+    $result2 = pg_query($db, "SELECT * FROM keys");
+    if(!result2){
         echo '<div class="alert alert-danger" role="alert">Something happened.</div>';
         exit;
     }
-    $arr=pg_fetch_all($result);
+    $arr=pg_fetch_all($result2);
     
-    print_r($arr);                                  
+    print_r($arr);                                
         
     ?>
 </body>

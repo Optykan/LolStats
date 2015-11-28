@@ -18,8 +18,8 @@
             exit;
         }
 
-        $sql="INSERT INTO keys (id, apikey) VALUES (2, 'f9b65dec-9317-4051-a031-b1a875a3a11f')";
-        //$sql="CREATE TABLE keys (id INT(6) UNSIGNED PRIMARY KEY,apikey VARCHAR(36))";
+        //$sql="INSERT INTO keys (id, apikey) VALUES (2, 'f9b65dec-9317-4051-a031-b1a875a3a11f')";
+        $sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
     
     $result = pg_query($db, $sql);
     if(!result){
@@ -28,12 +28,12 @@
     else{
         echo '<div class="alert alert-success" role="alert">Row updated.</div>';
     }
-    
+/*    
     $result = pg_exec($conn, "SELECT * FROM keys");
     while ($row = pg_fetch_array($result))
     {
          echo "data: ".$row["id"];
-    } 
+    } */
     ?>
 </body>
 

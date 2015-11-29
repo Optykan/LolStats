@@ -37,10 +37,12 @@
         
     if($method=="insert"){
         $sql="INSERT INTO keys (id, apikey) VALUES ($id, $apikey);";
+        echo $sql;
         //$sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
     }
        else if($method=="update"){
         $sql="UPDATE keys SET apikey=$apikey WHERE id=$id;";
+           echo sql;
         //$sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
     }
     else{

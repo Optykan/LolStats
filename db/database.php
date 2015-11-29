@@ -11,15 +11,35 @@
         function pg_connection_string() {
           return "dbname=d30k0c9hk8q1qs host=ec2-107-21-219-109.compute-1.amazonaws.com port=5432 user=atkkgxyhgxqbft password=J4JTqhMa90yhlS4-bolWVxjnOO sslmode=require";
         }
+        
+        $id=$_POST['id'];
+        $apikey=$_POST['key'];
+        $method=$_POST['method'];
+        
+    if (strlen(utf8_decode($apikey))!=36){
+        echo "invalid api key";
+        exit;
+    }
+    if (strlen(utf8_decode((string)$id))!=1){
+        echo "invalid id";
+        exit;
+    }
+
 
         $db = pg_connect(pg_connection_string());
         if (!$db) {
             echo '<div class="alert alert-danger" role="alert">Database connection error.</div>';
             exit;
         }
-
-        $sql="INSERT INTO keys (id, apikey) VALUES (1, 'f9b65dec-9317-4051-a031-b1a875a3a11f');";
+        
+    if(strtolower($method)=="insert"){
+        $sql="INSERT INTO keys (id, apikey) VALUES ($id, $apikey);";
         //$sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
+    }
+       else if(strtolower($method)=="update"){
+        $sql="UPDATE keys SET apikey=$apikey WHERE id=$id";
+        //$sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
+    }
     
     $result = pg_query($db, $sql);
     if(!result){

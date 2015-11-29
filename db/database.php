@@ -24,21 +24,28 @@
         echo "invalid id";
         exit;
     }
+    echo $id.", ".$apikey.", ".$method;
 
 
-        $db = pg_connect(pg_connection_string());
-        if (!$db) {
-            echo '<div class="alert alert-danger" role="alert">Database connection error.</div>';
-            exit;
-        }
+    $db = pg_connect(pg_connection_string());
+    if (!$db) {
+        echo '<div class="alert alert-danger" role="alert">Database connection error.</div>';
+        exit;
+    }
+    
+    $sql="";
         
-    if(strtolower($method)=="insert"){
+    if($method=="insert"){
         $sql="INSERT INTO keys (id, apikey) VALUES ($id, $apikey);";
         //$sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
     }
-       else if(strtolower($method)=="update"){
-        $sql="UPDATE keys SET apikey=$apikey WHERE id=$id";
+       else if($method=="update"){
+        $sql="UPDATE keys SET apikey=$apikey WHERE id=$id;";
         //$sql="CREATE TABLE keys (id int, apikey VARCHAR(36));";
+    }
+    else{
+        echo "invalid method";
+        exit;
     }
     
     $result = pg_query($db, $sql);

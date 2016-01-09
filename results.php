@@ -26,12 +26,12 @@
     <?php
         //$key = readfile("api.txt");
 
-            $ver="v0.133a";
+            $ver="v0.134a";
 
             $stringrequest = NULL;
 
-            $key = "b0cc9773-08ca-4a5b-8d05-f767de88fcc3";
-			$key2 = "ad5dd762-64f7-424f-8d53-181211bbe833";
+            $key = getenv('apikey');
+			      $key2 = getenv('apikey2');
 
             $id= $_GET['id'];
             $name=$_GET['name'];
@@ -228,7 +228,7 @@
             </div>
             <div class="container-fluid row resultshead">
                 <div class="col-md-5 title">
-                    <?php 
+                    <?php
                         if($mapId === 11){
                             echo "SUMMONERS RIF<span style='padding-left:3px'></span>T";
                         }
